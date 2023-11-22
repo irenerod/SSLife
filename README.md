@@ -1,7 +1,11 @@
-# proyectoFinal
-Trabajo final de grado:
+# proyectoFinal: TFG DAW
+
 App: Smile Life by Creative Life
 
 Autores:
-Pedro Flores
-Irene Ródenas
+-Pedro Sánchez
+-Irene Ródenas
+
+Cosas que hacer:
+-Base de datos: SQL?
+-Plantilla: login, registro, etc
