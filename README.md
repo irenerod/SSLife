@@ -9,3 +9,6 @@ Autores:
 Cosas que hacer:
 -Base de datos: SQL?
 -Plantilla: login, registro, etc
+
+CAELESTIS: https://github.com/bentoml/openllm.
+
