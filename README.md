@@ -1,4 +1,4 @@
-# proyectoFinal: TFG DAW
+# SSLife: TFG DAW
 
 App: Smile Life by Creative Life
 
