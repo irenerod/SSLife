@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "./Pie.css";
+import "../../estilos/Pie.css";
 
 const Pie = () => {
   return (

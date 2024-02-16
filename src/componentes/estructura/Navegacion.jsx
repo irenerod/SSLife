@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import "./Navegacion.css";
+import "../../estilos/Navegacion.css";
 import useUsuarios from "../../hooks/useUsuarios";
 
 const Navegacion = () => {
@@ -15,10 +15,7 @@ const Navegacion = () => {
             <Link className='enlace' to='inicio'>
               Inicio
             </Link>
-            {/**
-            <Link className='enlace' to='/'>
-              Bienvenida
-            </Link>
+            {/*
             <Link className='enlace' to='sobre'>
               Sobre SSLife
             </Link>

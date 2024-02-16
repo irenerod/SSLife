@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import InicioSesion from "./InicioSesion";
-import "./Cabecera.css";
+import "../../estilos/Cabecera.css";
 
 const Cabecera = () => {
   return (

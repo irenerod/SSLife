@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import "./Inicio.css";
+import "../estilos/Inicio.css";
+import { Link } from "react-router-dom";
 
 const Inicio = () => {
   return (
@@ -14,15 +15,21 @@ const Inicio = () => {
             <img src="./src/assets/img/exclamacion.png" alt="exclamacion" width="500px" />
           </div>
           <div className="opciones-content">
-            <div className="sobreSSL">
-              <h2>Sobre SSLife</h2>
-            </div>
-            <div className="recursos">
-              <h2>Recursos</h2>
-            </div>
-            <div className="contacto">
-              <h2>Contacta con nosotros</h2>
-            </div>
+            <Link to="sobre">
+              <div className="sobreSSL">
+                <h2>Sobre SSLife</h2>
+              </div>
+            </Link>
+            <Link to="recursos">
+              <div className="recursos">
+                <h2>Recursos</h2>
+              </div>
+            </Link>
+            <Link to="contacto">
+              <div className="contacto">
+                <h2>Contacta con nosotros</h2>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
