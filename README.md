@@ -24,9 +24,9 @@ Estado: En desarrollo
 4. Inicia la aplicación con live server.
 
 ## Participantes
-Irene Ródenas González
-Pedro Sánchez Flores
+Irene Ródenas González  <br>
+Pedro Sánchez Flores 
 
 ## Contacto
-irenerodenas.alu@iespacomolla.es
+irenerodenas.alu@iespacomolla.es  <br>
 pedrosanchezflores.alu@iespacomolla.es
