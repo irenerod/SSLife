@@ -6,15 +6,15 @@ Estado: En desarrollo
 
 ## Tecnologías y Herramientas Empleadas
 ### Frontend
--React.js
--HTML5
--CSS3
--Javascript
--Tailwind
+- React.js <br>
+- HTML5 <br>
+- CSS3 <br>
+- Javascript <br>
+- Tailwind <br>
 
 ### Backend
--SupaBase (BaaS)
--PostgresSQL
+- SupaBase (BaaS)  <br>
+- PostgresSQL  <br>
 
 ## Instalación
 
