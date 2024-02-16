@@ -1,0 +1,18 @@
+.enlace {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 40px;
+    width: 200px;
+    background-color: snow;
+    margin-right: 10px;
+    color: #5d243d;
+    margin: 10px;
+}
+
+.enlace:hover {
+    color: #f92d4f;
+    font-weight: bold;
+    text-decoration: underline;
+} 

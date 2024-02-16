@@ -1,0 +1,32 @@
+
+.creative{
+    width: 80px;
+    height: 80px;
+  }
+  /* Footer */
+  footer {
+    width: 100%;
+    border: solid 1px #f5c2c7;
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+    padding: 15px;
+    font-style: italic;
+    text-align: left;
+    font-size: small;
+    background-color: rgb(189, 183, 212);
+    color: rgb(57, 16, 90);
+  }
+  footer p {
+    margin: 10px 0; 
+  }
+  
+  footer ul {
+    list-style-type: none; 
+    padding: 0; 
+  }
+  
+  footer ul p {
+    margin: 5px 0;
+  }
+  

@@ -1,14 +1,8 @@
-# SSLife: TFG DAW
+# React + Vite
 
-App: Smile Life by Creative Life
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Autores:
--Pedro Sánchez
--Irene Ródenas
+Currently, two official plugins are available:
 
-Cosas que hacer:
--Base de datos: SQL?
--Plantilla: login, registro, etc
-
-CAELESTIS: https://github.com/bentoml/openllm.
-
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

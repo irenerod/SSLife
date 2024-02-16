@@ -1,0 +1,18 @@
+.cabecera {
+  display: flex;
+  justify-content: center; 
+  background-color: snow;
+}
+
+  /* Logo */
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #dadcf7aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #cde7eeaa);
+}

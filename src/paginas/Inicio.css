@@ -1,0 +1,97 @@
+body, html {
+    width: 1280px;
+    color: #5d243d;
+}
+.container{
+    height: 600px;
+    background-color: #fff9ef;
+    background-image:url("./src/assets/img/monigotes.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Cabecera */
+.inicio {
+    display: flex;
+    align-items: center; 
+    border: solid #5d243d 3px;
+    background-color: #fdd10c;
+    width: 1080px;
+    margin: 0 auto;
+}
+h1 {
+flex: 1; /* Ocupa todo el espacio restante */
+text-align: center;
+color: #5d243d !important;
+margin: 0; 
+}
+
+.logoIni {
+margin-right: 10px; 
+background-color: snow;
+border: 5px solid #31c5f5;
+}
+/* Opciones */
+.opciones {
+margin: 50px;
+display: flex;
+width: 50%;
+}
+
+.exclamacion {
+display: flex;
+align-items: center;
+}
+
+.opciones-content {
+display: flex;
+flex-flow: column;
+align-items: flex-end;
+justify-content: center;
+padding: 10px;
+}
+
+.sobreSSL,
+.recursos,
+.contacto {
+border: #5d243d 2px solid;
+width: 500px;
+height: 80px;
+margin: 10px;
+color: #5d243d;
+}
+
+.sobreSSL {
+background-color: #dbffd2;
+}
+
+.recursos {
+background-color: #c5f0fe;
+}
+
+.contacto {
+background-color: #f67288;
+}
+
+/* Hover */
+.sobreSSL:hover{
+    color: snow;
+    border-color: #dbffd2;
+    background-color: #9dd13c;
+    font-style: italic;
+
+}
+.recursos:hover {
+    color: snow;
+    border-color:  #c5f0fe;
+    background-color: #31c5f5;
+    font-style: italic;
+
+}
+
+.contacto:hover {
+    color: snow;
+    border-color: #f67288;
+    background-color: #f92d4f;
+    font-style: italic;
+
+}
