@@ -2,8 +2,11 @@ import React, { Fragment, useParams } from "react";
 import { Routes, Route} from "react-router-dom";
 import Inicio from "../../../paginas/Inicio.jsx";
 import Error from "../../../paginas/Error.jsx";
-import Login from "../../../paginas/Login.jsx"
+import Login from "../../../paginas/Login.jsx";
 import Bienvenida from "../../../paginas/Bienvenida.jsx";
+import SobreSSLife from "../../../paginas/SobreSSLife.jsx";
+import Recursos from "../../../paginas/Recursos.jsx";
+import Contacto from "../../../paginas/Contacto.jsx";
 
 const Rutas = () => {
   return (
@@ -13,12 +16,12 @@ const Rutas = () => {
         <Route path='/' element={<Bienvenida />} />
         <Route path='inicio' element={<Inicio />} />
         <Route path='login' element={<Login />} />
-        {/**
+   
         <Route path='sobre' element={<SobreSSLife />} />
+       
         <Route path='recursos' element={<Recursos />} />
         <Route path='contacto' element={<Contacto />} />
-
-         */}
+    
       </Routes>
     </Fragment>
   );
