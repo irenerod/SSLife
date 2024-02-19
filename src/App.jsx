@@ -17,8 +17,9 @@ import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
  *  admin = para los administradores.  
  *            - Pueden insertar, editar, borrar y ver los productos.
  *            - Pueden ver y borrar las listas.
- *            - En mi caso era: irenerodenas.alu@iespacomolla.es
- *            - Contraseña: 123456
+ *            - irenerodenas.alu@iespacomolla.es
+ *            - pedrosanchezflores.alu@iespacomolla.es
+ *            - Contraseñas: 123456
  *  */
 function App() {
   return (

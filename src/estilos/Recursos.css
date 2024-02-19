@@ -1,0 +1,54 @@
+.contenedor {
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    text-align: center; /* Alinea el texto al centro */
+  }
+  
+  .inicio {
+    margin-bottom: 20px;
+  }
+  
+  .opciones-contenedor {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    gap: 50px; /* Espacio entre las opciones */
+    margin-left: auto; /* Ajusta el espacio a la derecha */
+  }
+  
+  .articulos,
+  .videos,
+  .foros {
+    width: 250px; /* Ancho ajustado para cada columna con espacio entre ellas */
+    height: 200px; /* Altura ajustada para hacer las tarjetas más extendidas */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  .articulos {
+    background-color: #31c5f5; /* Azul */
+  }
+  
+  .videos {
+    background-color: #f92d4f; /* Rojo */
+  }
+  
+  .foros {
+    background-color: #9dd13c; /* Verde */
+  }
+  
+  .articulos:hover,
+  .videos:hover,
+  .foros:hover {
+    transform: translateY(-10px);
+  }
+  
+  .articulos h2,
+  .videos h2,
+  .foros h2 {
+    margin-top: 0;
+    color: #fff; /* Color de texto blanco */
+  }
+  

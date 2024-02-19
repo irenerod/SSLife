@@ -15,17 +15,17 @@ const Inicio = () => {
             <img src="./src/assets/img/exclamacion.png" alt="exclamacion" width="500px" />
           </div>
           <div className="opciones-content">
-            <Link to="sobre">
+            <Link to="/sobre">
               <div className="sobreSSL">
                 <h2>Sobre SSLife</h2>
               </div>
             </Link>
-            <Link to="recursos">
+            <Link to="/recursos">
               <div className="recursos">
                 <h2>Recursos</h2>
               </div>
             </Link>
-            <Link to="contacto">
+            <Link to="/contacto">
               <div className="contacto">
                 <h2>Contacta con nosotros</h2>
               </div>
