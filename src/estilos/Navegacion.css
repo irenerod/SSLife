@@ -1,18 +1,16 @@
+/* Estilos para los enlaces de navegación */
 .enlace {
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    min-width: 100px;
-    height: 40px;
-    width: 200px;
-    background-color: snow;
-    margin-right: 10px;
-    color: #5d243d;
-    margin: 10px;
-}
-
-.enlace:hover {
-    color: #f92d4f;
-    font-weight: bold;
+    color: #f92d4f; /* Color del texto */
+    text-decoration: none; /* Quitar subrayado predeterminado */
+    margin-right: 20px; /* Espaciado entre los enlaces */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: color 0.3s ease; /* Transición suave de color */
+  }
+  
+  /* Estilos para los enlaces cuando están en estado de hover (sobre) */
+  .enlace:hover {
+    color: #9dd13c; /* Cambiar el color del texto al pasar el mouse */
+    font-style: italic;
     text-decoration: underline;
-} 
+  }
+
