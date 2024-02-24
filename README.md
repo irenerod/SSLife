@@ -10,7 +10,7 @@ Estado: En desarrollo
 - HTML5 <br>
 - CSS3 <br>
 - Javascript <br>
-- Tailwind <br>
+- Reactstrap <br>
 
 ### Backend
 - SupaBase (BaaS)  <br>
