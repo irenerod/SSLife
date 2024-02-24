@@ -6,6 +6,7 @@ import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
+import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
 //import Login from "./paginas/Login.jsx";
 
 /**
@@ -30,7 +31,9 @@ function App() {
           <Cabecera />
           <Navegacion />
             <Principal />
+
           <Pie />
+
         </main>
       </ProveedorUsuarios>  
       </BrowserRouter>
