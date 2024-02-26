@@ -31,6 +31,7 @@ const Inicio = () => {
               </div>
             </Link>
           </div>
+          
         </div>
       </div>
     </Fragment>

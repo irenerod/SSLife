@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Rutas from "./rutas/Rutas.jsx";
+import Caelestis from "../Caelestis/Caelestis.jsx";
 
 const Principal = () => {
   return (
@@ -7,6 +8,7 @@ const Principal = () => {
       <article id='principal'>
         <Rutas />
       </article>
+      <Caelestis/>
     </Fragment>
   );
 };
