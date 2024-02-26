@@ -2,9 +2,11 @@ import React, { Fragment, useParams } from "react";
 import { Routes, Route} from "react-router-dom";
 import Inicio from "../../../paginas/Inicio.jsx";
 import Error from "../../../paginas/Error.jsx";
-import Login from "../../../paginas/Login.jsx"
+import Login from "../../../paginas/Login.jsx";
 import Bienvenida from "../../../paginas/Bienvenida.jsx";
 import Recursos from "../../../paginas/Recursos.jsx";
+//import SobreSSLife from "../../../paginas/SobreSSLife.jsx";
+//import Contacto from "../../../paginas/Contacto.jsx";
 
 const Rutas = () => {
   return (
@@ -18,7 +20,7 @@ const Rutas = () => {
         {/**
         <Route path='sobre' element={<SobreSSLife />} />
         <Route path='contacto' element={<Contacto />} />
-         */}
+         */}    
       </Routes>
     </Fragment>
   );

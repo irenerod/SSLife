@@ -29,7 +29,6 @@ const Recursos = () => {
             </Link>
           </div>
         </div>
-      </div>
     </Fragment>
   );
 };
