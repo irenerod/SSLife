@@ -7,7 +7,7 @@ const Cabecera = () => {
     <Fragment>
       <header>
         <div className="cabecera">
-          <img className="logo" src="https://vcryhsrmqbdvqyvrascb.supabase.co/storage/v1/object/sign/img/Logo%20SS%20Life.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWcvTG9nbyBTUyBMaWZlLnBuZyIsImlhdCI6MTcwODM2NDE3NiwiZXhwIjoxNzM5OTAwMTc2fQ.nzTGQOsBhhQWid9MIsakio_2qJnALw9lRkRuRLECE5c&t=2024-02-19T17%3A36%3A16.460Z" alt="logo"></img>
+          <img className="logo" src="https://vcryhsrmqbdvqyvrascb.supabase.co/storage/v1/object/sign/img/SSLife.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWcvU1NMaWZlLnBuZyIsImlhdCI6MTcwODQ0MzAwMCwiZXhwIjoxNzM5OTc5MDAwfQ.1Hu40oiBop3e4nDeGrnUn9DeLq65BlFjRQsb-FdsavM&t=2024-02-20T15%3A30%3A00.753Z" alt="logo"></img>
         </div>
         <div className='inicioSesion'>
           <InicioSesion/>

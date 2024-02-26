@@ -6,6 +6,7 @@ import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
+import ProveedorRecursos from "./contextos/ProveedorRecursos";
 //import Login from "./paginas/Login.jsx";
 
 /**
@@ -29,7 +30,10 @@ function App() {
         <main>
           <Cabecera />
           <Navegacion />
+          <ProveedorRecursos>
+            {/** AÑADIR CONTEXTO PROFSIONALES */}
             <Principal />
+          </ProveedorRecursos>
           <Pie />
         </main>
       </ProveedorUsuarios>  
