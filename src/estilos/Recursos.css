@@ -1,42 +1,97 @@
 .contenedor {
-    max-width: 1000px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    text-align: center; /* Alinea el texto al centro */
-  }
-  
-  .inicio {
-    margin-bottom: 20px;
-  }
-  
-  .opciones-contenedor {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    gap: 50px; /* Espacio entre las opciones */
-    margin-left: auto; /* Ajusta el espacio a la derecha */
-  }
-  
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.inicio {
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.opciones-contenedor {
+  display: flex; /* Utiliza flexbox para alinear las cards */
+  justify-content: center; /* Centra horizontalmente las cards */
+  gap: 20px; /* Espacio entre las cards */
+  flex-wrap: wrap; /* Envuelve las cards si no caben en una sola fila */
+}
+
+.card {
+  width: 300px; /* Ancho de cada card */
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden; /* Evita que el contenido se desborde */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de levantamiento al pasar el mouse */
+}
+
+.card-img-top {
+  height: 200px; /* Altura de la imagen */
+  object-fit: cover; /* Ajusta la imagen manteniendo las proporciones */
+}
+
+.card-body {
+  padding: 20px; /* Espacio interno */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Tamaño del título */
+  margin-bottom: 10px; /* Espacio inferior */
+}
+
+.card-subtitle {
+  font-size: 1rem; /* Tamaño del subtítulo */
+  color: #666; /* Color del subtítulo */
+  margin-bottom: 10px; /* Espacio inferior */
+}
+
+.card-text {
+  font-size: 1rem; /* Tamaño del texto */
+  color: #333; /* Color del texto */
+  margin-bottom: 15px; /* Espacio inferior */
+}
+
+.btn {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espacio interno */
+  font-size: 1rem; /* Tamaño del texto */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+}
+
+
+  /**
   .articulos,
   .videos,
   .foros {
-    width: 250px; /* Ancho ajustado para cada columna con espacio entre ellas */
-    height: 200px; /* Altura ajustada para hacer las tarjetas más extendidas */
+    width: 250px; 
+    height: 200px; 
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px; 
   }
   
   .articulos {
-    background-color: #31c5f5; /* Azul */
+    background-color: #31c5f5; 
   }
   
   .videos {
-    background-color: #f92d4f; /* Rojo */
+    background-color: #f92d4f; 
   }
   
   .foros {
-    background-color: #9dd13c; /* Verde */
+    background-color: #9dd13c;
   }
   
   .articulos:hover,
@@ -49,6 +104,7 @@
   .videos h2,
   .foros h2 {
     margin-top: 0;
-    color: #fff; /* Color de texto blanco */
+    color: #fff; 
   }
+  */
   
