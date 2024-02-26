@@ -6,7 +6,6 @@ import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
-import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
 //import Login from "./paginas/Login.jsx";
 
 /**
@@ -18,9 +17,8 @@ import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
  *  admin = para los administradores.  
  *            - Pueden insertar, editar, borrar y ver los productos.
  *            - Pueden ver y borrar las listas.
- *            - irenerodenas.alu@iespacomolla.es
- *            - pedrosanchezflores.alu@iespacomolla.es
- *            - Contraseñas: 123456
+ *            - En mi caso era: irenerodenas.alu@iespacomolla.es
+ *            - Contraseña: 123456
  *  */
 function App() {
   return (
@@ -31,9 +29,7 @@ function App() {
           <Cabecera />
           <Navegacion />
             <Principal />
-
           <Pie />
-
         </main>
       </ProveedorUsuarios>  
       </BrowserRouter>

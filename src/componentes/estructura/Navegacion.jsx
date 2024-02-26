@@ -15,14 +15,13 @@ const Navegacion = () => {
             <Link className='enlace' to='inicio'>
               Inicio
             </Link>
-            <Link className='enlace' to='recursos'>
-              Recursos
-            </Link>
             {/*
             <Link className='enlace' to='sobre'>
               Sobre SSLife
             </Link>
-            
+            <Link className='enlace' to='recursos'>
+              Recursos
+            </Link>
             <Link className='enlace' to='contacto'>
               Contacto
             </Link>
