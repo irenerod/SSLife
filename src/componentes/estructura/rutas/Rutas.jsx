@@ -5,6 +5,7 @@ import Error from "../../../paginas/Error.jsx";
 import Login from "../../../paginas/Login.jsx"
 import Bienvenida from "../../../paginas/Bienvenida.jsx";
 import Recursos from "../../../paginas/Recursos.jsx";
+import CreacionRecurso from "../../../paginas/CreacionRecurso.jsx";
 
 const Rutas = () => {
   return (
@@ -15,6 +16,7 @@ const Rutas = () => {
         <Route path='inicio' element={<Inicio />} />
         <Route path='login' element={<Login />} />
         <Route path='recursos' element={<Recursos />} />
+        <Route path='/crear-recurso' element={<CreacionRecurso />} />
         {/**
         <Route path='sobre' element={<SobreSSLife />} />
         <Route path='contacto' element={<Contacto />} />

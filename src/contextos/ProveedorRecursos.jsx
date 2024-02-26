@@ -24,6 +24,47 @@ const ProveedorRecursos = ({ children }) => {
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(cadenaInicial);
     const [mensaje, setMensaje] = useState(cadenaInicial);
+    const [recursoGuardado, setRecursoGuardado] = useState(false);
+
+    // Función para validar los datos de un recurso:
+    const validarRecurso = (elemento) => {
+        const { name, value } = elemento;
+        let erroresElemento = [];
+
+        if (name === "nombre_recurso" || name === "tipo" || name === "id_propietario") {
+            if (!value.trim()) {
+                erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
+            }
+        }
+
+        return erroresElemento;
+    };
+
+    // Función para validar el formulario de recursos:
+    const validarFormulario = () => {
+        const formulario = document.querySelector('form'); // Obtener el formulario
+        if (!formulario) {
+            console.error("El formulario no está definido.");
+            return false; // Salir de la función si el formulario no está definido
+        }
+
+        let erroresListado = [];
+
+        for (var i = 0; i < formulario.elements.length - 1; i++) {
+            let erroresElemento;
+            erroresElemento = validarRecurso(formulario.elements[i]);
+
+            if (erroresElemento.length !== 0) {
+                formulario.elements[i].classList.add("error");
+            } else {
+                formulario.elements[i].classList.remove("error");
+            }
+
+            erroresListado = [...erroresListado, ...erroresElemento];
+        }
+
+        return erroresListado.length === 0;
+    };
 
     // Obtener listado de recursos:
     const listadoRecursos = async () => {
@@ -77,6 +118,7 @@ const ProveedorRecursos = ({ children }) => {
             setError("Error al seleccionar el recurso");
         }
     };
+
     // Modificar un recurso:
     const modificarRecurso = async (id, datos) => {
         try {
@@ -132,6 +174,7 @@ const ProveedorRecursos = ({ children }) => {
                 setMensaje("Recurso creado correctamente");
                 setRecurso(valoresIniciales);
                 setRecursos([...recursos, data[0]]);
+                setRecursoGuardado(true); // Establecer el estado recursoGuardado
                 listadoRecursos();
             }
         } catch (error) {
@@ -141,53 +184,14 @@ const ProveedorRecursos = ({ children }) => {
         }
     };
 
-// Validación:
-    // Función para validar los datos de un recurso:
-    const validarRecurso = (elemento) => {
-        const { name, value } = elemento;
-        let erroresElemento = [];
-
-        if (name === "nombre_recurso") {
-            if (!value.trim()) {
-                erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-            }
+    const manejarGuardar = async () => {
+        // Validar el formulario antes de crear el recurso
+        const isValid = validarFormulario();
+        if (isValid) {
+            await crearRecurso();
+            setRecursoGuardado(true);
         }
-
-        if (name === "tipo") {
-            if (!value.trim()) {
-                erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-            }
-        }
-
-        if (name === "id_propietario") {
-            if (!value.trim()) {
-                erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-            }
-        }
-
-        return erroresElemento;
     };
-
-    // Función para validar el formulario de recursos:
-    const validarFormulario = (formulario) => {
-        let erroresListado = [];
-
-        for (var i = 0; i < formulario.elements.length - 1; i++) {
-            let erroresElemento;
-            erroresElemento = validarRecurso(formulario.elements[i]);
-
-            if (erroresElemento.length !== 0) {
-                formulario.elements[i].classList.add("error");
-            } else {
-                formulario.elements[i].classList.remove("error");
-            }
-
-            erroresListado = [...erroresListado, ...erroresElemento];
-        }
-
-        return erroresListado.length === 0;
-    };
-
 
     useEffect(() => {
         listadoRecursos();
@@ -197,6 +201,7 @@ const ProveedorRecursos = ({ children }) => {
     const datosAExportar = {
         situacion,
         recurso,
+        setRecurso,
         recursos,
         cargando,
         error,
@@ -209,6 +214,9 @@ const ProveedorRecursos = ({ children }) => {
         crearRecurso, 
         validarFormulario,
         validarRecurso,
+        recursoGuardado,
+        setRecursoGuardado,
+        manejarGuardar,
     };
 
     return (
