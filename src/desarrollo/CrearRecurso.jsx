@@ -1,14 +1,34 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import useRecursos from "../hooks/useRecursos.js";
 import Button from 'react-bootstrap/Button';
 
 // Formulario para CREAR un recurso.
 const CrearRecurso = () => {
-    // Llamamos al contexto.
     const arrayInicial = [];
-    const { recurso, error, setRecurso, crearRecurso, validarFormulario } = useRecursos();
+    const { recurso, error, setRecurso, crearRecurso, validarFormulario, obtenerNombrePropietario, obtenerPropietarios } = useRecursos();
     const [erroresFormulario, setErroresFormulario] = useState(arrayInicial); // Estado para los errores del formulario
     const [recursoCreado, setRecursoCreado] = useState(false); // Estado para controlar si el recurso se creó correctamente
+    const [nombrePropietario, setNombrePropietario] = useState(""); // Estado para el nombre del propietario
+    const [usuarios, setUsuarios] = useState(arrayInicial); // Estado para almacenar la lista de usuarios
+
+    // Obtener los usuarios y el nombre del propietario al cargar el componente
+    useEffect(() => {
+        obtenerPropietarios()
+            .then(data => {
+                setUsuarios(data);
+            })
+            .catch(error => {
+                console.error("Error al obtener usuarios:", error);
+            });
+
+        obtenerNombrePropietario(recurso.id_propietario)
+            .then(nombre => {
+                setNombrePropietario(nombre);
+            })
+            .catch(error => {
+                console.error("Error al obtener el nombre del propietario:", error);
+            });
+    }, [recurso.id_propietario]);
 
     // Función para manejar la creación exitosa del recurso
     const manejarCreacion = () => {
@@ -20,7 +40,6 @@ const CrearRecurso = () => {
             <h2>Crear un nuevo recurso:</h2>
             <div>
                 {error ? (
-                    /** Manejo de errores */
                     error
                 ) : (
                     <form onSubmit={(e) => {
@@ -59,8 +78,8 @@ const CrearRecurso = () => {
                         {/* Muestra los errores del campo tipo */}
                         {erroresFormulario.includes("tipo") && <p>Tipo no válido</p>}
 
-                        {/* Campo de propietario */}
-                        <label htmlFor="id_propietario">Selecciona el propietario del recurso:</label>
+                        {/* Campo de autor/propietario */}
+                        <label htmlFor="id_propietario">Propietario:</label>
                         <select
                             id="id_propietario"
                             name="id_propietario"
@@ -69,10 +88,11 @@ const CrearRecurso = () => {
                             required
                         >
                             <option value="">Seleccione un propietario</option>
-                            {/* Opciones de propietarios */}
+                            {/* Generar opciones de usuarios */}
+                            {usuarios.map((usuario) => (
+                                <option key={usuario.usuario_id} value={usuario.usuario_id}>{usuario.nombre}</option>
+                            ))}
                         </select>
-                        {/* Muestra los errores del campo id_propietario */}
-                        {erroresFormulario.includes("id_propietario") && <p>ID Propietario no válido</p>}
 
                         {/* Botón de envío */}
                         <Button variant="light" type="submit">Guardar recurso</Button>
@@ -87,5 +107,4 @@ const CrearRecurso = () => {
 };
 
 export default CrearRecurso;
-
 

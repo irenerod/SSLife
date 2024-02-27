@@ -1,115 +1,80 @@
-import React, { Fragment } from "react";
-import "../estilos/Recursos.css";
-import { Link } from "react-router-dom";
-import { Card, CardBody, CardGroup, CardImg, CardTitle, CardSubtitle, CardText, Button } from "react-bootstrap";
+import React, { Fragment, useState } from "react"; // Importar useState desde "react"
+import { Link } from "react-router-dom"; // Importar Link desde "react-router-dom"
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from "react-bootstrap";
+import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {
+  const { recursos, filtrarNombre, filtrarTipo, ordenarRecursosPorNombreAsc, ordenarRecursosPorNombre, ordenarRecursosPorNombreDesc } = useRecursos();
+  const [filtros, setFiltros] = useState({ tipo: "", nombre: "" });
+  const [ordenAscendente, setOrdenAscendente] = useState(true);
+
+  // Función para manejar el cambio en la opción de ordenamiento
+ // Función para manejar el cambio en la opción de ordenamiento
+const manejarOrdenar = () => {
+  if (ordenAscendente) {
+    ordenarRecursosPorNombreAsc().then(() => {
+      setOrdenAscendente(false); // Cambiar el estado después de que se complete la ordenación ascendente
+    }).catch(error => {
+      console.error("Error al ordenar recursos ascendente:", error.message);
+    });
+  } else {
+    ordenarRecursosPorNombreDesc().then(() => {
+      setOrdenAscendente(true); // Cambiar el estado después de que se complete la ordenación descendente
+    }).catch(error => {
+      console.error("Error al ordenar recursos descendente:", error.message);
+    });
+  }
+};
+
+
+  // Aplicar filtros
+  let recursosFiltrados = recursos;
+  if (filtros.tipo) {
+    recursosFiltrados = filtrarTipo(recursosFiltrados, filtros.tipo);
+  }
+  if (filtros.nombre) {
+    recursosFiltrados = filtrarNombre(recursosFiltrados, filtros.nombre);
+  }
+
   return (
     <Fragment>
       <div className="contenedor">
-        <div className="inicio">
-          <img className="logoIni" src="./src/assets/img/Logo SS Life.png" alt="logo" width="100px"/>
-          <h1>Recursos</h1>
+        <h1>Recursos</h1>
+        <Link to="/crear-recurso"><Button variant="light">Añadir Recurso</Button></Link>
+        <div>
+          {/* Controles para filtrar y ordenar */}
+          <fieldset>
+            <legend>Filtrar y Ordenar</legend>
+            <div>
+              <label htmlFor="tipo">Filtrar por tipo:</label>
+              <select id="tipo" value={filtros.tipo} onChange={e => setFiltros({ ...filtros, tipo: e.target.value })}>
+                <option value="">Todos</option>
+                <option value="video">Vídeos</option>
+                <option value="articulo">Artículos</option>
+                <option value="foro">Foros</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="nombre">Filtrar por nombre:</label>
+              <input type="text" id="nombre" value={filtros.nombre} onChange={e => setFiltros({ ...filtros, nombre: e.target.value })} />
+            </div>
+            <div>
+              <label>Ordenar por nombre:</label>
+              <Button variant="light" onClick={manejarOrdenar}>{ordenAscendente ? "Ascendente" : "Descendente"}</Button>
+            </div>
+          </fieldset>
         </div>
-        <Link to="/crear-recurso" className="btn btn-primary">Añadir Recurso</Link>
-        <div className="opciones">
-          <div className="opciones-contenedor">
-            <CardGroup>
-              <Card
-                body
-                outline={true.toString()} // Convertir booleano a string
-                style={{
-                  width: '18rem'
-                }}
-              >
-                <CardImg
-                  alt="Vídeos"
-                  src=""
-                  top={true.toString()} // Convertir booleano a string
-                  width="200%"
-                />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    Vídeos
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                  Vídeos de apoyo.
-                  </CardSubtitle>
-                  <CardText>
-                    Edúcate con estos vídeos proporcionados por nuestros expertos.
-                  </CardText>
-                  <Button variant="info">
-                    Entrar
-                  </Button>
-                </CardBody>
-              </Card>
-              <Card
-                body
-                outline={true.toString()} // Convertir booleano a string
-                style={{
-                  width: '18rem'
-                }}
-              >
-                <CardImg
-                  alt="Artículos"
-                  src=""
-                  top={true.toString()} // Convertir booleano a string
-                  width="200%"
-                />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    Artículos
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                    Artículos educacionales.
-                  </CardSubtitle>
-                  <CardText>
-                    Lee sobre los distintos temas que te ofrecen nuestros profesionales sobre distintas materias.
-                  </CardText>
-                  <Button variant="info">
-                    Entrar
-                  </Button>
-                </CardBody>
-              </Card>
-              <Card
-                body
-                outline={true.toString()} // Convertir booleano a string
-                style={{
-                  width: '18rem'
-                }}
-              >
-                <CardImg
-                  alt="Foros"
-                  src=""
-                  top={true.toString()} // Convertir booleano a string
-                  width="200%"
-                />
-                <CardBody>
-                  <CardTitle tag="h5">
-                    Foros
-                  </CardTitle>
-                  <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                  >
-                    Foros creados por nuestra comunidad.
-                  </CardSubtitle>
-                  <CardText>
-                    Conecta con otros con las mismas inquietudes que tú.
-                  </CardText>
-                  <Button variant="info">
-                    Entrar
-                  </Button>
-                </CardBody>
-              </Card>
-            </CardGroup>
-          </div>
+        <div className="opciones-contenedor">
+          {/* Lista de recursos */}
+          {recursosFiltrados.map(recurso => (
+            <Card key={recurso.id}>
+              <CardBody>
+                <CardTitle>{recurso.nombre}</CardTitle>
+                <CardSubtitle>{recurso.tipo}</CardSubtitle>
+                <CardText>{recurso.descripcion}</CardText>
+              </CardBody>
+            </Card>
+          ))}
         </div>
       </div>
     </Fragment>
@@ -117,3 +82,6 @@ const Recursos = () => {
 };
 
 export default Recursos;
+
+
+
