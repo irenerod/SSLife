@@ -1,12 +1,12 @@
 .cabecera {
   display: flex;
   justify-content: center; 
-  background-color: snow;
+
 }
 
   /* Logo */
 .logo {
-  width: 250px;
+  width: 150px;
   height: 150px;
 }
 

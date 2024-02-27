@@ -1,0 +1,235 @@
+/* App.css */
+.contenedorCaelestis {
+  margin-left: 791px;
+  /* border-top: 7px; */
+  padding: 0;
+  height: 10vh;
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: flex-end; */
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 107px;
+}
+
+p {
+  font-size: small;
+  margin-right: -33px;
+}
+  .contenedorCaelestis section {
+    width: 25px;
+    height: 25px;
+    transition: 200ms ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedorCaelestis section div {
+    position: absolute;
+    align-items: left;
+  }
+  .contenedorCaelestis section div:nth-child(4) {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #61dafb;
+    animation: animateFade 2s infinite linear;
+  }
+  .contenedorCaelestis section div:nth-child(1) {
+    width: 20vh;
+    height: 20vh;
+    border-top: 10px solid #61dafb;
+    border-left: 12px solid #61dafb;
+    border-radius: 50%;
+    animation: animateSpin-1 2s infinite linear;
+  }
+  .contenedorCaelestis section div:nth-child(2) {
+    width: 20vh;
+    height: 20vh;
+    border-top: 10px solid #61dafb;
+    border-left: 12px solid #61dafb;
+    border-radius: 50%;
+    animation: animateSpin-2 2s infinite linear;
+  }
+  .contenedorCaelestis section div:nth-child(3) {
+    width: 20vh;
+    height: 20vh;
+    border-top: 10px solid #61dafb;
+    border-left: 12px solid #61dafb;
+    border-radius: 50%;
+    animation: animateSpin-3 2s infinite linear;
+  }
+  .contenedorCaelestis section:hover {
+    transform: scale(1.5);
+  }
+  
+  @keyframes animateSpin-1 {
+    0% {
+      transform: rotatez(120deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(120deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-2 {
+    0% {
+      transform: rotatez(240deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(240deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-3 {
+    0% {
+      transform: rotatez(360deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(360deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-4 {
+    0% {
+      transform: rotatez(480deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(480deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-5 {
+    0% {
+      transform: rotatez(600deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(600deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-6 {
+    0% {
+      transform: rotatez(720deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(720deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-7 {
+    0% {
+      transform: rotatez(840deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(840deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-8 {
+    0% {
+      transform: rotatez(960deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(960deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-9 {
+    0% {
+      transform: rotatez(1080deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(1080deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-10 {
+    0% {
+      transform: rotatez(1200deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(1200deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateSpin-11 {
+    0% {
+      transform: rotatez(1320deg) rotatex(50deg) rotatez(0deg);
+    }
+    100% {
+      transform: rotatez(1320deg) rotatex(50deg) rotatez(360deg);
+    }
+    0%, 20%, 40%, 60%, 80%, 100% {
+      box-shadow: -2px -2px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      box-shadow: -2px -2px 5px #61dafb;
+    }
+  }
+  @keyframes animateFade {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      transform: scale(0.8);
+      box-shadow: -2px 0px 20px #61dafb;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: scale(1);
+      box-shadow: -2px 0px 5px #61dafb;
+    }
+  }
+  
+  .caelestis-pequeño {
+    width: 20px;
+    height: 20px;
+  }
