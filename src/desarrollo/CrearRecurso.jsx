@@ -1,99 +1,91 @@
-import React, { useState } from "react";
-import useRecursos from "../hooks/useRecursos";
+import React, { Fragment, useState } from "react";
+import useRecursos from "../hooks/useRecursos.js";
+import Button from 'react-bootstrap/Button';
 
-const FormularioCrearRecurso = () => {
-    const { recurso, setRecurso, error, crearRecurso, validarRecurso } = useRecursos();
-    const arrayInicial=[];
-    const [erroresFormulario, setErroresFormulario] = useState(arrayInicial);
+// Formulario para CREAR un recurso.
+const CrearRecurso = () => {
+    // Llamamos al contexto.
+    const arrayInicial = [];
+    const { recurso, error, setRecurso, crearRecurso, validarFormulario } = useRecursos();
+    const [erroresFormulario, setErroresFormulario] = useState(arrayInicial); // Estado para los errores del formulario
+    const [recursoCreado, setRecursoCreado] = useState(false); // Estado para controlar si el recurso se creó correctamente
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setRecurso({
-            ...recurso,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        // Validar el formulario antes de crear el recurso
-        const isValid = validarFormulario();
-        if (isValid) {
-            await crearRecurso(recurso);
-            setRecurso({
-                nombre_recurso: "",
-                tipo: "",
-                id_propietario: ""
-            });
-            setProductoCreado(true);
-        }
-    };
-
-    const validarFormulario = () => {
-        const errores = validarRecurso(recurso);
-        setErroresFormulario(errores);
-        return errores.length === 0;
-    };
-
-    const resetFormulario = () => {
-        setRecurso({
-            nombre_recurso: "",
-            tipo: "",
-            id_propietario: ""
-        });
-        setErroresFormulario([]);
-        setProductoCreado(false);
+    // Función para manejar la creación exitosa del recurso
+    const manejarCreacion = () => {
+        setRecursoCreado(true);
     };
 
     return (
         <Fragment>
             <h2>Crear un nuevo recurso:</h2>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="nombre_recurso">Nombre:</label>
-                    <input
-                        type="text"
-                        id="nombre_recurso"
-                        name="nombre_recurso"
-                        value={recurso.nombre_recurso}
-                        onChange={handleChange}
-                        required
-                    />
-                    {erroresFormulario.includes("nombre_recurso") && <p>Nombre no válido</p>}
+                {error ? (
+                    /** Manejo de errores */
+                    error
+                ) : (
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        // Valida el formulario antes de crear el recurso
+                        if (validarFormulario()) {
+                            crearRecurso();
+                            manejarCreacion(); // Maneja la creación exitosa del recurso
+                        }
+                    }}>
+                        <label htmlFor="nombre_recurso">Nombre:</label>
+                        <input
+                            type="text"
+                            id="nombre_recurso"
+                            name="nombre_recurso"
+                            value={recurso.nombre_recurso || ""}
+                            onChange={(e) => setRecurso({ ...recurso, nombre_recurso: e.target.value })}
+                            required
+                        />
+                        {/* Muestra los errores del campo nombre_recurso */}
+                        {erroresFormulario.includes("nombre_recurso") && <p>Nombre no válido</p>}
 
-                    <label htmlFor="tipo">Tipo:</label>
-                    <select
-                        id="tipo"
-                        name="tipo"
-                        value={recurso.tipo}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="">Seleccione una opción</option>
-                        <option value="articulo">Artículo</option>
-                        <option value="video">Video</option>
-                        <option value="foro">Foro</option>
-                    </select>
-                    {erroresFormulario.includes("tipo") && <p>Tipo no válido</p>}
+                        <label htmlFor="tipo">Tipo:</label>
+                        <select
+                            id="tipo"
+                            name="tipo"
+                            value={recurso.tipo || ""}
+                            onChange={(e) => setRecurso({ ...recurso, tipo: e.target.value })}
+                            required
+                        >
+                            <option value="">Seleccione una opción</option>
+                            <option value="articulo">Artículo</option>
+                            <option value="video">Video</option>
+                            <option value="foro">Foro</option>
+                        </select>
+                        {/* Muestra los errores del campo tipo */}
+                        {erroresFormulario.includes("tipo") && <p>Tipo no válido</p>}
 
-                    <label htmlFor="id_propietario">ID Propietario:</label>
-                    <input
-                        type="text"
-                        id="id_propietario"
-                        name="id_propietario"
-                        value={recurso.id_propietario}
-                        onChange={handleChange}
-                        required
-                    />
-                    {erroresFormulario.includes("id_propietario") && <p>ID Propietario no válido</p>}
+                        {/* Campo de propietario */}
+                        <label htmlFor="id_propietario">Selecciona el propietario del recurso:</label>
+                        <select
+                            id="id_propietario"
+                            name="id_propietario"
+                            value={recurso.id_propietario || ""}
+                            onChange={(e) => setRecurso({ ...recurso, id_propietario: e.target.value })}
+                            required
+                        >
+                            <option value="">Seleccione un propietario</option>
+                            {/* Opciones de propietarios */}
+                        </select>
+                        {/* Muestra los errores del campo id_propietario */}
+                        {erroresFormulario.includes("id_propietario") && <p>ID Propietario no válido</p>}
 
-                    <button type="submit">Crear Recurso</button>
-                </form>
+                        {/* Botón de envío */}
+                        <Button variant="light" type="submit">Guardar recurso</Button>
 
-                {productoCreado && <p style={{ color: "green" }}>El recurso se creó correctamente.</p>}
+                        {/* Muestra el mensaje si el recurso se creó correctamente */}
+                        {recursoCreado && <p style={{ color: "green" }}>El recurso se añadió correctamente.</p>}
+                    </form>
+                )}
             </div>
         </Fragment>
     );
 };
 
-export default FormularioCrearRecurso;
+export default CrearRecurso;
+
+
