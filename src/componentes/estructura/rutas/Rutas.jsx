@@ -7,6 +7,7 @@ import Bienvenida from "../../../paginas/Bienvenida.jsx";
 import Recursos from "../../../paginas/Recursos.jsx";
 //import SobreSSLife from "../../../paginas/SobreSSLife.jsx";
 //import Contacto from "../../../paginas/Contacto.jsx";
+import CreacionRecurso from "../../../paginas/CreacionRecurso.jsx";
 
 const Rutas = () => {
   return (
@@ -17,6 +18,7 @@ const Rutas = () => {
         <Route path='inicio' element={<Inicio />} />
         <Route path='login' element={<Login />} />
         <Route path='recursos' element={<Recursos />} />
+        <Route path='/crear-recurso' element={<CreacionRecurso />} />
         {/**
         <Route path='sobre' element={<SobreSSLife />} />
         <Route path='contacto' element={<Contacto />} />

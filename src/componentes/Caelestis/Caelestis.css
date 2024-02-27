@@ -1,17 +1,23 @@
-/* App.css */
 .contenedorCaelestis {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+  margin-left: 791px;
+  /* border-top: 7px; */
+  padding: 0;
+  height: 10vh;
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: flex-end; */
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 107px;
+}
+
+p {
+  font-size: small;
+  margin-right: -33px;
+}
   .contenedorCaelestis section {
-    width: 60vh;
-    height: 60vh;
+    width: 25px;
+    height: 25px;
     transition: 200ms ease;
     display: flex;
     flex-direction: row;
@@ -20,40 +26,41 @@
   }
   .contenedorCaelestis section div {
     position: absolute;
+    align-items: left;
   }
   .contenedorCaelestis section div:nth-child(4) {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: #61dafb;
     animation: animateFade 2s infinite linear;
   }
   .contenedorCaelestis section div:nth-child(1) {
-    width: 60vh;
-    height: 60vh;
+    width: 20vh;
+    height: 20vh;
     border-top: 10px solid #61dafb;
     border-left: 12px solid #61dafb;
     border-radius: 50%;
     animation: animateSpin-1 2s infinite linear;
   }
   .contenedorCaelestis section div:nth-child(2) {
-    width: 60vh;
-    height: 60vh;
+    width: 20vh;
+    height: 20vh;
     border-top: 10px solid #61dafb;
     border-left: 12px solid #61dafb;
     border-radius: 50%;
     animation: animateSpin-2 2s infinite linear;
   }
   .contenedorCaelestis section div:nth-child(3) {
-    width: 60vh;
-    height: 60vh;
+    width: 20vh;
+    height: 20vh;
     border-top: 10px solid #61dafb;
     border-left: 12px solid #61dafb;
     border-radius: 50%;
     animation: animateSpin-3 2s infinite linear;
   }
   .contenedorCaelestis section:hover {
-    transform: scale(1.4);
+    transform: scale(1.5);
   }
   
   @keyframes animateSpin-1 {

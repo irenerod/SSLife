@@ -2,10 +2,12 @@ body, html {
     width: 1280px;
     color: #5d243d;
 }
+.main{
+    background-color: #ebcc96;
+}
 .container{
     height: 600px;
-    background-color: #fff9ef;
-    background-image:url("https://vcryhsrmqbdvqyvrascb.supabase.co/storage/v1/object/sign/img/monigotes.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWcvbW9uaWdvdGVzLnBuZyIsImlhdCI6MTcwODM2NDQxNSwiZXhwIjoxNzM5OTAwNDE1fQ.lFRlP-WaDyiVOLunif9SrnaaaI3yVmXFYuoZrAyEOf8&t=2024-02-19T17%3A40%3A15.842Z") ;
+
     background-repeat: no-repeat;
     background-size: cover;
 }

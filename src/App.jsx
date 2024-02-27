@@ -5,16 +5,13 @@ import Navegacion from "./componentes/estructura/Navegacion.jsx";
 import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import { BrowserRouter } from "react-router-dom";
-import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
-import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
+//import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
+import ProveedorRecursos from "./contextos/ProveedorRecursos";
+import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 //import Login from "./paginas/Login.jsx";
 
 /**
  *  Roles:
- *  rol_cliente = para los autentificados (authentificated). 
- *            - Pueden insertar, editar, borrar y ver sus listas. 
- *            - Pueden ver los productos.
- *            - En mi caso era: irener.rglez@gmail.com
  *  admin = para los administradores.  
  *            - Pueden insertar, editar, borrar y ver los productos.
  *            - Pueden ver y borrar las listas.
@@ -30,10 +27,12 @@ function App() {
         <main>
           <Cabecera />
           <Navegacion />
-            <Principal />
-
+          <ProveedorProfesionales>
+            <ProveedorRecursos>
+              <Principal />
+            </ProveedorRecursos>
+          </ProveedorProfesionales>
           <Pie />
-
         </main>
       </ProveedorUsuarios>  
       </BrowserRouter>

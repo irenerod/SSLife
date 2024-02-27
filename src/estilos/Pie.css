@@ -3,8 +3,10 @@
     width: 80px;
     height: 80px;
   }
+
   /* Footer */
-  footer {
+  .pie {
+    
     width: 100%;
     border: solid 1px #f5c2c7;
     display: flex;
