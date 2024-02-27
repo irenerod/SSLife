@@ -76,7 +76,6 @@ const manejarOrdenar = () => {
             </Card>
           ))}
         </div>
-      </div>
     </Fragment>
   );
 };
