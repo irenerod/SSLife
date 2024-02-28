@@ -8,7 +8,7 @@ const Principal = () => {
       <article id='principal'>
         <Rutas />
       </article>
-      <Caelestis/>
+
     </Fragment>
   );
 };

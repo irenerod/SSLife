@@ -5,10 +5,10 @@ import Navegacion from "./componentes/estructura/Navegacion.jsx";
 import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import { BrowserRouter } from "react-router-dom";
-import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
 //import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
 import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
+import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
 //import Login from "./paginas/Login.jsx";
 
 /**
@@ -27,7 +27,6 @@ function App() {
       <ProveedorUsuarios>
         <main>
           <Cabecera />
-          <Navegacion />
           <ProveedorProfesionales>
             <ProveedorRecursos>
               <Principal />

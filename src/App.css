@@ -1,20 +1,20 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-
-  text-align: center;
-  background-color: rgb(163, 216, 136);
-}
-
-html, body {
-  background-color: snow;
-  height: auto;  
-  width: auto;
+  max-width: auto;
   margin: 0 auto;
   padding: 0;
+  text-align:center;
 }
 
 main {
-  width: 100%;
-  height: 100%;
+  
+  
 }
+
+header {
+  text-align: left;
+  margin: 10px;
+  padding: 15px;
+}
+
+
+
