@@ -1,61 +1,57 @@
 import React, { useState, useEffect, createContext } from "react";
 import { supabaseConexion } from "../config/supabase";
+import { useNavigate } from "react-router-dom";
 
 const contextoProfesionales = createContext();
 
 const ProveedorProfesionales = ({ children }) => {
-  const [listaProfesionales, setListaProfesionales] = useState([]);
-  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [datosProfesional, setDatosProfesional] = useState(null);
 
-  useEffect(() => {
-    const obtenerProfesionales = async () => {
-      try {
-        // Consulta para obtener la lista de profesionales
-        const { data: datosProfesionales, error: errorProfesionales } = await supabaseConexion
-          .from('profesional')
-          .select('id_profesional, tipo');
+  // Función para obtener los datos del profesional desde la base de datos
+  const obtenerDatosProfesional = async () => {
+    try {
+      // Consulta a la tabla 'profesional' para obtener datos específicos del profesional
+      const { data: datosProfesional, error } = await supabaseConexion
+        .from('profesional')
+        .select('tipo, id_profesional')
+        .single();
 
-        if (errorProfesionales) {
-          throw errorProfesionales;
-        }
-
-        setListaProfesionales(datosProfesionales || []);
-      } catch (error) {
-        console.error('Error al obtener la lista de profesionales:', error.message);
+      if (error) {
+        throw error;
       }
-    };
 
-    const obtenerUsuarios = async () => {
-      try {
-        // Consulta para obtener la lista de usuarios
-        const { data: datosUsuarios, error: errorUsuarios } = await supabaseConexion
+      // Si se obtienen datos del profesional, ahora podemos obtener más información del usuario asociado
+      if (datosProfesional) {
+        const { id_profesional } = datosProfesional;
+
+        // Consulta a la tabla 'usuario' para obtener más información del usuario asociado al profesional
+        const { data: datosUsuario, error: errorUsuario } = await supabaseConexion
           .from('usuario')
-          .select('usuario_id, nombre, apellidos');
+          .select('*')
+          .eq('usuario_id', id_profesional)
+          .single();
 
-        if (errorUsuarios) {
-          throw errorUsuarios;
+        if (errorUsuario) {
+          throw errorUsuario;
         }
 
-        setListaUsuarios(datosUsuarios || []);
-      } catch (error) {
-        console.error('Error al obtener la lista de usuarios:', error.message);
+        // Si se obtienen datos del usuario asociado, combinamos la información del profesional y del usuario
+        if (datosUsuario) {
+          setDatosProfesional({ ...datosProfesional, usuario: datosUsuario });
+        }
       }
-    };
-
-    obtenerProfesionales();
-    obtenerUsuarios();
-  }, []);
-
-  // Función para obtener el nombre del propietario a partir de su ID
-  const obtenerNombrePropietario = (idPropietario) => {
-    const usuario = listaUsuarios.find(usuario => usuario.usuario_id === idPropietario);
-    return usuario ? `${usuario.nombre} ${usuario.apellidos}` : 'Propietario no encontrado';
+    } catch (error) {
+      console.error('Error al obtener datos del profesional:', error.message);
+    }
   };
 
+  useEffect(() => {
+    obtenerDatosProfesional();
+  }, []);
+
   const datosAExportar = {
-    listaProfesionales,
-    listaUsuarios,
-    obtenerNombrePropietario,
+    obtenerDatosProfesional,
+    datosProfesional,
   };
 
   return (

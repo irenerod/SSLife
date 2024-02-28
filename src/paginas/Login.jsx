@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
 import "../estilos/Login.css";
 import useUsuarios from "../hooks/useUsuarios";
 
@@ -31,68 +32,90 @@ const Login = () => {
 
   return (
     <Fragment>
-      <div className='inicioSesion'>
-        <div className='cuentaUsuario'>
+      <div className='inicioSesion' style={{
+          backgroundImage: `url('./src/assets/img/monigotes.png')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          minHeight: '80vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+      }}>
+        <div className='cuentaUsuario' style={{ width: '45%', padding: '50px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)', marginRight: '5px', marginLeft: 'auto' }}>
+          <img src="./src/assets/img/fotoInicio.png" alt="" style={{ width: '100%', marginBottom: '20px' }} />
           <h3>Iniciar sesión</h3>
-          <label htmlFor='email'>Correo electrónico</label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Ingrese su correo electrónico.'
-            onChange={(e) => actualizarDato(e)}
-          />
-          <label htmlFor='password'>Contraseña</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='Ingrese su contraseña.'
-            onChange={(e) => actualizarDato(e)}
-          />
-          <button className='botonSesion' onClick={manejarInicioSesion}>
-            Iniciar sesión
-          </button>
+          <Form>
+            <FormGroup>
+              <Label for='email'>Correo electrónico</Label>
+              <Input
+                type='email'
+                name='email'
+                id='email'
+                placeholder='Ingrese su correo electrónico.'
+                onChange={(e) => actualizarDato(e)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for='password'>Contraseña</Label>
+              <Input
+                type='password'
+                name='password'
+                id='password'
+                placeholder='Ingrese su contraseña.'
+                onChange={(e) => actualizarDato(e)}
+              />
+            </FormGroup>
+            <Button color="primary" onClick={manejarInicioSesion}>
+              Iniciar sesión
+            </Button>
+          </Form>
         </div>
-        <div className='cuentaUsuario'>
+        <div className='cuentaUsuario' style={{ width: '45%', padding: '50px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)', marginRight: 'auto', marginLeft: '5px' }}>
+          <img src="./src/assets/img/fotoInicio.png" alt="" style={{ width: '100%', marginBottom: '20px' }} />
           <h3>Crea una nueva cuenta</h3>
-          <label htmlFor='emailRegistro'>Correo electrónico</label>
-          <input
-            type='email'
-            name='email'
-            id='emailRegistro'
-            placeholder='Ingrese su correo electrónico.'
-            onChange={(e) => actualizarDato(e)}
-          />
-          <label htmlFor='passwordRegistro'>Contraseña</label>
-          <input
-            type='password'
-            name='password'
-            id='passwordRegistro'
-            placeholder='Ingrese su contraseña, con mínimo 6 carácteres.'
-            onChange={(e) => actualizarDato(e)}
-          />
-          <p className="cursiva">La contraseña debe tener mínimo 6 carácteres.</p>
-          <label htmlFor='confirmPassword'>Confirmar Contraseña</label>
-          <input
-          type='password'
-          name='confirmPassword'
-          id='confirmPassword'
-          placeholder='Repite la contraseña para confirmarla.'
-          value={confirmarContrasena}
-          className={datosSesion.password === confirmarContrasena ? 'confirmar-contrasena-input coincide' : 'confirmar-contrasena-input no-coincide'}
-          onChange={(e) => manejarConfirmar(e)}
-        />
-
-          <button className='botonSesion' onClick={manejarCrearCuenta}>
-            Crear cuenta
-          </button>
+          <Form>
+            <FormGroup>
+              <Label for='emailRegistro'>Correo electrónico</Label>
+              <Input
+                type='email'
+                name='email'
+                id='emailRegistro'
+                placeholder='Ingrese su correo electrónico.'
+                onChange={(e) => actualizarDato(e)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for='passwordRegistro'>Contraseña</Label>
+              <Input
+                type='password'
+                name='password'
+                id='passwordRegistro'
+                placeholder='Ingrese su contraseña, con mínimo 6 caracteres.'
+                onChange={(e) => actualizarDato(e)}
+              />
+            </FormGroup>
+            <p className="cursiva">La contraseña debe tener mínimo 6 caracteres.</p>
+            <FormGroup>
+              <Label for='confirmPassword'>Confirmar Contraseña</Label>
+              <Input
+                type='password'
+                name='confirmPassword'
+                id='confirmPassword'
+                placeholder='Repite la contraseña para confirmarla.'
+                value={confirmarContrasena}
+                className={datosSesion.password === confirmarContrasena ? 'confirmar-contrasena-input coincide' : 'confirmar-contrasena-input no-coincide'}
+                onChange={(e) => manejarConfirmar(e)}
+              />
+            </FormGroup>
+            <Button color="primary" onClick={manejarCrearCuenta}>
+              Crear cuenta
+            </Button>
+          </Form>
         </div>
       </div>
-      <div className='errorLogin'>{errorUsuario}</div>
+      {errorUsuario && <Alert color="danger">{errorUsuario}</Alert>}
     </Fragment>
   );
 };
 
 export default Login;
-
