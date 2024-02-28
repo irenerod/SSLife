@@ -1,7 +1,5 @@
 /* Estilos para el contenedor principal */
-body{
-  background-color: snow;
-}
+
 
 h1{
   color: #F92D4F;
@@ -11,9 +9,13 @@ h1{
   justify-content: center;
   align-items: center;
 }
-.inicioSesion{
+.inicioSesion {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 /* Estilos para cada formulario */
 .cuentaUsuario {

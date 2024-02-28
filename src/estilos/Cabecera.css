@@ -1,14 +1,20 @@
 .cabecera {
   display: flex;
-  justify-content: center; 
+  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: flex-start;
 
 }
 
   /* Logo */
-.logo {
-  width: 150px;
-  height: 150px;
+
+  .logo {
+    width: 267px;
+    height: 246px;
 }
+
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #dadcf7aa);

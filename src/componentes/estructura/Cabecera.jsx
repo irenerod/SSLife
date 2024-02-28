@@ -1,20 +1,29 @@
 import React, { Fragment } from "react";
 import InicioSesion from "./InicioSesion";
+import MenuCabecera from "./MenuCabecera";
 import "../../estilos/Cabecera.css";
 
 const Cabecera = () => {
   return (
     <Fragment>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+  />
+</head>
       <header>
         <div className="cabecera">
-          <img className="logo" src="https://vcryhsrmqbdvqyvrascb.supabase.co/storage/v1/object/sign/img/SSLife.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWcvU1NMaWZlLnBuZyIsImlhdCI6MTcwODQ0MzAwMCwiZXhwIjoxNzM5OTc5MDAwfQ.1Hu40oiBop3e4nDeGrnUn9DeLq65BlFjRQsb-FdsavM&t=2024-02-20T15%3A30%3A00.753Z" alt="logo"></img>
+          <img
+            className="logo"
+            src="./src/assets/img/LogosinFondo.png" alt="logo"/>
+            
         </div>
-        <div className='inicioSesion'>
-          <InicioSesion/>
-        </div>
+        <MenuCabecera />
       </header>
     </Fragment>
   );
 };
 
 export default Cabecera;
+

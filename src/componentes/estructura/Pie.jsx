@@ -1,19 +1,54 @@
-import React, { Fragment } from "react";
-import "../../estilos/Pie.css";
+import React from 'react';
+import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Pie = () => {
   return (
-    <Fragment>
-      <footer>
-        <img className="creative" src="https://vcryhsrmqbdvqyvrascb.supabase.co/storage/v1/object/sign/img/Logo%20en%20gris%20sin%20fondo.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWcvTG9nbyBlbiBncmlzIHNpbiBmb25kby5zdmciLCJpYXQiOjE3MDgzNjQzNDIsImV4cCI6MTczOTkwMDM0Mn0.MI8Shr-j9HDqhWA-pp382v4yvqYqY8AvCkbSLltTc48&t=2024-02-19T17%3A39%3A03.028Z" alt="creativelife" />
-        <ul>
-          <li>Información:</li>
-          <li>Contacto: creativeLife@gmail.com</li>
-          <li>Dirección: C. Jardines, 23, 03600 Elda, Alicante</li>
-        </ul>
-        </footer>
-    </Fragment>
+    <footer style={{
+      position: 'relative',
+      bottom: 0,
+      width: '100%',
+      padding: '20px 0',
+      backgroundImage: `linear-gradient(45deg, rgba(255, 232, 204, 0.5), rgba(255, 255, 179, 0.5))`,
+
+    }}>
+      <div style={{ display: 'flex' }}>
+        <Col sm={6} md={4}>
+          <h5>Información de interés</h5>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li><Link to="/info">Información</Link></li>
+            <li><Link to="/faqs">Preguntas frecuentes</Link></li>
+            <li><Link to="/what-happens">¿Qué me sucede?</Link></li>
+            <li><Link to="/how-help">¿Cómo puedo ayudar?</Link></li>
+          </ul>
+        </Col>
+        <Col sm={6} md={4}>
+          <h5>Más sobre nuestros profesionales</h5>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li><Link to="/professionals">Profesionales</Link></li>
+            <li><Link to="/privacy-policy">Políticas de privacidad</Link></li>
+          </ul>
+        </Col>
+        <Col md={4}>
+          <h5>Contáctanos</h5>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li>Email: <a href="mailto:creativelife@gmail.com">creativelife@gmail.com</a></li>
+            <li>Dirección: C. Jardines, 23, 03600 Elda, Alicante</li>
+            <li style={{ marginTop: '10px' }}>
+              <div style={{ display: 'flex', margin: '28px', flexWrap: 'nowrap', flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-evenly' }}>
+                <a href="https://www.instagram.com/"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
+                <a href="https://www.twitter.com/"><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
+                <a href="https://www.facebook.com/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
+              </div>
+            </li>
+          </ul>
+        </Col>
+      </div>
+    </footer>
   );
 };
 
 export default Pie;
+
