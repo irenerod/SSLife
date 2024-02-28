@@ -1,86 +1,91 @@
-import React, { Fragment, useState } from "react"; // Importar useState desde "react"
-import { Link } from "react-router-dom"; // Importar Link desde "react-router-dom"
-import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from "react-bootstrap";
+// Componente Recursos
+
+import React, { useState, useEffect } from "react";
+import { Card, Button } from "react-bootstrap";
 import useRecursos from "../hooks/useRecursos";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom"; 
 
 const Recursos = () => {
-  const { recursos, filtrarNombre, filtrarTipo, ordenarRecursosPorNombreAsc, ordenarRecursosPorNombre, ordenarRecursosPorNombreDesc } = useRecursos();
-  const [filtros, setFiltros] = useState({ tipo: "", nombre: "" });
-  const [ordenAscendente, setOrdenAscendente] = useState(true);
+  const {
+    listadoRecursos,
+    filtroNombre,
+    filtroTipo,
+    filtrarPorNombre,
+    filtrarPorTipo,
+    ordenarNombreAsc,
+    ordenarNombreDesc,
+    setFiltroNombre, 
+    setFiltroTipo
+  } = useRecursos();
 
-  // Función para manejar el cambio en la opción de ordenamiento
- // Función para manejar el cambio en la opción de ordenamiento
-const manejarOrdenar = () => {
-  if (ordenAscendente) {
-    ordenarRecursosPorNombreAsc().then(() => {
-      setOrdenAscendente(false); // Cambiar el estado después de que se complete la ordenación ascendente
-    }).catch(error => {
-      console.error("Error al ordenar recursos ascendente:", error.message);
-    });
-  } else {
-    ordenarRecursosPorNombreDesc().then(() => {
-      setOrdenAscendente(true); // Cambiar el estado después de que se complete la ordenación descendente
-    }).catch(error => {
-      console.error("Error al ordenar recursos descendente:", error.message);
-    });
-  }
-};
+  const [recursosFiltrados, setRecursosFiltrados] = useState([]);
 
+  useEffect(() => {
+    let recursosFiltradosTemp = listadoRecursos;
+    recursosFiltradosTemp = filtrarPorNombre(recursosFiltradosTemp, filtroNombre);
+    recursosFiltradosTemp = filtrarPorTipo(recursosFiltradosTemp, filtroTipo);
+    setRecursosFiltrados(recursosFiltradosTemp);
+  }, [listadoRecursos, filtroNombre, filtroTipo]);
 
-  // Aplicar filtros
-  let recursosFiltrados = recursos;
-  if (filtros.tipo) {
-    recursosFiltrados = filtrarTipo(recursosFiltrados, filtros.tipo);
-  }
-  if (filtros.nombre) {
-    recursosFiltrados = filtrarNombre(recursosFiltrados, filtros.nombre);
-  }
+  const handleOrdenarAscendente = async () => {
+    const recursosOrdenados = await ordenarNombreAsc();
+    setRecursosFiltrados(recursosOrdenados);
+  };
+
+  const handleOrdenarDescendente = async () => {
+    const recursosOrdenados = await ordenarNombreDesc();
+    setRecursosFiltrados(recursosOrdenados);
+  };
 
   return (
-    <Fragment>
-      <div className="contenedor">
-        <h1>Recursos</h1>
-        <Link to="/crear-recurso"><Button variant="light">Añadir Recurso</Button></Link>
-        <div>
-          {/* Controles para filtrar y ordenar */}
-          <fieldset>
-            <legend>Filtrar y Ordenar</legend>
-            <div>
-              <label htmlFor="tipo">Filtrar por tipo:</label>
-              <select id="tipo" value={filtros.tipo} onChange={e => setFiltros({ ...filtros, tipo: e.target.value })}>
-                <option value="">Todos</option>
-                <option value="video">Vídeos</option>
-                <option value="articulo">Artículos</option>
-                <option value="foro">Foros</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="nombre">Filtrar por nombre:</label>
-              <input type="text" id="nombre" value={filtros.nombre} onChange={e => setFiltros({ ...filtros, nombre: e.target.value })} />
-            </div>
-            <div>
-              <label>Ordenar por nombre:</label>
-              <Button variant="light" onClick={manejarOrdenar}>{ordenAscendente ? "Ascendente" : "Descendente"}</Button>
-            </div>
-          </fieldset>
-        </div>
-        <div className="opciones-contenedor">
-          {/* Lista de recursos */}
-          {recursosFiltrados.map(recurso => (
-            <Card key={recurso.id}>
-              <CardBody>
-                <CardTitle>{recurso.nombre}</CardTitle>
-                <CardSubtitle>{recurso.tipo}</CardSubtitle>
-                <CardText>{recurso.descripcion}</CardText>
-              </CardBody>
-            </Card>
-          ))}
-        </div>
-    </Fragment>
+    <div>
+      <div>
+        <Link to="/crear-recurso">
+          <Button variant="light">Crear Recurso</Button>
+        </Link>
+      </div>
+      <h2>Listado de Recursos</h2>
+      <div>
+        <label htmlFor="filtroNombre">Filtrar por nombre:</label>
+        <input
+          type="text"
+          id="filtroNombre"
+          value={filtroNombre}
+          onChange={(e) => setFiltroNombre(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="filtroTipo">Filtrar por tipo:</label>
+        <select
+          id="filtroTipo"
+          value={filtroTipo}
+          onChange={(e) => setFiltroTipo(e.target.value)}
+        >
+          <option value="">Todos</option>
+          <option value="articulo">Articulo</option>
+          <option value="video">Video</option>
+          <option value="foro">Foro</option>
+        </select>
+      </div>
+      <div>
+        <Button variant="light" onClick={handleOrdenarAscendente}>Orden ascendente</Button>
+        <Button variant="light" onClick={handleOrdenarDescendente}>Orden descendente</Button>
+      </div>
+      <div className="card-container">
+        {recursosFiltrados.map((recurso) => (
+          <Card key={recurso.id_recurso}>
+            <Card.Body>
+              <Card.Title>{recurso.nombre_recurso}</Card.Title>
+              <Card.Text>Tipo: {recurso.tipo}</Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+    </div>
   );
 };
 
 export default Recursos;
-
 
 
