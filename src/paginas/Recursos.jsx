@@ -1,5 +1,3 @@
-// Componente Recursos
-
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import useRecursos from "../hooks/useRecursos";
@@ -40,9 +38,12 @@ const Recursos = () => {
 
   return (
     <div>
-      <div>
+      <div className="opcionesRecursos">
         <Link to="/crear-recurso">
           <Button variant="light">Crear Recurso</Button>
+        </Link>
+        <Link to="/editar-recurso">
+          <Button variant="light">Editar Recurso</Button>
         </Link>
       </div>
       <h2>Listado de Recursos</h2>

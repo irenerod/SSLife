@@ -72,34 +72,56 @@ const crearRecurso = async (e) => {
     }
   };
 
-  
+   // Modificamos los datos del producto seleccionado:
+   const modificarDato = (evento) => {
+    const { name, value } = evento.target;
+    setRecursoSeleccionado({ ...recursoSeleccionado, [name]: value });
+  };
   // Seleccionar un recurso para editar:
   const seleccionarRecurso = (recurso) => {
     setRecursoSeleccionado(recurso);
   };
 
   // Actualizar un recurso:
-  const actualizarRecurso = async (e) => {
-    e.preventDefault();
+  const actualizarRecurso = async () => {
     try {
       const { data, error } = await supabaseConexion
         .from("recursos")
         .update(recursoSeleccionado)
         .eq("id_recurso", recursoSeleccionado.id_recurso);
-
+  
       if (error) throw error;
-
+  
       const recursosCambiados = listadoRecursos.map((recursoAntiguo) => {
         return recursoAntiguo.id_recurso === recursoSeleccionado.id_recurso ? recursoSeleccionado : recursoAntiguo;
       });
-
+  
       setListadoRecursos(recursosCambiados);
       setRecurso(valoresInicialesRecurso);
     } catch (error) {
       setError(error.message);
     }
   };
-
+  // Eliminar recurso según su id:
+  const eliminarRecurso = async (id_recurso) => {
+    try {
+      const { data, error } = await supabaseConexion
+        .from("recursos")
+        .delete()
+        .eq("id_recurso", id_recurso);
+  
+      if (error) {
+        throw error;
+      }
+  
+      // Actualizar el listado de recursos:
+      const recursosActualizados = listadoRecursos.filter(recurso => recurso.id_recurso !== id_recurso);
+      setListadoRecursos(recursosActualizados);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  
   // Filtrar por nombre
   const filtrarPorNombre = (recursos, filtroNombre) => {
     if (!filtroNombre) return recursos;
@@ -221,6 +243,8 @@ const crearRecurso = async (e) => {
     ordenarNombreDesc,
     validarRecurso,
     validarFormulario,
+    modificarDato,
+    eliminarRecurso,
   };
 
   useEffect(() => {
