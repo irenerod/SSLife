@@ -53,6 +53,7 @@ const Recursos = () => {
           type="text"
           id="filtroNombre"
           value={filtroNombre}
+          placeholder="Buscar nombre recurso"
           onChange={(e) => setFiltroNombre(e.target.value)}
         />
       </div>

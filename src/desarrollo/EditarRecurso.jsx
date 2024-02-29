@@ -74,6 +74,7 @@ const EdicionRecursos = () => {
               <Form.Control
                 type="text"
                 name="nombre_recurso"
+                placeholder="Modifica el nombre del recurso."
                 value={recursoSeleccionado?.nombre_recurso || ''}
                 onChange={modificarDato}
                 required

@@ -36,6 +36,7 @@ const manejarCrear = () => {
                 type="text"
                 id="nombre_recurso"
                 name="nombre_recurso"
+                placeholder="Ingresa el nombre del recurso."
                 value={recurso.nombre_recurso || ""}
                 onChange={(e) => {
                     actualizarDato(e);
@@ -45,7 +46,7 @@ const manejarCrear = () => {
               {erroresFormulario.includes("nombre_recurso") && <p>Nombre del recurso requerido</p>}
             </div>
             <div>
-              <label htmlFor="tipo">Tipo:</label>
+              <label htmlFor="tipo">Selecciona un tipo:</label>
               <div>
                 <input
                   type="radio"
@@ -89,7 +90,7 @@ const manejarCrear = () => {
               {erroresFormulario.includes("tipo") && <p>Tipo de recurso requerido</p>}
             </div>
             <div>
-            <label htmlFor="id_propietario">Autor:</label>
+            <label htmlFor="id_propietario">Selecciona un autor:</label>
             <select
               id="id_propietario"
               name="id_propietario"
@@ -99,7 +100,7 @@ const manejarCrear = () => {
               }}
               required
             >
-              <option value="">Seleccionar propietario</option>
+              <option value="">Seleccionar autor</option>
               {listaProfesionales.map((profesional) => (
                 <option key={profesional.id_profesional} value={profesional.id_profesional}>
                   {obtenerNombrePropietario(profesional.id_profesional)}
