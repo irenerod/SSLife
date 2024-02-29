@@ -10,6 +10,7 @@ const ProveedorRecursos = ({ children }) => {
   const valoresInicialesRecurso = {
     nombre_recurso: "",
     tipo: "",
+    imagen:"",
     id_propietario: "",
   };
 
@@ -129,19 +130,18 @@ const crearRecurso = async (e) => {
     return recursos.filter(recurso => recurso.nombre_recurso.toLowerCase().includes(nombreFiltrado));
   };
 
-    // Filtrar por tipo
+  // Filtrar por tipo
     const filtrarPorTipo = (recursos, filtroTipo) => {
-        if (!filtroTipo || filtroTipo === 'Todos') return recursos; // Devuelve todos los recursos si no hay filtroTipo o si es 'Todos'
-        
-        const tipoFiltrado = filtroTipo.toLowerCase();
-        
-        return recursos.filter(recurso => {
-            // Si el tipo del recurso coincide con el tipo filtrado, mantenlo en la lista
-            return recurso.tipo.toLowerCase() === tipoFiltrado;
-        });
-    };
-  
-
+      if (!filtroTipo || filtroTipo === 'Todos') return recursos; // Devuelve todos los recursos si no hay filtroTipo o si es 'Todos'
+      
+      const tipoFiltrado = filtroTipo.toLowerCase();
+      
+      return recursos.filter(recurso => {
+          // Si el tipo del recurso coincide con el tipo filtrado, mantenlo en la lista
+          return recurso.tipo.toLowerCase() === tipoFiltrado;
+      });
+  };
+    
 
   // Ordenar los recursos:
   const ordenarRecursos = async (campo, ascendente) => {
@@ -232,6 +232,7 @@ const crearRecurso = async (e) => {
     setRecursoSeleccionado,
     actualizarRecurso,
     recursosFiltrados,
+    setRecursosFiltrados,
     filtroNombre,
     filtrarPorTipo,
     filtrarPorNombre,

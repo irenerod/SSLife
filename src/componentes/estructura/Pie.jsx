@@ -3,6 +3,7 @@ import Caelestis from '../Caelestis/Caelestis';
 import { Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Pie = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Card, CardBody, CardText, CardTitle, CardGroup, Button, CardDeck } from "reactstrap";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,6 +7,7 @@ import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {
   const {
+    recurso,
     listadoRecursos,
     filtroNombre,
     filtroTipo,
@@ -15,38 +16,30 @@ const Recursos = () => {
     ordenarNombreAsc,
     ordenarNombreDesc,
     setFiltroNombre,
-    setFiltroTipo
+    setFiltroTipo,
+    recursosFiltrados,
+    setRecursosFiltrados
   } = useRecursos();
 
-  const [recursosFiltrados, setRecursosFiltrados] = useState([]);
-
   useEffect(() => {
-    let recursosFiltradosTemp = listadoRecursos;
-    recursosFiltradosTemp = filtrarPorNombre(recursosFiltradosTemp, filtroNombre);
-    recursosFiltradosTemp = filtrarPorTipo(recursosFiltradosTemp, filtroTipo);
-    setRecursosFiltrados(recursosFiltradosTemp);
+    const recursosFiltradosPorNombre = filtrarPorNombre(listadoRecursos, filtroNombre);
+    const recursosFiltradosPorTipo = filtrarPorTipo(listadoRecursos, filtroTipo);
+    setRecursosFiltrados(recursosFiltradosPorTipo);
   }, [listadoRecursos, filtroNombre, filtroTipo]);
 
-  const handleOrdenarAscendente = async () => {
+  const ordenarAsc = async () => {
     const recursosOrdenados = await ordenarNombreAsc();
-    setRecursosFiltrados(recursosOrdenados);
+    setRecursosFiltrados([...recursosOrdenados]);
   };
-
-  const handleOrdenarDescendente = async () => {
+  
+  const ordenarDesc = async () => {
     const recursosOrdenados = await ordenarNombreDesc();
-    setRecursosFiltrados(recursosOrdenados);
+    setRecursosFiltrados([...recursosOrdenados]); 
   };
 
   return (
+    <Fragment>
     <div>
-      <div className="opcionesRecursos">
-        <Link to="/crear-recurso">
-          <Button color="light">Crear Recurso</Button>
-        </Link>
-        <Link to="/editar-recurso">
-          <Button color="light">Editar Recurso</Button>
-        </Link>
-      </div>
       <h2>Listado de Recursos</h2>
       <div className="filtrarOrdenar">
         <label htmlFor="filtroNombre">Filtrar por nombre:</label>
@@ -60,24 +53,29 @@ const Recursos = () => {
       <div className="filtrarOrdenar">
         <label htmlFor="filtroTipo">Filtrar por tipo:</label>
         <select
-          id="filtroTipo"
-          value={filtroTipo}
-          onChange={(e) => setFiltroTipo(e.target.value)}
-        >
-          <option value="">Todos</option>
-          <option value="articulo">Articulo</option>
-          <option value="video">Video</option>
-          <option value="foro">Foro</option>
-        </select>
+        id="filtroTipo"
+        defaultValue={filtroTipo} // Cambio aquí de value a defaultValue para que coja el valor del select.
+        onChange={(e) => {
+            console.log("Nuevo valor seleccionado:", e.target.value); // Agregado para verificar el nuevo valor seleccionado.
+            setFiltroTipo(e.target.value);
+        }}
+    >
+        <option value="">Todos</option>
+        <option value="articulo">Articulo</option>
+        <option value="video">Video</option>
+        <option value="foro">Foro</option>
+    </select>
+
       </div>
-      <div>
-        <Button color="light" onClick={handleOrdenarAscendente}>Orden ascendente</Button>
-        <Button color="light" onClick={handleOrdenarDescendente}>Orden descendente</Button>
+      <div className="opcionesRecursos">
+        <Button className="boton2" onClick={ordenarAsc}>Orden ascendente</Button>
+        <Button className="boton1" onClick={ordenarDesc}>Orden descendente</Button>
       </div>
       <CardDeck> {/*CardGroup */}
         {recursosFiltrados.map((recurso) => (
           <Card key={recurso.id_recurso}>
             <CardBody>
+            <img src={recurso.imagen} alt="imagen-recurso" width="200px" height="125px" />
               <CardTitle>{recurso.nombre_recurso}</CardTitle>
               <CardText>Tipo: {recurso.tipo}</CardText>
             </CardBody>
@@ -85,6 +83,15 @@ const Recursos = () => {
         ))}
       </CardDeck>
     </div>
+     <div className="opcionesRecursos">
+     <Link to="/crear-recurso">
+       <Button className="boton2">Crear Recurso</Button>
+     </Link>
+     <Link to="/editar-recurso">
+       <Button className="boton1">Editar Recurso</Button>
+     </Link>
+   </div>
+   </Fragment>
   );
 };
 

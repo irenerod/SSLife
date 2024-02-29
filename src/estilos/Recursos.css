@@ -60,21 +60,39 @@
     padding: 10px;
   }
   
-  .opcionesRecursos Button {
+  .boton1{
     font-size: 16px;
     padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 15px;
+    border: 3px;
     background-color: #9be687;
     color: #343a40;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     margin: 5px;
   }
+  .boton2{
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 3px #9be687;
+    border: 3px;
+    color: #343a40;
+    background-color: snow;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    margin: 5px;
+  }
   
-  .opcionesRecursos Button:hover {
+ 
+
+  .boton1:hover {
     background-color: #4c813e;
     color: #fff;
     border-color: #e3d76d;
+  } 
+  .boton2:hover {
+    background-color: #4c813e;
+    color: #fff;
+    box-shadow: inset 0 0 0 0px;
   } 
 
   /* Estilos para el contenedor de filtrado y ordenamiento */
@@ -129,14 +147,18 @@
 /* Estilos para los botones del formulario */
 #crearRecurso button {
   display: block;
-  width: calc(100% - 20px); /* Ajustado el ancho para evitar desbordamiento */
+  width: calc(100% - 20px);
   padding: 10px;
   margin-top: 10px;
-  background-color: #4CAF50;
+  background-color: #1275cc;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+#crearRecurso button:hover{
+  background-color: #284a66;
+
 }
 
 /* Estilos para el mensaje de éxito y los errores */
@@ -176,6 +198,7 @@
 
 
 /* Estilos para las tarjetas */
+
 .card {
   margin-bottom: 30px;
   width: 250px;
@@ -184,21 +207,28 @@
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform .2s; /* Animation */
 }
 
 .card-body {
   padding: 0;
+  height: 225px;
+  width: 200px;
+}
+
+.card:hover {
+  transform: scale(1.15);
 }
 
 .card-title {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .card-text {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin: 15px;
 }
 
 /* Estilos para el contenedor de tarjetas */
@@ -206,7 +236,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  margin: 20px;
+  margin: 135px;
 }
 
 .card-container {
@@ -215,11 +245,3 @@
   justify-content: space-between;
 }
 
-.card-group > .card {
-  width: 30%; /* Reducido el ancho de la tarjeta para ajustar mejor al contenedor */
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: #f92d4f;
-}

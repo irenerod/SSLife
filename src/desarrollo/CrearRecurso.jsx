@@ -2,7 +2,7 @@ import React, { Fragment, useState, useContext } from "react";
 import useRecursos from "../hooks/useRecursos.js";
 import useProfesional from "../hooks/useProfesional.js";
 import "../estilos/Recursos.css";
-import { Button } from "react-bootstrap";
+import { Button } from "reactstrap";
 
 const CrearRecurso = () => {
     const { listaProfesionales, obtenerNombrePropietario } = useProfesional();

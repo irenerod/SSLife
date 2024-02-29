@@ -96,11 +96,12 @@ const EdicionRecursos = () => {
                 <option value="foro">Foro</option>
               </Form.Control>
             </Form.Group>
-            <Button variant="success" onClick={() => setConfirmacionEditar(true)}>
-              Guardar Cambios
-            </Button>
+            
             <Button variant="danger" onClick={() => setConfirmacionEliminar(true)}>
               Eliminar Recurso
+            </Button>
+            <Button variant="success" onClick={() => setConfirmacionEditar(true)}>
+              Guardar Cambios
             </Button>
             {exitoMensaje && <p style={{ color: 'green', fontSize: '1.2em', textAlign: 'center' }}>{exitoMensaje}</p>} 
             {errorFormulario && <p style={{ color: 'red', fontSize: '1.2em', textAlign: 'center' }}>{errorFormulario}</p>}

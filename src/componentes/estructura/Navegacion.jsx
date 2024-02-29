@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../estilos/Navegacion.css";
 import useUsuarios from "../../hooks/useUsuarios";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import Caelestis from "../Caelestis/Caelestis";
+//import Caelestis from "../Caelestis/Caelestis";
 import Rutas from "./rutas/Rutas";
 
 const Navegacion = () => {
@@ -11,16 +12,8 @@ const Navegacion = () => {
   const {sesionIniciada}=useUsuarios();
 
   return (
-    <Fragment>
-      <head>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-  />
-</head>
-      
+    <Fragment>      
       <nav>
-        
         {sesionIniciada && (
           <>
             <Breadcrumb>
@@ -36,7 +29,6 @@ const Navegacion = () => {
               </Link>
               </BreadcrumbItem>
             </Breadcrumb>
-            {/*<Caelestis/>*/}
           </>
         )}
 
