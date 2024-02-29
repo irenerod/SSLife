@@ -7,7 +7,6 @@ const Inicio = () => {
     <Fragment>
       <div className="container">
         <div className="inicio">
-          <img className="logoIni" src="./src/assets/img/Logo SS Life.png" alt="logo" width="100px"/>
           <h1>Inicio</h1>
         </div>
         <div className="opciones">

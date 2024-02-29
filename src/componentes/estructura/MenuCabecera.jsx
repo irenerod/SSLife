@@ -9,23 +9,21 @@ import Rutas from './rutas/Rutas';
 const MenuCabecera = () => {
   return (
     <Fragment>
-      <Breadcrumb>
-        <BreadcrumbItem>
-         <Link className='enlace' to='/inicio'>
-              Inicio
-            </Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-        <Link className='enlace' to='/sobre'>
-              Sobre SSLife
-        </Link>
-        </BreadcrumbItem>       
-        <Navegacion/>
-      </Breadcrumb>
-      <div className='inicioSesion'>
-        <InicioSesion />
-
-      </div>
+       <Navbar color="dark" dark expand="md">
+      <NavbarBrand href="/">Mi Sitio</NavbarBrand>
+      <Nav className="ml-auto" navbar>
+        <NavItem>
+          <NavLink tag={Link} to="/inicio" className='enlace'>Inicio</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/sobre" className='enlace'>Sobre SSLife</NavLink>
+        </NavItem>
+        <NavItem>
+         <InicioSesion />
+        </NavItem>
+        {/* Aquí puedes agregar más elementos de navegación si es necesario */}
+      </Nav>
+    </Navbar>
     </Fragment>
   );
 }

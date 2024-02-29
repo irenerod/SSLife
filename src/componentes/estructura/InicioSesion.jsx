@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import useUsuarios from "../../hooks/useUsuarios";
 import { Button } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../estilos/InicioSesion.css';
 import Caelestis from "../Caelestis/Caelestis";
 
 const InicioSesion = () => {
@@ -11,7 +12,7 @@ const InicioSesion = () => {
       <div className="fixed-top d-flex justify-content-end row-reverse">
             <div className="col-md-auto" >
               {sesionIniciada ? (
-                <Button color="danger" size="lg" className="float-left mt-2"
+                <Button color="danger" size="lg" className="float-left mt-2 cerrarSesion"
                   onClick={() => {
                     cerrarSesion();
                   }}

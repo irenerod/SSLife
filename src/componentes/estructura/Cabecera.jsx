@@ -3,17 +3,14 @@ import InicioSesion from "./InicioSesion";
 import MenuCabecera from "./MenuCabecera";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../estilos/Cabecera.css";
+import Navegacion from "./Navegacion";
 
 const Cabecera = () => {
   return (
     <Fragment>
           <header>
-            <div className="cabecera">
-              <img
-                className="logo"
-                src="./src/assets/img/LogosinFondo.png" alt="logo"/>
-            </div>
-            <MenuCabecera />
+            {/*(<MenuCabecera />*/}
+                <Navegacion/>
           </header>
     </Fragment>
   );

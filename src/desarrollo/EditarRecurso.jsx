@@ -50,7 +50,7 @@ const EdicionRecursos = () => {
 
   return (
     <div>
-      <h2>Editar Recurso</h2>
+      <h2>Editar Recurso:</h2>
       <div style={{ display: 'flex' }}>
         <div style={{ flex: '0 0 30%', marginRight: '20px' }}>
           <h3>Selecciona un recurso</h3>

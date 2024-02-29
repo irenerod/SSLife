@@ -19,6 +19,8 @@ body, html {
     background-color: #fdd10c;
     width: 1080px;
     margin: 0 auto;
+    border-radius: 60px;
+    padding: 1.5rem;
 }
 h1 {
 flex: 1; /* Ocupa todo el espacio restante */
@@ -64,7 +66,7 @@ width: 500px;
 height: 80px;
 margin: 10px;
 color: #5d243d;
-border-radius: 15px;
+border-radius: 60px;
 }
 
 .sobreSSL {
@@ -90,7 +92,7 @@ background-color: #f67288;
     color: snow;
     border-color: #dbffd2;
     background-color: #9dd13c;
-    /*font-style: italic;*/
+    font-style: italic;
 }
 .recursos:hover {
     color: snow;
