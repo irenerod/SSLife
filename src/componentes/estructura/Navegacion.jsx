@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../estilos/Navegacion.css";
 import InicioSesion from './InicioSesion';
 import useUsuarios from "../../hooks/useUsuarios";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 //import Caelestis from "../Caelestis/Caelestis";
 import Rutas from "./rutas/Rutas";
@@ -28,6 +27,9 @@ const Navegacion = () => {
                 <NavLink tag={Link} to="/inicio" className='enlace'>Inicio</NavLink>
               </NavItem>
               <NavItem>
+              <NavLink tag={Link} to="/sobre" className='enlace'>Sobre SSLife</NavLink>
+            </NavItem>
+              <NavItem>
                 <NavLink tag={Link} to="/recursos" className='enlace'>Recursos</NavLink>
               </NavItem>
               <NavItem>
@@ -48,17 +50,18 @@ const Navegacion = () => {
               <img className="logo" src="./src/assets/img/LogosinFondo.png" alt="logo"/>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/inicio" className='enlace'>Inicio</NavLink>
+              <NavLink tag={Link} to="/inicio-sesion" className='enlace'>Iniciar sesion</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={Link} to="/sobre" className='enlace'>Sobre SSLife</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/inicio-sesion" className='enlace'>Iniciar sesion</NavLink>
-            </NavItem>
+                <NavLink tag={Link} to="/contacto" className='enlace'>Contacto</NavLink>
+              </NavItem>
           </Nav>
         </Navbar>
-          </>
+         {/*<Caelestis/>*/}
+        </>
         )
         }
 

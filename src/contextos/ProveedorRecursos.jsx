@@ -238,7 +238,6 @@ const crearRecurso = async (e) => {
     filtrarPorNombre,
     setFiltroTipo,
     setFiltroNombre,
-    setRecursosFiltrados,
     ordenarNombreAsc,
     ordenarNombreDesc,
     validarRecurso,

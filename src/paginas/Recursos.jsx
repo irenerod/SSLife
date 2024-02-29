@@ -22,10 +22,16 @@ const Recursos = () => {
   } = useRecursos();
 
   useEffect(() => {
+    // Filtrar por nombre
     const recursosFiltradosPorNombre = filtrarPorNombre(listadoRecursos, filtroNombre);
-    const recursosFiltradosPorTipo = filtrarPorTipo(listadoRecursos, filtroTipo);
+
+    // Filtrar por tipo sobre los recursos ya filtrados por nombre
+    const recursosFiltradosPorTipo = filtrarPorTipo(recursosFiltradosPorNombre, filtroTipo);
+
+    // Actualizar el estado de recursos filtrados
     setRecursosFiltrados(recursosFiltradosPorTipo);
   }, [listadoRecursos, filtroNombre, filtroTipo]);
+
 
   const ordenarAsc = async () => {
     const recursosOrdenados = await ordenarNombreAsc();

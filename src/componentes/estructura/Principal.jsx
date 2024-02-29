@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Rutas from "./rutas/Rutas.jsx";
-import Caelestis from "../Caelestis/Caelestis.jsx";
+//import Caelestis from "../Caelestis/Caelestis.jsx";
 
 const Principal = () => {
   return (
