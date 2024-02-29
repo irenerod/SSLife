@@ -6,7 +6,7 @@ const Caelestis = () => {
     <section className="contenedorCaelestis">
     <section className="caelestis">
       <div className="uno"></div>
-      <p>caelestis</p>
+      <p></p>
       <div className="tres"></div>
     </section>
     </section>
