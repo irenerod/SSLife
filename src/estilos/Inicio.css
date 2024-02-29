@@ -55,6 +55,10 @@ padding: 10px;
 .sobreSSL,
 .recursos,
 .contacto {
+transition: transform .2s; /* Animation */
+display: flex;
+justify-content: center;
+align-items: center;
 border: #5d243d 2px solid;
 width: 500px;
 height: 80px;
@@ -75,12 +79,17 @@ background-color: #f67288;
 }
 
 /* Hover */
+.sobreSSL:hover,
+.recursos:hover,
+.contacto:hover {
+    transform: scale(1.15);
+}
+
 .sobreSSL:hover{
     color: snow;
     border-color: #dbffd2;
     background-color: #9dd13c;
-    font-style: italic;
-
+    /*font-style: italic;*/
 }
 .recursos:hover {
     color: snow;
@@ -89,7 +98,6 @@ background-color: #f67288;
     font-style: italic;
 
 }
-
 .contacto:hover {
     color: snow;
     border-color: #f67288;

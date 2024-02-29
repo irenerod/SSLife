@@ -11,8 +11,9 @@
 
 /* Imagen */
 .imgBienvenda {
-    width: 100%;
+    width: 75%;
     height: auto; 
+    /*margin-top: -15%;*/
 }
 
 /* Botón */
@@ -77,3 +78,6 @@
     color: #f92d4f; /* Hereda el color rojo */
 }
 
+a {
+    text-decoration: none !important;
+}

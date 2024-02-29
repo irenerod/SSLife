@@ -4,6 +4,7 @@ import "../../estilos/Navegacion.css";
 import useUsuarios from "../../hooks/useUsuarios";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import Caelestis from "../Caelestis/Caelestis";
+import Rutas from "./rutas/Rutas";
 
 const Navegacion = () => {
   // Tiene que estar la sesión iniciada para poder ver las siguientes opciones de navegación.
@@ -23,31 +24,19 @@ const Navegacion = () => {
         {sesionIniciada && (
           <>
             <Breadcrumb>
-            <BreadcrumbItem></BreadcrumbItem>
-            <BreadcrumbItem>
-            <Link className='enlace' to='inicio'>
-              Inicio
-            </Link>
-            </BreadcrumbItem>
-        
-            <BreadcrumbItem>
-            <Link className='enlace' to='recursos'>
-              Recursos
-            </Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-            <Link className='enlace' to='sobre'>
-              Sobre SSLife
-            </Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-            <Link className='enlace' to='contacto'>
-              Contacto
-            </Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem active>Actual</BreadcrumbItem>
+              <BreadcrumbItem></BreadcrumbItem>
+              <BreadcrumbItem>
+              <Link className='enlace' to='/recursos'>
+                Recursos
+              </Link>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+              <Link className='enlace' to='/contacto'>
+                Contacto
+              </Link>
+              </BreadcrumbItem>
             </Breadcrumb>
-            <Caelestis/>
+            {/*<Caelestis/>*/}
           </>
         )}
 

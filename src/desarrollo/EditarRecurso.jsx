@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, ListGroup, Modal } from 'react-bootstrap';
 import useRecursos from '../hooks/useRecursos';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const EdicionRecursos = () => {
   const {
@@ -53,7 +54,7 @@ const EdicionRecursos = () => {
       <div style={{ display: 'flex' }}>
         <div style={{ flex: '0 0 30%', marginRight: '20px' }}>
           <h3>Selecciona un recurso</h3>
-          <ListGroup>
+          <ListGroup style={{ margin: '20px' }}>
             {listadoRecursos.map((recurso) => (
               <ListGroup.Item
                 key={recurso.id_recurso}
@@ -68,24 +69,26 @@ const EdicionRecursos = () => {
         </div>
         <div style={{ flex: '1' }}>
           <Form>
-            <Form.Group controlId="nombre_recurso">
-              <Form.Label>Nombre del Recurso</Form.Label>
+            <Form.Group controlId="nombre_recurso" className="text-left">
+              <Form.Label>Nombre del Recurso</Form.Label> 
               <Form.Control
                 type="text"
                 name="nombre_recurso"
                 value={recursoSeleccionado?.nombre_recurso || ''}
                 onChange={modificarDato}
                 required
+                style={{ width: '60%' }}
               />
             </Form.Group>
-            <Form.Group controlId="tipo">
-              <Form.Label>Tipo</Form.Label>
+            <Form.Group controlId="tipo" className="text-left">
+              <Form.Label>Tipo</Form.Label> 
               <Form.Control
                 as="select"
                 name="tipo"
                 value={recursoSeleccionado?.tipo || ''}
                 onChange={modificarDato}
                 required
+                style={{ width: '60%' }}
               >
                 <option value="">Seleccione un tipo</option>
                 <option value="articulo">Articulo</option>
@@ -93,14 +96,14 @@ const EdicionRecursos = () => {
                 <option value="foro">Foro</option>
               </Form.Control>
             </Form.Group>
-            <Button variant="primary" onClick={() => setConfirmacionEditar(true)}>
+            <Button variant="success" onClick={() => setConfirmacionEditar(true)}>
               Guardar Cambios
             </Button>
             <Button variant="danger" onClick={() => setConfirmacionEliminar(true)}>
               Eliminar Recurso
             </Button>
-            {exitoMensaje && <p style={{ color: 'green' }}>{exitoMensaje}</p>}
-            {errorFormulario && <p style={{ color: 'red' }}>{errorFormulario}</p>}
+            {exitoMensaje && <p style={{ color: 'green', fontSize: '1.2em', textAlign: 'center' }}>{exitoMensaje}</p>} 
+            {errorFormulario && <p style={{ color: 'red', fontSize: '1.2em', textAlign: 'center' }}>{errorFormulario}</p>}
           </Form>
           <Modal show={ConfirmacionEliminar} onHide={() => setConfirmacionEliminar(false)}>
             <Modal.Header closeButton>
@@ -137,5 +140,3 @@ const EdicionRecursos = () => {
 };
 
 export default EdicionRecursos;
-
-

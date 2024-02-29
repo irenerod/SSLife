@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button } from "react-bootstrap";
-import useRecursos from "../hooks/useRecursos";
+import { Card, CardBody, CardText, CardTitle, CardGroup, Button, CardDeck } from "reactstrap";
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom"; 
+import "../estilos/Recursos.css";
+import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {
   const {
@@ -13,7 +14,7 @@ const Recursos = () => {
     filtrarPorTipo,
     ordenarNombreAsc,
     ordenarNombreDesc,
-    setFiltroNombre, 
+    setFiltroNombre,
     setFiltroTipo
   } = useRecursos();
 
@@ -40,14 +41,14 @@ const Recursos = () => {
     <div>
       <div className="opcionesRecursos">
         <Link to="/crear-recurso">
-          <Button variant="light">Crear Recurso</Button>
+          <Button color="light">Crear Recurso</Button>
         </Link>
         <Link to="/editar-recurso">
-          <Button variant="light">Editar Recurso</Button>
+          <Button color="light">Editar Recurso</Button>
         </Link>
       </div>
       <h2>Listado de Recursos</h2>
-      <div>
+      <div className="filtrarOrdenar">
         <label htmlFor="filtroNombre">Filtrar por nombre:</label>
         <input
           type="text"
@@ -56,7 +57,7 @@ const Recursos = () => {
           onChange={(e) => setFiltroNombre(e.target.value)}
         />
       </div>
-      <div>
+      <div className="filtrarOrdenar">
         <label htmlFor="filtroTipo">Filtrar por tipo:</label>
         <select
           id="filtroTipo"
@@ -70,19 +71,19 @@ const Recursos = () => {
         </select>
       </div>
       <div>
-        <Button variant="light" onClick={handleOrdenarAscendente}>Orden ascendente</Button>
-        <Button variant="light" onClick={handleOrdenarDescendente}>Orden descendente</Button>
+        <Button color="light" onClick={handleOrdenarAscendente}>Orden ascendente</Button>
+        <Button color="light" onClick={handleOrdenarDescendente}>Orden descendente</Button>
       </div>
-      <div className="card-container">
+      <CardDeck> {/*CardGroup */}
         {recursosFiltrados.map((recurso) => (
           <Card key={recurso.id_recurso}>
-            <Card.Body>
-              <Card.Title>{recurso.nombre_recurso}</Card.Title>
-              <Card.Text>Tipo: {recurso.tipo}</Card.Text>
-            </Card.Body>
+            <CardBody>
+              <CardTitle>{recurso.nombre_recurso}</CardTitle>
+              <CardText>Tipo: {recurso.tipo}</CardText>
+            </CardBody>
           </Card>
         ))}
-      </div>
+      </CardDeck>
     </div>
   );
 };

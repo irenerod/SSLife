@@ -49,6 +49,177 @@
   .videos h2,
   .foros h2 {
     margin-top: 0;
-    color: #fff; /* Color de texto blanco */
+    color: #fff; 
+  }
+
+  /* LISTAR RECURSO */
+  .opcionesRecursos {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
   }
   
+  .opcionesRecursos Button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #9be687;
+    color: #343a40;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    margin: 5px;
+  }
+  
+  .opcionesRecursos Button:hover {
+    background-color: #4c813e;
+    color: #fff;
+    border-color: #e3d76d;
+  } 
+
+  /* Estilos para el contenedor de filtrado y ordenamiento */
+/* Estilos para las etiquetas de los filtros */
+.filtrarOrdenar label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el select de filtrado por tipo */
+.filtrarOrdenar select {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+
+/* CREAR RECURSO */
+/* Estilos para el contenedor del formulario */
+#crearRecurso {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Estilos para los campos del formulario */
+#crearRecurso div {
+  margin-bottom: 15px;
+}
+
+/* Estilos para las etiquetas de los campos */
+#crearRecurso label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los inputs y selects del formulario */
+#crearRecurso input[type="text"],
+#crearRecurso select {
+  width: calc(100% - 20px); /* Ajustado el ancho para evitar desbordamiento */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilos para los botones del formulario */
+#crearRecurso button {
+  display: block;
+  width: calc(100% - 20px); /* Ajustado el ancho para evitar desbordamiento */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilos para el mensaje de éxito y los errores */
+#crearRecurso p {
+  margin-top: 10px;
+}
+
+#crearRecurso p.success-message {
+  color: green;
+}
+
+#crearRecurso p.error-message {
+  color: red;
+}
+
+/* Estilos para los inputs de tipo radio */
+#crearRecurso input[type="radio"] {
+  display: none;
+}
+
+#crearRecurso input[type="radio"] + label {
+  display: inline-block;
+  width: 100px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Estilos para los labels de los inputs radio cuando están seleccionados */
+#crearRecurso input[type="radio"]:checked + label {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/* Estilos para las tarjetas */
+.card {
+  margin-bottom: 30px;
+  width: 250px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de tarjetas */
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-group > .card {
+  width: 30%; /* Reducido el ancho de la tarjeta para ajustar mejor al contenedor */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f92d4f;
+}

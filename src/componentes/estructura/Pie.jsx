@@ -1,4 +1,5 @@
 import React from 'react';
+import Caelestis from '../Caelestis/Caelestis';
 import { Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +15,7 @@ const Pie = () => {
       backgroundImage: `linear-gradient(45deg, rgba(255, 232, 204, 0.5), rgba(255, 255, 179, 0.5))`,
 
     }}>
+      <Caelestis/>
       <div style={{ display: 'flex' }}>
         <Col sm={6} md={4}>
           <h5>Información de interés</h5>
