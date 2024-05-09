@@ -9,7 +9,7 @@ import CreacionRecurso from "../../../paginas/CreacionRecurso.jsx";
 import EdicionRecurso from "../../../paginas/EdicionRecurso.jsx";
 import SobreSSLife from "../../../paginas/SobreSSLife.jsx";
 import Contacto from "../../../paginas/Contacto.jsx";
-import Informacionfooter from "../../../paginas/informacionfooter.jsx";
+import Informacionfooter from "../../../paginas/Informacionfooter.jsx";
 import PreguntasFrecuentes from "../../../paginas/PreguntasFrecuentesfooter.jsx";
 import Sintomasfooter from "../../../paginas/Sintomasfooter.jsx";
 
