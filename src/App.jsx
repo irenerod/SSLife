@@ -29,7 +29,7 @@ function App() {
           <Cabecera />
           <ProveedorProfesionales>
             <ProveedorRecursos>
-              <Principal />
+              <Principal/>
             </ProveedorRecursos>
           </ProveedorProfesionales>
           <Pie />

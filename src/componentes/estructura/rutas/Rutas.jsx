@@ -17,7 +17,7 @@ const Rutas = () => {
   return (
     <Fragment>
       <Routes>
-        <Route path='/' element={<Bienvenida />} /> {/** Por alguna razón te redirige aquí sin control... */}
+        <Route path='/' element={<Bienvenida />} />
         <Route path='/inicio' element={<Inicio />} />
         <Route path='/login' element={<Login />} />
         <Route path='/recursos' element={<Recursos />} />

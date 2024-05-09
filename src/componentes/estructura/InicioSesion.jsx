@@ -3,7 +3,6 @@ import useUsuarios from "../../hooks/useUsuarios";
 import { Button } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../estilos/InicioSesion.css';
-import Caelestis from "../Caelestis/Caelestis";
 
 const InicioSesion = () => {
   const { sesionIniciada, cerrarSesion } = useUsuarios();

@@ -5,7 +5,6 @@ import "../../estilos/Navegacion.css";
 import InicioSesion from './InicioSesion';
 import useUsuarios from "../../hooks/useUsuarios";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-//import Caelestis from "../Caelestis/Caelestis";
 import Rutas from "./rutas/Rutas";
 
 const Navegacion = () => {
@@ -60,7 +59,6 @@ const Navegacion = () => {
               </NavItem>
           </Nav>
         </Navbar>
-         {/*<Caelestis/>*/}
         </>
         )
         }
