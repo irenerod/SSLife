@@ -1,7 +1,8 @@
-
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
+import isPropValid from '@emotion/is-prop-valid';
+import { StyleSheetManager } from 'styled-components';
 
 const theme = {
   background: '#e1f1c4',
@@ -17,6 +18,11 @@ const theme = {
 
 const steps = [
   {
+    id: 'intro',
+    message: 'Bienvenid@ a SSLife, soy Caelestis.',
+    trigger: '1',
+  },
+  {
     id: '1',
     message: '¿Cómo te llamas?',
     trigger: '2',
@@ -29,39 +35,49 @@ const steps = [
   {
     id: '3',
     message: '¡Hola {previousValue}, un placer conocerte!',
-    //trigger: '4',
-    trigger: '7',
+    trigger: '4',
   },
- /*  {
+  {
     id: '4',
-    message: '¿A quién quieres enviar tu carta?',
+    message: 'Ahora puedes escribir una carta dirigida a quién tú quieras.',
     trigger: '5',
   },
   {
     id: '5',
-    message: '¿Qué quieres decirle?',
+    user: true,
     trigger: '6',
   },
   {
     id: '6',
-    message: '¿A quién quieres enviar tu carta?',
+    message: 'Carta enviada: {previousValue}',
     trigger: '7',
-  }, */
+  },
   {
     id: '7',
-    message: 'Perfecto.',
+    message: 'Espero poder haber sido de ayuda y que te sientas mejor compartiendo esa carta conmigo.',
+    trigger: '8',
+  },
+  {
+    id: '8',
+    message: 'Recuerda que no estás solo. Nos vemos pronto.',
     end: true,
   },
 ];
 
-const Caelestis = () => (
-  <ThemeProvider theme={theme}>
-    <ChatBot
-      headerTitle="Caelestis"
-      steps={steps}
-      floating={true}
-      />;
-  </ThemeProvider>
-);
+const Caelestis = () => {
+  const floating = true;
+
+  return (
+    <StyleSheetManager shouldForwardProp={isPropValid}>
+      <ThemeProvider theme={theme}>
+        <ChatBot
+          headerTitle="Caelestis"
+          steps={steps}
+          floating={floating} 
+        />
+      </ThemeProvider>
+    </StyleSheetManager>
+  );
+};
 
 export default Caelestis;
