@@ -1,77 +1,61 @@
-/* Estilos para el contenedor principal */
-
-
-h1{
-  color: #F92D4F;
-}
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inicioSesion {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-/* Estilos para cada formulario */
-.cuentaUsuario {
-  width: 300px;
-  padding: 20px;
-  background-color: #f8e696;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos para los títulos */
-.cuentaUsuario h3 {
-  margin-bottom: 20px;
-  color: #701e1e;
-  font-size: 20px;
-}
-
-/* Estilos para las etiquetas */
-.cuentaUsuario label {
-  display: block;
-  margin-bottom: 8px;
-  color: #148576;
-}
-
-/* Estilos para los campos de entrada */
-.cuentaUsuario input[type='email'],
-.cuentaUsuario input[type='password'] {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #FDD10C;
-  border-radius: 4px;
-}
-
-/* Estilos para el mensaje de contraseña */
-.cursiva {
-  margin-bottom: 15px;
-  font-style: italic;
-  color: #f34e4e;
-  font-size: small;
-}
-
-/* Estilos para el botón */
-.cuentaUsuario button {
-  width: calc(100% - 20px);
-  padding: 10px;
+.card {
   border: none;
-  border-radius: 4px;
-  background-color: #9dd13c;
-  color: #f5f5f5;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.cuentaUsuario button:hover {
-  background-color: #2e8d09;
+.nav-pills {
+  display: table;
+  width: 100%;
+}
+.nav-pills .nav-link.active{
+  background-color: #27b056;
+
+}
+
+.nav-pills .nav-link {
+  border-radius: 0px;
+  border-bottom: 1px solid #7fbf7f;
+  color: #18532d;
+  border-radius: 5px !important;
+
+}
+
+.nav-item {
+  display: table-cell;
+  background: #d4fab3;
+}
+
+.form {
+  padding: 10px;
+}
+
+.form input {
+  margin-bottom: 12px;
+  border-radius: 3px;
+}
+
+.form input:focus {
+  box-shadow: none;
+}
+
+.form button {
+  margin-top: 20px;
+}
+
+.btn-dark, .btn-dark:hover, .btn-primary, .btn-primary:hover {
+  color: #fff;
+  background-color: #387c3e;
+  border-color: #296d2f;
+  border-radius: 5px !important;
+}
+
+.cursiva {
+  font-style: italic;
+}
+
+.iniciar-btn {
+  border-radius: 5px !important;
+}
+
+.registrar-btn {
+  border-radius: 5px !important;
 }

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
@@ -19,7 +20,9 @@
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+    "react-simple-chatbot": "^0.5.0",
     "reactstrap": "^9.2.2",
+    "styled-components": "^6.1.10",
     "supabase": "^1.145.4",
     "tw-elements-react": "^1.0.0-alpha2"
   },

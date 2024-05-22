@@ -19,6 +19,8 @@ body, html {
     background-color: #fdd10c;
     width: 1080px;
     margin: 0 auto;
+    border-radius: 60px;
+    padding: 1.5rem;
 }
 h1 {
 flex: 1; /* Ocupa todo el espacio restante */
@@ -55,11 +57,16 @@ padding: 10px;
 .sobreSSL,
 .recursos,
 .contacto {
+transition: transform .2s; /* Animation */
+display: flex;
+justify-content: center;
+align-items: center;
 border: #5d243d 2px solid;
 width: 500px;
 height: 80px;
 margin: 10px;
 color: #5d243d;
+border-radius: 60px;
 }
 
 .sobreSSL {
@@ -75,12 +82,17 @@ background-color: #f67288;
 }
 
 /* Hover */
+.sobreSSL:hover,
+.recursos:hover,
+.contacto:hover {
+    transform: scale(1.15);
+}
+
 .sobreSSL:hover{
     color: snow;
     border-color: #dbffd2;
     background-color: #9dd13c;
     font-style: italic;
-
 }
 .recursos:hover {
     color: snow;
@@ -89,7 +101,6 @@ background-color: #f67288;
     font-style: italic;
 
 }
-
 .contacto:hover {
     color: snow;
     border-color: #f67288;

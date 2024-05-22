@@ -1,0 +1,40 @@
+label{
+    display: flex;
+    align-self: left;
+}
+Button{
+    margin: 10px;
+    border-radius: 60px !important;
+}
+
+.list-container {
+    flex: 0 0 30%;
+    margin-right: 20px;
+  }
+  
+  .list-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .list-group {
+    margin: 20px;
+  }
+  
+  .list-group .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group .list-group-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .list-group .list-group-item.active {
+    background-color: #7abb5c;
+    color: #fff;
+  }
+  
+  .list-group .list-group-item.active:hover {
+    background-color: #3c7a1f;
+  }
+  

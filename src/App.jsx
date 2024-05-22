@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Cabecera from "./componentes/estructura/Cabecera.jsx";
 import Navegacion from "./componentes/estructura/Navegacion.jsx";
 import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
-import { BrowserRouter } from "react-router-dom";
-//import Caelestis from "./componentes/Caelestis/Caelestis.jsx";
 import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
-//import Login from "./paginas/Login.jsx";
+import "./App.css";
+
 
 /**
  *  Roles:
@@ -29,7 +29,7 @@ function App() {
           <Cabecera />
           <ProveedorProfesionales>
             <ProveedorRecursos>
-              <Principal />
+              <Principal/>
             </ProveedorRecursos>
           </ProveedorProfesionales>
           <Pie />

@@ -1,87 +1,107 @@
-import React, { Fragment, useState } from "react"; // Importar useState desde "react"
-import { Link } from "react-router-dom"; // Importar Link desde "react-router-dom"
-import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from "react-bootstrap";
+import React, { useState, useEffect, Fragment } from "react";
+import { Card, CardBody, CardText, CardTitle, CardGroup, Button, CardDeck } from "reactstrap";
+import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../estilos/Recursos.css";
 import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {
-  const { recursos, filtrarNombre, filtrarTipo, ordenarRecursosPorNombreAsc, ordenarRecursosPorNombre, ordenarRecursosPorNombreDesc } = useRecursos();
-  const [filtros, setFiltros] = useState({ tipo: "", nombre: "" });
-  const [ordenAscendente, setOrdenAscendente] = useState(true);
+  const {
+    recurso,
+    listadoRecursos,
+    filtroNombre,
+    filtroTipo,
+    filtrarPorNombre,
+    filtrarPorTipo,
+    ordenarNombreAsc,
+    ordenarNombreDesc,
+    setFiltroNombre,
+    setFiltroTipo,
+    recursosFiltrados,
+    setRecursosFiltrados
+  } = useRecursos();
 
-  // Función para manejar el cambio en la opción de ordenamiento
- // Función para manejar el cambio en la opción de ordenamiento
-const manejarOrdenar = () => {
-  if (ordenAscendente) {
-    ordenarRecursosPorNombreAsc().then(() => {
-      setOrdenAscendente(false); // Cambiar el estado después de que se complete la ordenación ascendente
-    }).catch(error => {
-      console.error("Error al ordenar recursos ascendente:", error.message);
-    });
-  } else {
-    ordenarRecursosPorNombreDesc().then(() => {
-      setOrdenAscendente(true); // Cambiar el estado después de que se complete la ordenación descendente
-    }).catch(error => {
-      console.error("Error al ordenar recursos descendente:", error.message);
-    });
-  }
-};
+  useEffect(() => {
+    // Filtrar por nombre
+    const recursosFiltradosPorNombre = filtrarPorNombre(listadoRecursos, filtroNombre);
+
+    // Filtrar por tipo sobre los recursos ya filtrados por nombre
+    const recursosFiltradosPorTipo = filtrarPorTipo(recursosFiltradosPorNombre, filtroTipo);
+
+    // Actualizar el estado de recursos filtrados
+    setRecursosFiltrados(recursosFiltradosPorTipo);
+  }, [listadoRecursos, filtroNombre, filtroTipo]);
 
 
-  // Aplicar filtros
-  let recursosFiltrados = recursos;
-  if (filtros.tipo) {
-    recursosFiltrados = filtrarTipo(recursosFiltrados, filtros.tipo);
-  }
-  if (filtros.nombre) {
-    recursosFiltrados = filtrarNombre(recursosFiltrados, filtros.nombre);
-  }
+  const ordenarAsc = async () => {
+    const recursosOrdenados = await ordenarNombreAsc();
+    setRecursosFiltrados([...recursosOrdenados]);
+  };
+  
+  const ordenarDesc = async () => {
+    const recursosOrdenados = await ordenarNombreDesc();
+    setRecursosFiltrados([...recursosOrdenados]); 
+  };
 
   return (
     <Fragment>
-      <div className="contenedor">
-        <h1>Recursos</h1>
-        <Link to="/crear-recurso"><Button variant="light">Añadir Recurso</Button></Link>
-        <div>
-          {/* Controles para filtrar y ordenar */}
-          <fieldset>
-            <legend>Filtrar y Ordenar</legend>
-            <div>
-              <label htmlFor="tipo">Filtrar por tipo:</label>
-              <select id="tipo" value={filtros.tipo} onChange={e => setFiltros({ ...filtros, tipo: e.target.value })}>
-                <option value="">Todos</option>
-                <option value="video">Vídeos</option>
-                <option value="articulo">Artículos</option>
-                <option value="foro">Foros</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="nombre">Filtrar por nombre:</label>
-              <input type="text" id="nombre" value={filtros.nombre} onChange={e => setFiltros({ ...filtros, nombre: e.target.value })} />
-            </div>
-            <div>
-              <label>Ordenar por nombre:</label>
-              <Button variant="light" onClick={manejarOrdenar}>{ordenAscendente ? "Ascendente" : "Descendente"}</Button>
-            </div>
-          </fieldset>
-        </div>
-        <div className="opciones-contenedor">
-          {/* Lista de recursos */}
-          {recursosFiltrados.map(recurso => (
-            <Card key={recurso.id}>
-              <CardBody>
-                <CardTitle>{recurso.nombre}</CardTitle>
-                <CardSubtitle>{recurso.tipo}</CardSubtitle>
-                <CardText>{recurso.descripcion}</CardText>
-              </CardBody>
-            </Card>
-          ))}
-        </div>
-        </div>
-    </Fragment>
+    <div>
+      <h2>Listado de Recursos</h2>
+      <div className="filtrarOrdenar">
+        <label htmlFor="filtroNombre">Filtrar por nombre:</label>
+        <input
+          type="text"
+          id="filtroNombre"
+          value={filtroNombre}
+          placeholder="Buscar nombre recurso"
+          onChange={(e) => setFiltroNombre(e.target.value)}
+        />
+      </div>
+      <div className="filtrarOrdenar">
+        <label htmlFor="filtroTipo">Filtrar por tipo:</label>
+        <select
+        id="filtroTipo"
+        defaultValue={filtroTipo} // Cambio aquí de value a defaultValue para que coja el valor del select.
+        onChange={(e) => {
+            console.log("Nuevo valor seleccionado:", e.target.value); // Agregado para verificar el nuevo valor seleccionado.
+            setFiltroTipo(e.target.value);
+        }}
+    >
+        <option value="">Todos</option>
+        <option value="articulo">Articulo</option>
+        <option value="video">Video</option>
+        <option value="foro">Foro</option>
+    </select>
+
+      </div>
+      <div className="opcionesRecursos">
+        <Button className="boton2" onClick={ordenarAsc}>Orden ascendente</Button>
+        <Button className="boton1" onClick={ordenarDesc}>Orden descendente</Button>
+      </div>
+      <CardDeck> {/*CardGroup */}
+        {recursosFiltrados.map((recurso) => (
+          <Card key={recurso.id_recurso}>
+            <CardBody>
+            <img src={recurso.imagen} alt="imagen-recurso" width="200px" height="125px" />
+              <CardTitle>{recurso.nombre_recurso}</CardTitle>
+              <CardText>Tipo: {recurso.tipo}</CardText>
+            </CardBody>
+          </Card>
+        ))}
+      </CardDeck>
+    </div>
+     <div className="opcionesRecursos">
+     <Link to="/crear-recurso">
+       <Button className="boton2">Crear Recurso</Button>
+     </Link>
+     <Link to="/editar-recurso">
+       <Button className="boton1">Editar Recurso</Button>
+     </Link>
+   </div>
+   </Fragment>
   );
 };
 
 export default Recursos;
-
 
 

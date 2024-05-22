@@ -1,16 +1,29 @@
 /* Estilos para los enlaces de navegación */
 .enlace {
-    color: #0d6efd;; /* Color del texto */
-    text-decoration: none; /* Quitar subrayado predeterminado */
-    margin-right: 20px; /* Espaciado entre los enlaces */
-    font-size: 16px; /* Tamaño de fuente */
-    transition: color 0.3s ease; /* Transición suave de color */
-  }
-  
-  /* Estilos para los enlaces cuando están en estado de hover (sobre) */
-  .enlace:hover {
-    color: #9dd13c; /* Cambiar el color del texto al pasar el mouse */
-    font-style: italic;
-    text-decoration: underline;
-  }
+    /* color: #0d6efd;;  Color del texto */
+    color: #5d243d !important;
+    text-decoration: none; 
+    margin-right: 20px; 
+    font-size: 24px;
+    transition: color 0.3s ease; 
+}
 
+/* Estilos para los enlaces cuando están en estado de hover (sobre) */
+.enlace:hover {
+  color:  #f92d4f !important;
+  font-style: bold;
+  text-decoration: underline;
+}
+
+nav {
+  display: flex;
+  background-color: #d4fab3;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+  }
+} 

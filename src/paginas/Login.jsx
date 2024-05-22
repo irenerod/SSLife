@@ -1,120 +1,109 @@
 import React, { Fragment, useState } from "react";
-import { Form, FormGroup, Label, Input, Button, Alert } from "reactstrap";
-import "../estilos/Login.css";
+import { Container, Card, Form, Button, Nav, Tab, Alert } from "react-bootstrap";
 import useUsuarios from "../hooks/useUsuarios";
+import "../estilos/Login.css";
 
 const Login = () => {
   const { iniciarSesion, crearCuenta, actualizarDato, errorUsuario, setErrorUsuario, datosSesion } = useUsuarios();
-  const valorInicial="";
-  const [confirmarContrasena, setConfirmarContrasena] = useState(valorInicial);
+  const [confirmarContrasena, setConfirmarContrasena] = useState("");
+  const [activeKey, setActiveKey] = useState('login');
+  const [errorMensaje, setErrorMensaje] = useState("");
 
   const manejarInicioSesion = async () => {
     iniciarSesion();
   };
-  
-  const manejarConfirmar =  (e)=>{
+
+  const manejarConfirmar = (e) => {
     actualizarDato(e);
     setConfirmarContrasena(e.target.value);
-  }
+  };
 
   const manejarCrearCuenta = async () => {
-    // Verificamos si las contraseñas coinciden.
     if (datosSesion.password !== confirmarContrasena) {
-      // Se muestra un mensaje de error si las contraseñas no coinciden.
-      console.log("Las contraseñas no coinciden.");
+      setErrorMensaje("Las contraseñas no coinciden.");
       return;
-    }
-    else{
-      // Se crea la cuenta si las contraseñas coinciden
+    } else {
+      setErrorMensaje("");
       crearCuenta();
     }
   };
 
   return (
-    <Fragment>
-      <div className='inicioSesion' style={{
-          backgroundImage: `url('./src/assets/img/monigotes.png')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          minHeight: '80vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-      }}>
-        <div className='cuentaUsuario' style={{ width: '45%', padding: '50px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)', marginRight: '5px', marginLeft: 'auto' }}>
-          <img src="./src/assets/img/fotoInicio.png" alt="" style={{ width: '100%', marginBottom: '20px' }} />
-          <h3>Iniciar sesión</h3>
-          <Form>
-            <FormGroup>
-              <Label for='email'>Correo electrónico</Label>
-              <Input
-                type='email'
-                name='email'
-                id='email'
-                placeholder='Ingrese su correo electrónico.'
-                onChange={(e) => actualizarDato(e)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for='password'>Contraseña</Label>
-              <Input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Ingrese su contraseña.'
-                onChange={(e) => actualizarDato(e)}
-              />
-            </FormGroup>
-            <Button color="primary" onClick={manejarInicioSesion}>
-              Iniciar sesión
-            </Button>
-          </Form>
-        </div>
-        <div className='cuentaUsuario' style={{ width: '45%', padding: '50px', backgroundColor: 'white', borderRadius: '10px', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)', marginRight: 'auto', marginLeft: '5px' }}>
-          <img src="./src/assets/img/fotoInicio.png" alt="" style={{ width: '100%', marginBottom: '20px' }} />
-          <h3>Crea una nueva cuenta</h3>
-          <Form>
-            <FormGroup>
-              <Label for='emailRegistro'>Correo electrónico</Label>
-              <Input
-                type='email'
-                name='email'
-                id='emailRegistro'
-                placeholder='Ingrese su correo electrónico.'
-                onChange={(e) => actualizarDato(e)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for='passwordRegistro'>Contraseña</Label>
-              <Input
-                type='password'
-                name='password'
-                id='passwordRegistro'
-                placeholder='Ingrese su contraseña, con mínimo 6 caracteres.'
-                onChange={(e) => actualizarDato(e)}
-              />
-            </FormGroup>
-            <p className="cursiva">La contraseña debe tener mínimo 6 caracteres.</p>
-            <FormGroup>
-              <Label for='confirmPassword'>Confirmar Contraseña</Label>
-              <Input
-                type='password'
-                name='confirmPassword'
-                id='confirmPassword'
-                placeholder='Repite la contraseña para confirmarla.'
-                value={confirmarContrasena}
-                className={datosSesion.password === confirmarContrasena ? 'confirmar-contrasena-input coincide' : 'confirmar-contrasena-input no-coincide'}
-                onChange={(e) => manejarConfirmar(e)}
-              />
-            </FormGroup>
-            <Button color="primary" onClick={manejarCrearCuenta}>
-              Crear cuenta
-            </Button>
-          </Form>
-        </div>
-      </div>
-      {errorUsuario && <Alert color="danger">{errorUsuario}</Alert>}
-    </Fragment>
+    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100">
+      <Card className="w-100" style={{ maxWidth: '400px', border: 'none' }}>
+        <Tab.Container activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
+          <Nav variant="pills" className="d-flex justify-content-center mb-3">
+            <Nav.Item>
+              <Nav.Link eventKey="login" className="text-center w-100 btl">Iniciar sesión</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="signup" className="text-center w-100 btr">Registrarse</Nav.Link>
+            </Nav.Item>
+          </Nav>
+          <Tab.Content>
+            <Tab.Pane eventKey="login">
+              <Form className="px-4 pt-5">
+                <Form.Group>
+                  <Form.Control
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Ingrese su correo electrónico."
+                    onChange={(e) => actualizarDato(e)}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingrese su contraseña."
+                    onChange={(e) => actualizarDato(e)}
+                  />
+                </Form.Group>
+                <Button variant="success" className="btn-block iniciar-btn" onClick={manejarInicioSesion}>Iniciar</Button>
+              </Form>
+            </Tab.Pane>
+            <Tab.Pane eventKey="signup">
+              <Form className="px-4">
+                <Form.Group>
+                  <Form.Control
+                    type="email"
+                    id="email"
+                    name='email'
+                    placeholder="Ingrese su correo electrónico."
+                    onChange={(e) => actualizarDato(e)}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingrese su contraseña."
+                    onChange={(e) => actualizarDato(e)}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirme su contraseña."
+                    value={confirmarContrasena}
+                    onChange={(e) => manejarConfirmar(e)}
+                    className={datosSesion.password === confirmarContrasena ? 'coincide' : 'no-coincide'}
+                  />
+                </Form.Group>
+                {errorMensaje && <Alert variant="danger" className="mt-3">{errorMensaje}</Alert>}
+                <Button variant="success" className="btn-block registrar-btn" onClick={manejarCrearCuenta}>Registrar</Button>
+              </Form>
+            </Tab.Pane>
+          </Tab.Content>
+        </Tab.Container>
+        {errorUsuario && <Alert variant="danger" className="mt-3">{errorUsuario}</Alert>}
+      </Card>
+    </Container>
   );
 };
 

@@ -13,7 +13,7 @@ const Bienvenida = () => {
         <img className="imgBienvenda" src="./src/assets/img/paisajesinfondo.png" alt="bienvenida"/>
         <div className="buttonContainer">
           <Link to="inicio">
-            <button type="button">Descubre más</button>
+            <button type="Button">Descubre más</button>
           </Link>
         </div>
       </div>

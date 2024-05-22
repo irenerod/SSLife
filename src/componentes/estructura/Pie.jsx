@@ -1,33 +1,41 @@
 import React from 'react';
+import Caelestis from '../Caelestis/Caelestis';
+import useUsuarios from "../../hooks/useUsuarios";
 import { Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Pie = () => {
+  const {sesionIniciada}=useUsuarios();
   return (
     <footer style={{
-      position: 'relative',
+  
+      marginTop:5,
       bottom: 0,
       width: '100%',
       padding: '20px 0',
       backgroundImage: `linear-gradient(45deg, rgba(255, 232, 204, 0.5), rgba(255, 255, 179, 0.5))`,
 
     }}>
+
+{sesionIniciada && (
+      <Caelestis/>
+)}
       <div style={{ display: 'flex' }}>
         <Col sm={6} md={4}>
           <h5>Información de interés</h5>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li><Link to="/info">Información</Link></li>
             <li><Link to="/faqs">Preguntas frecuentes</Link></li>
-            <li><Link to="/what-happens">¿Qué me sucede?</Link></li>
-            <li><Link to="/how-help">¿Cómo puedo ayudar?</Link></li>
+            <li><Link to="/que-me-sucede">¿Qué me sucede?</Link></li>
+            <li><Link to="/ayudar">¿Cómo puedo ayudar?</Link></li>
           </ul>
         </Col>
         <Col sm={6} md={4}>
           <h5>Más sobre nuestros profesionales</h5>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li><Link to="/professionals">Profesionales</Link></li>
+            <li><Link to="/profesionales">Profesionales</Link></li>
             <li><Link to="/privacy-policy">Políticas de privacidad</Link></li>
           </ul>
         </Col>
