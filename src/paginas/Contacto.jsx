@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
+
 const Contacto = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -12,7 +13,9 @@ const Contacto = () => {
   };
 
   return (
+    
     <div className="mt-3 d-flex justify-content-center">
+      
       <div style={{ width: '50%' }}>
         <h1 className="mb-4">Página en construcción</h1>
         <h5>Contacto</h5>
