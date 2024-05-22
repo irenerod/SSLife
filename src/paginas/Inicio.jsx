@@ -1,8 +1,24 @@
 import React, { Fragment } from "react";
+import Card1 from "../Añadidos/Card1.jsx";
 import "../estilos/Inicio.css";
 import { Link } from "react-router-dom";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  NavItem,
+  NavLink,
+  Nav,
+  TabContent,
+  TabPane,
+  Container,
+  Row,
+  Col,
+} from "reactstrap";
 
 const Inicio = () => {
+  const [iconPills, setIconPills] = React.useState("1");
+  const [pills, setPills] = React.useState("1");
   return (
     <Fragment>
       <div className="container">
@@ -30,7 +46,6 @@ const Inicio = () => {
               </div>
             </Link>
           </div>
-          
         </div>
       </div>
     </Fragment>
