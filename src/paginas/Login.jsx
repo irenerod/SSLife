@@ -29,10 +29,10 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100">
-      <Card className="w-100" style={{ maxWidth: '400px', border: 'none' }}>
+    <Container fluid className="login d-flex justify-content-center align-items-center min-vh-100">
+      <Card className="login w-100" style={{ maxWidth: '400px', border: 'none' }}>
         <Tab.Container activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
-          <Nav variant="pills" className="d-flex justify-content-center mb-3">
+          <Nav variant="pestanyas" className="d-flex justify-content-center mb-3">
             <Nav.Item>
               <Nav.Link eventKey="login" className="text-center w-100 btl">Iniciar sesión</Nav.Link>
             </Nav.Item>

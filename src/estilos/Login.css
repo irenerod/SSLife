@@ -2,16 +2,16 @@
   border: none;
 }
 
-.nav-pills {
+.nav-pestanya {
   display: table;
   width: 100%;
 }
-.nav-pills .nav-link.active{
+.nav-pestanya .nav-link.active{
   background-color: #27b056;
 
 }
 
-.nav-pills .nav-link {
+.nav-pestanya .nav-link {
   border-radius: 0px;
   border-bottom: 1px solid #7fbf7f;
   color: #18532d;
