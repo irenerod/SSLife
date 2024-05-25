@@ -4,67 +4,64 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../estilos/Navegacion.css";
 import InicioSesion from './InicioSesion';
 import useUsuarios from "../../hooks/useUsuarios";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
 import Rutas from "./rutas/Rutas";
 
 const Navegacion = () => {
   // Tiene que estar la sesión iniciada para poder ver las siguientes opciones de navegación.
-  const {sesionIniciada}=useUsuarios();
+  const { sesionIniciada } = useUsuarios();
 
   return (
-    <Fragment>      
-      <nav>
-       {/* Si la sesión está iniciada: */}
-        {sesionIniciada && (
-          <>
-            <Navbar expand="md" className="justify-content-center align-items-center"> 
-            <Nav className="ml-auto" navbar>
-            <NavItem>
-              <img className="logo" src="./src/assets/img/LogosinFondo.png" alt="logo"/>
-            </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="/inicio" className='enlace'>Inicio</NavLink>
-              </NavItem>
-              <NavItem>
-              <NavLink tag={Link} to="/sobre" className='enlace'>Sobre SSLife</NavLink>
-            </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="/recursos" className='enlace'>Recursos</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="/contacto" className='enlace'>Contacto</NavLink>
-              </NavItem>
-              <NavItem>
-              <InicioSesion />
-              </NavItem>
-            </Nav>
-          </Navbar>
-          </>
-        )} {/* Si la sesión no está iniciada: */}
-        {!sesionIniciada && (
-          <>
-          <Navbar expand="md">
-          <Nav className="ml-auto" navbar>
-          <NavItem>
-              <img className="logo" src="./src/assets/img/LogosinFondo.png" alt="logo"/>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/inicio-sesion" className='enlace'>Iniciar sesion</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/sobre" className='enlace'>Sobre SSLife</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink tag={Link} to="/contacto" className='enlace'>Contacto</NavLink>
-              </NavItem>
-          </Nav>
+    <Fragment>
+      {/* Si la sesión está iniciada: */}
+      {sesionIniciada && (
+        <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
+          <Container fluid>
+            <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
+              <img className="logo" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+              <h2 className="m-0 text-success">SSLIFE</h2>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
+            <Navbar.Collapse id="navbarCollapse">
+              <Nav className="ms-auto p-4 p-lg-0">
+                <Nav.Link as={Link} to="/inicio" className="active">Inicio</Nav.Link>
+                <Nav.Link as={Link} to="/sobre">Sobre SSLife</Nav.Link>
+                <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                  <NavDropdown.Item as={Link} to="/recursos">Biblioteca de recursos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/crear-recurso">Crear recursos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/editar-recurso'>Editar recursos</NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+                <Button as={Link} to="/inicio-sesion" className="btn btn-success my-2 my-lg-0">
+                  Iniciar sesión <i className="fa fa-arrow-right ms-3"></i>
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
         </Navbar>
-        </>
-        )
-        }
-
-      </nav>
-   
+      )}
+      {/* Si la sesión no está iniciada: */}
+      {!sesionIniciada && (
+        <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
+          <Container fluid>
+            <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
+              <img className="logo" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+              <h2 className="m-0 text-success">SSLIFE</h2>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
+            <Navbar.Collapse id="navbarCollapse">
+              <Nav className="ms-auto p-4 p-lg-0">
+                <Nav.Link as={Link} to="/inicio" className="active">Inicio</Nav.Link>
+                <Nav.Link as={Link} to="/sobre">Sobre SSLife</Nav.Link>
+                <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+                <Button as={Link} to="/inicio-sesion" className="btn btn-success my-2 my-lg-0">
+                  Iniciar sesión <i className="fa fa-arrow-right ms-3"></i>
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      )}
     </Fragment>
   );
 };
