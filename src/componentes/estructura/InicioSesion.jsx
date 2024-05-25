@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import useUsuarios from "../../hooks/useUsuarios";
 import { Button } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../estilos/InicioSesion.css';
 
 const InicioSesion = () => {
   const { sesionIniciada, cerrarSesion } = useUsuarios();

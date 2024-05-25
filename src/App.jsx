@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cabecera from "./componentes/estructura/Cabecera.jsx";
 import Navegacion from "./componentes/estructura/Navegacion.jsx";
 import Principal from "./componentes/estructura/Principal.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
@@ -26,7 +25,7 @@ function App() {
       <BrowserRouter>
       <ProveedorUsuarios>
         <main>
-          <Cabecera />
+          <Navegacion />
           <ProveedorProfesionales>
             <ProveedorRecursos>
               <Principal/>
