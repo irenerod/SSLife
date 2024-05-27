@@ -15,8 +15,8 @@ const Navegacion = () => {
         <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
           <Container fluid>
             <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
-              <img className="logo" width="50px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
-              <h2 className="m-3 text-success">SSLIFE</h2>
+              <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+              <h2 className="m-3 text-danger">SSLIFE</h2>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
             <Navbar.Collapse id="navbarCollapse">
@@ -44,8 +44,8 @@ const Navegacion = () => {
         <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
           <Container fluid>
             <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
-              <img className="logo"  width="50px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
-              <h2 className="m-3 text-success">SSLIFE</h2>
+              <img className="logo"  width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+              <h2 className="m-3 text-danger">SSLIFE</h2>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
             <Navbar.Collapse id="navbarCollapse">

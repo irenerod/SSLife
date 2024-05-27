@@ -1,61 +1,38 @@
-.card {
-  border: none;
-}
-
-.nav-pestanya {
-  display: table;
+.iniciar-btn, .registrar-btn {
   width: 100%;
-}
-.nav-pestanya .nav-link.active{
-  background-color: #27b056;
-
-}
-
-.nav-pestanya .nav-link {
-  border-radius: 0px;
-  border-bottom: 1px solid #7fbf7f;
-  color: #18532d;
-  border-radius: 5px !important;
-
-}
-
-.nav-item {
-  display: table-cell;
-  background: #d4fab3;
-}
-
-.form {
-  padding: 10px;
-}
-
-.form input {
-  margin-bottom: 12px;
-  border-radius: 3px;
-}
-
-.form input:focus {
-  box-shadow: none;
-}
-
-.form button {
   margin-top: 20px;
 }
 
-.btn-dark, .btn-dark:hover, .btn-primary, .btn-primary:hover {
-  color: #fff;
-  background-color: #387c3e;
-  border-color: #296d2f;
-  border-radius: 5px !important;
+@media (max-width: 576px) {
+  .card {
+    padding: 10px;
+  }
 }
 
-.cursiva {
-  font-style: italic;
+.is-valid {
+  border-color: #28a745 !important; /* Verde para coincidir */
 }
 
-.iniciar-btn {
-  border-radius: 5px !important;
+.is-invalid {
+  border-color: #dc3545 !important; /* Rojo para no coincidir */
 }
 
-.registrar-btn {
-  border-radius: 5px !important;
+.min-vh-80 {
+  min-height: 80vh;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.active-tab {
+  color: white !important;
+}
+
+.inactive-tab {
+  color: black !important;
 }
