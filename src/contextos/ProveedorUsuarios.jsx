@@ -53,7 +53,7 @@ import { useNavigate } from "react-router-dom";
           );
         }
       } catch (error) {
-        setErrorUsuario(error.message);
+        setErrorUsuario("Credenciales de registro inválidas");
       }
     };
   
@@ -75,7 +75,7 @@ import { useNavigate } from "react-router-dom";
         setSesionIniciada(true);
         navegar("/");
       } catch (error) {
-        setErrorUsuario(error.message);
+        setErrorUsuario("Credenciales de inicio de sesión inválidas.");
       }
     };
   

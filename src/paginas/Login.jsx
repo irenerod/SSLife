@@ -1,15 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Container, Card, Form, Button, Nav, Tab, Alert } from "react-bootstrap";
 import useUsuarios from "../hooks/useUsuarios";
 import "../estilos/Login.css";
 
 const Login = () => {
-  const { iniciarSesion, crearCuenta, actualizarDato, errorUsuario, setErrorUsuario, datosSesion } = useUsuarios();
+  const { iniciarSesion, crearCuenta, actualizarDato, errorUsuario, datosSesion } = useUsuarios();
   const [confirmarContrasena, setConfirmarContrasena] = useState("");
   const [activeKey, setActiveKey] = useState('login');
   const [errorMensaje, setErrorMensaje] = useState("");
 
-  const manejarInicioSesion = async () => {
+  const manejarInicioSesion = async (e) => {
+    e.preventDefault();
     iniciarSesion();
   };
 
@@ -18,7 +19,8 @@ const Login = () => {
     setConfirmarContrasena(e.target.value);
   };
 
-  const manejarCrearCuenta = async () => {
+  const manejarCrearCuenta = async (e) => {
+    e.preventDefault();
     if (datosSesion.password !== confirmarContrasena) {
       setErrorMensaje("Las contraseñas no coinciden.");
       return;
@@ -29,20 +31,20 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="login d-flex justify-content-center align-items-center min-vh-100">
-      <Card className="login w-100" style={{ maxWidth: '400px', border: 'none' }}>
+    <Container fluid className={`d-flex justify-content-center align-items-center min-vh-80 ${activeKey === 'login' ? 'bg-success' : 'bg-danger'}`}>
+      <Card className="w-100" style={{ maxWidth: '400px', border: 'none' }}>
         <Tab.Container activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
-          <Nav variant="pestanyas" className="d-flex justify-content-center mb-3">
+          <Nav variant="pills" className="d-flex justify-content-center mb-3">
             <Nav.Item>
-              <Nav.Link eventKey="login" className="text-center w-100 btl">Iniciar sesión</Nav.Link>
+              <Nav.Link eventKey="login" className={`text-center w-100 btl ${activeKey === 'login' ? 'active-tab bg-success text-white' : 'inactive-tab text-black'}`}>Iniciar sesión</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="signup" className="text-center w-100 btr">Registrarse</Nav.Link>
+              <Nav.Link eventKey="signup" className={`text-center w-100 btr ${activeKey === 'signup' ? 'active-tab bg-danger text-white' : 'inactive-tab text-black'}`}>Registrarse</Nav.Link>
             </Nav.Item>
           </Nav>
           <Tab.Content>
             <Tab.Pane eventKey="login">
-              <Form className="px-4 pt-5">
+              <Form className="px-4 pt-5" onSubmit={manejarInicioSesion}>
                 <Form.Group>
                   <Form.Control
                     type="email"
@@ -50,6 +52,7 @@ const Login = () => {
                     name="email"
                     placeholder="Ingrese su correo electrónico."
                     onChange={(e) => actualizarDato(e)}
+                    className="mb-3"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -59,13 +62,14 @@ const Login = () => {
                     name="password"
                     placeholder="Ingrese su contraseña."
                     onChange={(e) => actualizarDato(e)}
+                    className="mb-3"
                   />
                 </Form.Group>
-                <Button variant="success" className="btn-block iniciar-btn" onClick={manejarInicioSesion}>Iniciar</Button>
+                <Button variant="success" className="btn-block iniciar-btn" type="submit">Iniciar</Button>
               </Form>
             </Tab.Pane>
             <Tab.Pane eventKey="signup">
-              <Form className="px-4">
+              <Form className="px-4" onSubmit={manejarCrearCuenta}>
                 <Form.Group>
                   <Form.Control
                     type="email"
@@ -73,6 +77,7 @@ const Login = () => {
                     name='email'
                     placeholder="Ingrese su correo electrónico."
                     onChange={(e) => actualizarDato(e)}
+                    className="mb-3"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -82,6 +87,7 @@ const Login = () => {
                     name="password"
                     placeholder="Ingrese su contraseña."
                     onChange={(e) => actualizarDato(e)}
+                    className="mb-3"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -92,11 +98,11 @@ const Login = () => {
                     placeholder="Confirme su contraseña."
                     value={confirmarContrasena}
                     onChange={(e) => manejarConfirmar(e)}
-                    className={datosSesion.password === confirmarContrasena ? 'coincide' : 'no-coincide'}
+                    className={`mb-3 ${datosSesion.password === confirmarContrasena ? 'is-valid' : 'is-invalid'}`}
                   />
                 </Form.Group>
                 {errorMensaje && <Alert variant="danger" className="mt-3">{errorMensaje}</Alert>}
-                <Button variant="success" className="btn-block registrar-btn" onClick={manejarCrearCuenta}>Registrar</Button>
+                <Button variant="danger" className="btn-block registrar-btn text-white" type="submit">Registrar</Button>
               </Form>
             </Tab.Pane>
           </Tab.Content>
