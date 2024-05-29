@@ -7,7 +7,7 @@ import Pie from "./componentes/estructura/Pie.jsx";
 import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
-import "./App.css";
+//import "./App.css";
 
 
 /**

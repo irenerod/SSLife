@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import '../../estilos/Pie.css'; 
+
 const Pie = () => {
   const { sesionIniciada } = useUsuarios();
   return (
@@ -21,32 +21,32 @@ const Pie = () => {
       )}
       <div>
         <Row>
-          <Col xs={12} sm={6} md={4} className="mb-4 mb-md-0">
+          <Col xs={12} sm={6} md={4}>
             <h5>Información de interés</h5>
-            <ul className="list-unstyled">
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
               <li><Link to="/info">Información</Link></li>
               <li><Link to="/faqs">Preguntas frecuentes</Link></li>
               <li><Link to="/que-me-sucede">¿Qué me sucede?</Link></li>
               <li><Link to="/ayudar">¿Cómo puedo ayudar?</Link></li>
             </ul>
           </Col>
-          <Col xs={12} sm={6} md={4} className="mb-4 mb-md-0">
+          <Col xs={12} sm={6} md={4}>
             <h5>Más sobre nuestros profesionales</h5>
-            <ul className="list-unstyled">
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
               <li><Link to="/profesionales">Profesionales</Link></li>
               <li><Link to="/privacy-policy">Políticas de privacidad</Link></li>
             </ul>
           </Col>
-          <Col xs={12} md={4} className="mb-4 mb-md-0">
+          <Col xs={12} md={4}>
             <h5>Contáctanos</h5>
-            <ul className="list-unstyled">
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
               <li>Email: <a href="mailto:creativelife@gmail.com">creativelife@gmail.com</a></li>
               <li>Dirección: C. Jardines, 23, 03600 Elda, Alicante</li>
-              <li className="mt-3">
-                <div className="social-icons">
-                  <a href="https://www.instagram.com/" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
-                  <a href="https://www.twitter.com/" aria-label="Twitter"><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
-                  <a href="https://www.facebook.com/" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
+              <li style={{ marginTop: '10px' }}>
+                <div style={{ display: 'flex', margin: '28px', flexWrap: 'nowrap', flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-evenly' }}>
+                  <a href="https://www.instagram.com/"><FontAwesomeIcon icon={faInstagram} size="2x" /></a>
+                  <a href="https://www.twitter.com/"><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
+                  <a href="https://www.facebook.com/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
                 </div>
               </li>
             </ul>
