@@ -53,16 +53,15 @@ const ProveedorRecursos = ({ children }) => {
   };
 
   // Actualizamos los datos del recurso:
-const actualizarDato = (evento) => {
+  const actualizarDato = (evento) => {
     const { name, value } = evento.target;
     setRecurso({ ...recurso, [name]: value });
-};
+  };
 
-const crearRecurso = async (e) => {
+  const crearRecurso = async (e) => {
     e.preventDefault();
   
     try {
-      
       const respuesta = await supabaseConexion.from("recursos").insert(recurso);
   
       setListadoRecursos((prevListadoRecursos) => [...prevListadoRecursos, recurso]);
@@ -73,8 +72,8 @@ const crearRecurso = async (e) => {
     }
   };
 
-   // Modificamos los datos del producto seleccionado:
-   const modificarDato = (evento) => {
+  // Modificamos los datos del producto seleccionado:
+  const modificarDato = (evento) => {
     const { name, value } = evento.target;
     setRecursoSeleccionado({ ...recursoSeleccionado, [name]: value });
   };
@@ -103,6 +102,7 @@ const crearRecurso = async (e) => {
       setError(error.message);
     }
   };
+
   // Eliminar recurso según su id:
   const eliminarRecurso = async (id_recurso) => {
     try {
@@ -131,18 +131,11 @@ const crearRecurso = async (e) => {
   };
 
   // Filtrar por tipo
-    const filtrarPorTipo = (recursos, filtroTipo) => {
-      if (!filtroTipo || filtroTipo === 'Todos') return recursos; // Devuelve todos los recursos si no hay filtroTipo o si es 'Todos'
-      
-      const tipoFiltrado = filtroTipo.toLowerCase();
-      
-      return recursos.filter(recurso => {
-          // Si el tipo del recurso coincide con el tipo filtrado, mantenlo en la lista
-          return recurso.tipo.toLowerCase() === tipoFiltrado;
-      });
+  const filtrarPorTipo = (recursos, tipo) => {
+    if (!tipo) return recursos;
+    return recursos.filter((recurso) => recurso.tipo === tipo);
   };
-    
-
+  
   // Ordenar los recursos:
   const ordenarRecursos = async (campo, ascendente) => {
     const { data, error } = await supabaseConexion
@@ -161,61 +154,62 @@ const crearRecurso = async (e) => {
   const ordenarNombreDesc = async () => {
     return ordenarRecursos('nombre_recurso', false);
   };
+
   // Función para validar los datos de un recurso.
-    const validarRecurso = (elemento) => {
-        const { name, value } = elemento;
-        let erroresElemento = [];
-    
-        if (name === "nombre_recurso") {
-        if (!value.length) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-        }
-        }
-    
-        if (name === "tipo") {
-        if (!["articulo", "video", "foro"].includes(value)) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe ser uno de: articulo, video, foro.`];
-        }
-        }
-    
-        if (name === "id_propietario") {
-        if (!value.length) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-        }
-        }
-    
-        return erroresElemento;
-    };
-    // Función para validar el formulario de recursos.
-    const validarFormulario = (formulario) => {
-        let erroresListado = [];
-      
-        for (var i = 0; i < formulario.elements.length; i++) {
-          let erroresElemento;
-          const elemento = formulario.elements[i];
-      
-          switch (elemento.name) {
-            case "nombre_recurso":
-            case "tipo":
-            case "id_propietario":
-              erroresElemento = validarRecurso(elemento);
-              break;
-            default:
-              break;
-          }
-      
-          if (erroresElemento.length !== 0) {
-            elemento.classList.add("error");
-          } else {
-            elemento.classList.remove("error");
-          }
-      
-          erroresListado = [...erroresListado, ...erroresElemento];
-        }
-      
-        return erroresListado.length === 0;
-      };
-      
+  const validarRecurso = (elemento) => {
+    const { name, value } = elemento;
+    let erroresElemento = [];
+  
+    if (name === "nombre_recurso") {
+      if (!value.length) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
+      }
+    }
+  
+    if (name === "tipo") {
+      if (!["articulo", "video", "foro"].includes(value)) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe ser uno de: articulo, video, foro.`];
+      }
+    }
+  
+    if (name === "id_propietario") {
+      if (!value.length) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
+      }
+    }
+  
+    return erroresElemento;
+  };
+
+  // Función para validar el formulario de recursos.
+  const validarFormulario = (formulario) => {
+    let erroresListado = [];
+  
+    for (var i = 0; i < formulario.elements.length; i++) {
+      let erroresElemento;
+      const elemento = formulario.elements[i];
+  
+      switch (elemento.name) {
+        case "nombre_recurso":
+        case "tipo":
+        case "id_propietario":
+          erroresElemento = validarRecurso(elemento);
+          break;
+        default:
+          break;
+      }
+  
+      if (erroresElemento.length !== 0) {
+        elemento.classList.add("error");
+      } else {
+        elemento.classList.remove("error");
+      }
+  
+      erroresListado = [...erroresListado, ...erroresElemento];
+    }
+  
+    return erroresListado.length === 0;
+  };
 
   // Datos a exportar: 
   const datosAExportar = {
