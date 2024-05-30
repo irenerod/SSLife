@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import team1 from '../assets/Img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
-import team2 from '../assets/Img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
-import team3 from '../assets/Img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
-import team4 from '../assets/Img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import team1 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import team2 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import team3 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import team4 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
 import Leer_mas from './Leer_mas';
 
 const Ps_Team = () => {
