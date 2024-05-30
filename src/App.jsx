@@ -8,7 +8,7 @@ import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
 import Footer from "./componentes/Footer.jsx"
-//import "./App.css";
+import "./App.css";
 
 
 /**

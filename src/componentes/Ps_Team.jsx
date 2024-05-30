@@ -10,7 +10,7 @@ import Leer_mas from './Leer_mas';
 const Ps_Team = () => {
   return (
     <>
-    <div className="container-xxl py-5">
+    <div className="container-xxl py-5 mt-5 pt-5">
       <Container>
         <div className="section-title text-center">
           <h1 className="display-5 mb-5">Nuestro equipo</h1>

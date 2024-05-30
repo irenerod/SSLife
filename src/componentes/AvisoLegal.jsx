@@ -18,7 +18,7 @@ const StyledContainer = styled(Container)`
 
 const AvisoLegal = () => {
   return (
-    <StyledContainer className="mt-5">
+    <StyledContainer className="mt-5 pt-5">
       <Row>
         <Col>
           <h1>Aviso legal</h1>
