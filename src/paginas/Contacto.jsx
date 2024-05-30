@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
-import Ps_Inicio from "../componentes/Ps_Inicio.jsx"
-import Ps_Testimonios from "../componentes/Ps_Testimonios.jsx"
+import Que_Es_SSLIFE from "../componentes/Que_Es_SSLIFE.jsx"
+import Testimonios from "../componentes/Testimonios.jsx"
 import Mensaje from "../componentes/Mensaje";
-import Mensaje2 from "../componentes/Mensaje2.jsx"
+import Mas_Info from "../componentes/Mas_Info.jsx"
 
 const Contacto = () => {
   return (
     <Fragment>
 
 
-      <Mensaje2></Mensaje2>
+      <Mas_Info></Mas_Info>
 
       
     </Fragment>

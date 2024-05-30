@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
-import SobreSS from "../componentes/SobreSS.jsx";
+import Sobre_SSLIFE from "../componentes/Sobre_SSLIFE.jsx";
 
 const Inicio = () => {
   return (
     <Fragment>
 
-    <SobreSS></SobreSS>
+    <Sobre_SSLIFE></Sobre_SSLIFE>
       
     </Fragment>
   );

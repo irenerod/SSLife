@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; // Importa animaciones de Framer Motion
-import logo from '../assets/img/LogosinFondo.png'; // Importa tu logotipo aquí
+import { motion } from 'framer-motion';
+import logo from '../assets/img/LogosinFondo.png';
 
-const SobreSS = () => {
+const Sobre_SSLIFE = () => {
   return (
     <Container style={{ paddingTop: '50px', paddingBottom: '50px' }}>
       <Row className="align-items-center">
@@ -49,6 +49,6 @@ const SobreSS = () => {
   );
 }
 
-export default SobreSS;
+export default Sobre_SSLIFE;
 
 

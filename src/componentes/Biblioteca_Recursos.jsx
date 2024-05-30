@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button,Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import imagen1 from "../assets/Img/jovenes-felices.jpg";
     
-    const Ps_Recursos = () => {
+    const Biblioteca_Recursos = () => {
       return (
         <div className="container-xxl py-5">
           <Container>
@@ -72,5 +72,5 @@ import imagen1 from "../assets/Img/jovenes-felices.jpg";
       );
     };
     
-    export default Ps_Recursos;
+    export default Biblioteca_Recursos;
     
