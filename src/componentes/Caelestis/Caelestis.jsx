@@ -1,10 +1,12 @@
 import {React, useState} from 'react';
 import ChatBot from "react-chatbotify";
 import "./Caelestis.css";
+import { supabaseConexion } from '../../config/supabase';
 
 const Caelestis = () => {
     const valorInicial={};
 	const [form, setForm] =useState(valorInicial);
+
 	const formStyle = {
 		marginTop: 10,
 		marginLeft: 20,
@@ -14,36 +16,40 @@ const Caelestis = () => {
 		maxWidth: 300
 	}
 
-	const flow={
+	const flow = {
 		start: {
 			message: "¡Bienvenido a SSLife! ¿Cuál es tu nombre?",
-			function: (params) => setForm({...form, name: params.userInput}),
+			function: (params) => setForm({ ...form, name: params.userInput }),
 			path: "greet_user"
 		},
 		greet_user: {
 			message: (params) => `¡Encantado de conocerte, ${params.userInput}!`,
-			transition: {duration: 1000},
+			transition: { duration: 1000 },
 			path: "explain_sslife"
 		},
 		explain_sslife: {
 			message: "SSLife es una plataforma dedicada a combatir el acoso escolar y la soledad. Ofrecemos apoyo emocional y recursos para aquellos que lo necesitan.",
-			transition: {duration: 1000},
+			transition: { duration: 1000 },
 			path: "write_message"
 		},
 		write_message: {
 			message: "¿Te gustaría escribir una carta o un mensaje para sentirte mejor? Puedes escribirlo aquí.",
 			user: true,
-			function: (params) => setForm({...form, userMessage: params.userInput}),
-			path: "null"
+			function: (params) => {
+				const mensajeNuevo = params.userInput;
+				setForm({ ...form, mensajeUsuario: mensajeNuevo });
+				guardarMensaje(form.name, mensajeNuevo); 
+			},
+			path: "repeat_message"
 		},
 		repeat_message: {
-			message: (params) => `Aquí está tu mensaje: "${form.userMessage}". ¿Quieres repetirlo o hacer algo más?`,
+			message: (params) => `Aquí está tu mensaje: "${form.mensajeUsuario}". ¿Quieres repetirlo o hacer algo más?`,
 			options: ["Repetir", "Hacer otra cosa"],
 			function: (params) => {
 				if (params.userInput === "Repetir") {
-					params.triggerNextStep({trigger: "repeat_message"});
+					params.triggerNextStep({ trigger: "repeat_message" });
 				} else {
-					params.triggerNextStep({trigger: "end"});
+					params.triggerNextStep({ trigger: "end" });
 				}
 			}
 		},
@@ -52,13 +58,25 @@ const Caelestis = () => {
 			render: (
 				<div style={formStyle}>
 					<p>Nombre: {form.name}</p>
-					<p>Mensaje: {form.userMessage}</p>
+					<p>Mensaje: {form.mensajeUsuario}</p>
 				</div>
 			),
 			options: ["Nueva consulta"],
 			path: "start"
 		},
-	}
+	};
+
+	const guardarMensaje = async (name, message) => {
+		const { data, error } = await supabaseConexion
+			.from('caelestis')
+			.insert([{ nombre_usuario: name, mensaje: message, fecha: new Date() }]);
+
+		if (error) {
+			console.error('Error guardando el mensaje:', error);
+		} else {
+			console.log('Mensaje guardado:', data);
+		}
+	};
 
 	return (
 		<ChatBot
