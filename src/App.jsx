@@ -7,6 +7,7 @@ import Pie from "./componentes/estructura/Pie.jsx";
 import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
+import Footer from "./componentes/Footer.jsx"
 //import "./App.css";
 
 
@@ -31,7 +32,7 @@ function App() {
               <Principal/>
             </ProveedorRecursos>
           </ProveedorProfesionales>
-          <Pie />
+          <Footer />
         </main>
       </ProveedorUsuarios>  
       </BrowserRouter>

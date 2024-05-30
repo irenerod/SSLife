@@ -16,7 +16,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="mt-5 d-flex justify-content-center align-items-center flex-column">
+    <div className="mt-5 d-flex justify-content-center align-items-center flex-column mb-5 pb-5">
       <Col md={6} className="mb-4 text-center">
         <motion.img
           src={logo}
