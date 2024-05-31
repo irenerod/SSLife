@@ -1,16 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import { Carousel, Container, Button } from 'react-bootstrap';
 import carousel1 from "../assets/img/carousel-1.jpg";
 import carousel2 from "../assets/img/carousel-2.jpg";
 import carousel3 from "../assets/img/carousel-3.jpg";
+import Testimonios from "../componentes/Testimonios";
 
 const Bienvenida = () => {
   return (
-      <div>
-        <Container fluid className="p-0 pb-5 af-height-90 af-max-width mx-auto mt-2">
-        <Carousel>
-            <Carousel.Item style={{ height: '500px' }}>
+    <div>
+      <Container fluid className="p-0 pb-5 af-height-90 af-max-width mx-auto mt-2">
+        <Carousel style={{ width: '100%', height: '100vh' }}>
+          <Carousel.Item>
             <img className="img-fluid" src={carousel1} alt="First slide" style={{ width: '100%', height: '100%' }} />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <Container>
@@ -26,7 +27,7 @@ const Bienvenida = () => {
               </Container>
             </div>
           </Carousel.Item>
-            <Carousel.Item style={{ height: '500px' }}>
+          <Carousel.Item>
             <img className="img-fluid" src={carousel2} alt="Second slide" style={{ width: '100%', height: '100%' }} />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <Container>
@@ -42,7 +43,7 @@ const Bienvenida = () => {
               </Container>
             </div>
           </Carousel.Item>
-            <Carousel.Item style={{ height: '500px' }}>
+          <Carousel.Item>
             <img className="img-fluid" src={carousel3} alt="Third slide" style={{ width: '100%', height: '100%' }} />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
               <Container>
@@ -59,9 +60,11 @@ const Bienvenida = () => {
             </div>
           </Carousel.Item>
         </Carousel>
+        <Testimonios/>
       </Container>
-      </div>
-    );
+    </div>
+  );
 };
 
 export default Bienvenida;
+

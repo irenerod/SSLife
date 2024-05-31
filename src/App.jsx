@@ -10,6 +10,7 @@ import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
 import "./App.css";
 
 
+
 /**
  *  Roles:
  *  admin = para los administradores.  
@@ -26,11 +27,14 @@ function App() {
       <ProveedorUsuarios>
         <main>
           <Navegacion />
+          
           <ProveedorProfesionales>
             <ProveedorRecursos>
               <Principal/>
+              
             </ProveedorRecursos>
           </ProveedorProfesionales>
+        
           <Footer />
         </main>
       </ProveedorUsuarios>  

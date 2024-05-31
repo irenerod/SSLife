@@ -2,16 +2,16 @@ import React from 'react';
 import { Container, Row, Col, Image, Carousel, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import testimonialImage1 from '../assets/img/jovenes-felices.jpg'; 
-import testimonialImage2 from '../assets/img/jovenes-felices.jpg'; 
-import testimonialImage3 from '../assets/img/jovenes-felices.jpg'; 
+import David from '../assets/img/carousel-3.jpg'; 
+import Ana from '../assets/img/carousel-3.jpg';  
+import Pablo from '../assets/img/carousel-3.jpg'; 
 
 const Testimonios = () => {
     return (
-      <div className="container-xxl py-5">
+      <div className="container-xxl py-5 mt-5 pt-5">
         <Container>
           <div className="section-title text-center">
-            <h1 className="display-5 mb-5">Testimonios</h1>
+            <h1 className="display-5 mb-5"> -  Testimonios  - </h1>
           </div>
           <style>{`
             .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -19,11 +19,11 @@ const Testimonios = () => {
               .carousel-indicators{display:none}
             
           `}</style>
-          <Carousel interval={1500}>
+          <Carousel interval={2000}>
             <Carousel.Item className="text-center mt-5 pt-5">
               <Image
                 className="img-fluid bg-light p-2 mx-auto mb-3"
-                src={testimonialImage1}
+                src={David}
                 style={{ width: '150px', height: '150px' }}
                 roundedCircle
               />
@@ -38,7 +38,7 @@ const Testimonios = () => {
             <Carousel.Item className="text-center mt-5 pt-5">
               <Image
                 className="img-fluid bg-light p-2 mx-auto mb-3"
-                src={testimonialImage2}
+                src={Ana}
                 style={{ width: '150px', height: '150px' }}
                 roundedCircle
               />
@@ -53,7 +53,7 @@ const Testimonios = () => {
             <Carousel.Item className="text-center mt-5 pt-5">
               <Image
                 className="img-fluid bg-light p-2 mx-auto mb-3"
-                src={testimonialImage3}
+                src={Pablo}
                 style={{ width: '150px', height: '150px' }}
                 roundedCircle
               />
