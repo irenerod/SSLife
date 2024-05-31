@@ -12,12 +12,15 @@ const Navegacion = () => {
     <Fragment>
       {/* Si la sesión está iniciada: */}
       {sesionIniciada && (
-        <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
-          <Container fluid>
-            <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
-              <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
-              <h2 className="m-3 text-danger">SSLIFE</h2>
-            </Navbar.Brand>
+        <Navbar expand="lg" sticky="top" className="p-0 w-100 mt-2 mb-2 pb-2">
+          <Container fluid >
+          <Navbar.Brand as={Link} to="/" className="d-flex flex-column align-items-center px-4 px-lg-5 pt-2">
+      <div className="d-flex align-items-center">
+        <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+        <h2 className="m-3 text-danger">SSLIFE</h2>
+      </div>
+      <span className="text-center fst-italic text-success">No estás solo, conéctate</span>
+    </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
             <Navbar.Collapse id="navbarCollapse">
               <Nav className="ms-auto p-4 p-lg-0">
@@ -36,17 +39,23 @@ const Navegacion = () => {
                 </Button>
               </Nav>
             </Navbar.Collapse>
+          
           </Container>
+          
         </Navbar>
+        
       )}
       {/* Si la sesión no está iniciada: */}
       {!sesionIniciada && (
-        <Navbar bg="white" expand="lg" sticky="top" className="p-0 w-100">
-          <Container fluid>
-            <Navbar.Brand as={Link} to="/" className="d-flex align-items-center px-4 px-lg-5">
-              <img className="logo"  width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
-              <h2 className="m-3 text-danger">SSLIFE</h2>
-            </Navbar.Brand>
+        <Navbar expand="lg" sticky="top" className="p-0 w-100 mt-2 mb-2 pb-2">
+        <Container fluid >
+        <Navbar.Brand as={Link} to="/" className="d-flex flex-column align-items-center px-4 px-lg-5 pt-2">
+        <div className="d-flex align-items-center">
+        <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+        <h2 className="m-3 text-danger">SSLIFE</h2>
+        </div>
+        <span className="text-center fst-italic text-success">No estás solo, conéctate</span>
+        </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarCollapse" className="me-4" />
             <Navbar.Collapse id="navbarCollapse">
               <Nav className="ms-auto p-4 p-lg-0">

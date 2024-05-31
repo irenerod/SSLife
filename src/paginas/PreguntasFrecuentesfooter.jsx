@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 const PreguntasFrecuentes = () => {
   return (
-    <Container style={{ marginBottom: '220px' }}>
+    <Container className='p-3 text-center'>
       <Row>
         <Col>
           <h2>¿Qué es SSLife?</h2>
