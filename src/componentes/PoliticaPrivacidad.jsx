@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
+// Estilos personalizados para los encabezados
 const StyledContainer = styled(Container)`
   h1 {
     color: green;
@@ -16,7 +17,7 @@ const StyledContainer = styled(Container)`
 
 const PoliticaDePrivacidad = () => {
   return (
-    <StyledContainer className="mt-5">
+    <StyledContainer className="mt-5 pt-5">
       <Row>
         <Col>
           <h1>Política de Privacidad</h1>

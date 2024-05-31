@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Row, Col, Image, Carousel, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import testimonialImage1 from '../assets/img/jovenes-felices.jpg'; 
-import testimonialImage2 from '../assets/img/jovenes-felices.jpg'; 
-import testimonialImage3 from '../assets/img/jovenes-felices.jpg'; 
+import testimonialImage1 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import testimonialImage2 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
+import testimonialImage3 from '../assets/img/jovenes-felices.jpg'; // Ajusta la ruta según la ubicación de tu imagen
 
-const Testimonios = () => {
+const Ps_Testimonios = () => {
     return (
       <div className="container-xxl py-5">
         <Container>
@@ -79,4 +79,4 @@ const Testimonios = () => {
     );
   };
   
-  export default Testimonios;
+  export default Ps_Testimonios;
