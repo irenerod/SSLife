@@ -3,8 +3,7 @@ import { Form, FormGroup, Label, Input, Button, Col } from 'reactstrap';
 import { motion } from 'framer-motion';
 import logo from '../assets/img/LogosinFondo.png';
 
-
-const ContactForm = () => {
+const Contacto_Formulario = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -78,6 +77,6 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Contacto_Formulario;
 
 

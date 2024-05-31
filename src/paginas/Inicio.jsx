@@ -5,10 +5,8 @@ import Testimonios from "../componentes/Testimonios.jsx"
 const Inicio = () => {
   return (
     <Fragment>
-
       <Que_Es_SSLIFE></Que_Es_SSLIFE>
       <Testimonios></Testimonios>
-      
     </Fragment>
   );
 };
