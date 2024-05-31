@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import Ps_Inicio from "../componentes/Ps_Inicio.jsx"
-import Ps_Testimonios from "../componentes/Ps_Testimonios.jsx"
+import Que_Es_SSLIFE from "../componentes/Que_Es_SSLIFE.jsx"
+import Testimonios from "../componentes/Testimonios.jsx"
 
 const Inicio = () => {
   return (
     <Fragment>
 
-      <Ps_Inicio></Ps_Inicio>
-      <Ps_Testimonios></Ps_Testimonios>
+      <Que_Es_SSLIFE></Que_Es_SSLIFE>
+      <Testimonios></Testimonios>
       
     </Fragment>
   );

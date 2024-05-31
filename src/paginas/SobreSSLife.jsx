@@ -1,14 +1,10 @@
 import React, { Fragment } from "react";
-import SobreSS from "../componentes/SobreSS.jsx";
-import Ps_Team from "../componentes/Ps_Team.jsx"
-
+import Sobre_SSLIFE from "../componentes/Sobre_SSLIFE.jsx";
 const Inicio = () => {
   return (
     <Fragment>
 
-    <SobreSS></SobreSS>
-    <Ps_Team></Ps_Team>
-
+    <Sobre_SSLIFE></Sobre_SSLIFE>
     </Fragment>
   );
 };
