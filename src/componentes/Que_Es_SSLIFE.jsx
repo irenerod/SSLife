@@ -1,11 +1,9 @@
-
-
 import React from 'react';
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import imagen1 from "../assets/img/jovenes-felices.jpg";
 
-const Ps_Inicio = () => {
+const Que_Es_SSLIFE = () => {
   return (
     <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
       <Container className="about px-lg-0">
@@ -21,11 +19,11 @@ const Ps_Inicio = () => {
                 <h1 className="display-5 mb-4">¿Qué es SSLife?</h1>
               </div>
               <p className="mb-4 pb-2">
-                SSLife nace con un único propósito: Restaurar la felicidad en la vida de las personas. Cada vez son más las personas que usan esta aplicación. 
+                SSLife nace con un único propósito: Restaurar la felicidad en la vida de las personas. Cada vez son más las personas que usan esta aplicación.
                 Gracias a ellos, sabemos que lo hemos logrado. Hemos sido uno de vosotros. La vida, injusta a veces, risueña otras,
-                son etapas que hay que ir superando. A veces, es complicado superar los avatares que esta nos presenta. Nos sentimos solos, sin rumbo; pensamos 
+                son etapas que hay que ir superando. A veces, es complicado superar los avatares que esta nos presenta. Nos sentimos solos, sin rumbo; pensamos
                 la sonrisa que dibujan la cara de los demás jamás volverá a estar en la nuestra. Por este motivo, y para demostrarte que podemos ayudarte, nace
-                SSLife. Porque no estás solo... conéctate. 
+                SSLife. Porque no estás solo... conéctate.
               </p>
               <Row className="g-4 mb-4 pb-2">
                 <Col sm={6} className="wow fadeIn" data-wow-delay="0.1s">
@@ -63,4 +61,4 @@ const Ps_Inicio = () => {
   );
 };
 
-export default Ps_Inicio;
+export default Que_Es_SSLIFE;

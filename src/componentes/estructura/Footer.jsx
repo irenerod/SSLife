@@ -1,6 +1,6 @@
 import React from 'react';
-import Caelestis from './Caelestis/Caelestis';
-import useUsuarios from "./../hooks/useUsuarios";
+import Caelestis from '../Caelestis/Caelestis';
+import useUsuarios from "../../hooks/useUsuarios";
 import { Col, Container, Row, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

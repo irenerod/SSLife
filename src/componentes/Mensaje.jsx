@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import logo from '../assets/img/LogosinFondo.png'; 
 
-
 const Mensaje= () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');

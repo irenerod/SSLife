@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Toast, ToastHeader, ToastBody } from 'reactstrap';
 
-const Leer_mas = ({ nombre, descripcion }) => {
+const Mas_Info = ({ nombre, descripcion }) => {
   const [isToastOpen, setIsToastOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -31,5 +31,5 @@ const Leer_mas = ({ nombre, descripcion }) => {
   );
 };
 
-export default Leer_mas;
+export default Mas_Info;
 

@@ -3,11 +3,10 @@ import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navegacion from "./componentes/estructura/Navegacion.jsx";
 import Principal from "./componentes/estructura/Principal.jsx";
-import Pie from "./componentes/estructura/Pie.jsx";
+import Footer from "./componentes/estructura/Footer.jsx"
 import ProveedorRecursos from "./contextos/ProveedorRecursos";
 import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
-import Footer from "./componentes/Footer.jsx"
 import "./App.css";
 
 

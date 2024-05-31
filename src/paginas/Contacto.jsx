@@ -1,17 +1,10 @@
 import React, { Fragment } from "react";
-import Que_Es_SSLIFE from "../componentes/Que_Es_SSLIFE.jsx"
-import Testimonios from "../componentes/Testimonios.jsx"
-import Mensaje from "../componentes/Mensaje";
-import Mas_Info from "../componentes/Mas_Info.jsx"
+import Contacto_Formulario from "../componentes/Contacto_Formulario.jsx";
 
 const Contacto = () => {
   return (
     <Fragment>
-
-
-      <Mas_Info></Mas_Info>
-
-      
+      <Contacto_Formulario/>
     </Fragment>
   );
 };

@@ -12,7 +12,7 @@ import Contacto from "../../../paginas/Contacto.jsx";
 import Informacionfooter from "../../../paginas/Informacionfooter.jsx";
 import PreguntasFrecuentes from "../../../paginas/PreguntasFrecuentesfooter.jsx";
 import Sintomasfooter from "../../../paginas/Sintomasfooter.jsx";
-import Ps_Team from "../../Ps_Team.jsx";
+import Nuestro_Equipo from "../../Nuestro_Equipo.jsx";
 import PoliticaPrivacidad from "../../PoliticaPrivacidad.jsx"
 import PoliticaCookies from "../../PoliticaCookies.jsx"
 import AvisoLegal from "../../AvisoLegal.jsx"
@@ -33,7 +33,7 @@ const Rutas = () => {
         <Route path='/info' element={<Informacionfooter />} />
         <Route path='/faqs' element={<PreguntasFrecuentes />} />
         <Route path='/que-me-sucede' element={<Sintomasfooter />} />
-        <Route path='/profesionales' element={<Ps_Team />} />
+        <Route path='/profesionales' element={<Nuestro_Equipo />} />
         <Route path='/privacy-policy' element={<PoliticaPrivacidad />} />
         <Route path='/privacy-Cookies' element={<PoliticaCookies />} />
         <Route path='/avisoLegal' element={<AvisoLegal />} />
