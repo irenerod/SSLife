@@ -1,4 +1,5 @@
-import {React, useState} from 'react';
+/**
+ import {React, useState} from 'react';
 import ChatBot from "react-chatbotify";
 import "./Caelestis.css";
 import { supabaseConexion } from '../../config/supabase';
@@ -47,9 +48,9 @@ const Caelestis = () => {
 			options: ["Repetir", "Hacer otra cosa"],
 			function: (params) => {
 				if (params.userInput === "Repetir") {
-					params.triggerNextStep({ trigger: "repeat_message" });
+					params.triggerNextStep({ path: "repeat_message" });
 				} else {
-					params.triggerNextStep({ trigger: "end" });
+					params.triggerNextStep({ path: "end" });
 				}
 			}
 		},
@@ -77,6 +78,112 @@ const Caelestis = () => {
 			console.log('Mensaje guardado:', data);
 		}
 	};
+ */
+import React, { useState } from 'react';
+import ChatBot from "react-chatbotify";
+import "./Caelestis.css";
+import { supabaseConexion } from '../../config/supabase';
+
+const Caelestis = () => {
+  const valorInicial = {};
+  const [form, setForm] = useState(valorInicial);
+
+  const formStyle = {
+    marginTop: 10,
+    marginLeft: 20,
+    border: "1px solid #491d8d",
+    padding: 10,
+    borderRadius: 5,
+    maxWidth: 300
+  };
+
+  const navigateOptions = ["Recursos", "Sobre SSLIFE", "Contáctanos", "¿Qué me sucede?", "Preguntas frecuentes"];
+  const helpOptions = ["Escribir carta", "Ir a otro lado", "Nada"];
+
+  const flow = {
+    start: {
+      message: '¡Bienvenid@ a SSLIFE! Soy Caelestis, tu guía en este viaje. ¿Cómo te llamas?',
+	  function: (params) => setForm({ ...form, name: params.userInput }),
+      path: 'greet_user'
+    },
+    greet_user: {
+		message: (params) => `¡Encantado de conocerte, ${params.userInput}!`,
+		transition: { duration: 1000 },
+		path: "explain_sslife"
+    },
+    explain_sslife: {
+      message: "SSLife es una plataforma dedicada a combatir el acoso escolar y la soledad. Ofrecemos apoyo emocional y recursos para aquellos que lo necesitan.",
+	  transition: { duration: 1000 },
+      path: 'show_options'
+    },
+    show_options: {
+      message: "¿En qué puedo ayudarte?",
+	  transition: { duration: 1000 },
+      path: 'user_options'
+    },
+    user_options: {
+      options: [
+        { value: 'Escribir carta', label: 'Escribir carta', path: 'write_message' },
+        { value: 'Ir a otro lado', label: 'Ir a otro lado', path: 'navigate' },
+        { value: 'Nada', label: 'Nada', path: 'end' },
+      ],
+    },
+    navigate: {
+      message: '¿Dónde te gustaría ir?',
+	  transition: { duration: 1000 },
+      path: 'navigation_options'
+    },
+    navigation_options: {
+      options: [
+        { value: 'Recursos', label: 'Recursos', path: () => handleRedirect('/recursos') },
+        { value: 'Sobre SSLIFE', label: 'Sobre SSLIFE', path: () => handleRedirect('/sobre') },
+        { value: '¿Qué me sucede?', label: '¿Qué me sucede?', path: () => handleRedirect('/que-me-sucede') },
+        { value: 'Contáctanos', label: 'Contáctanos', path: () => handleRedirect('/contacto') },
+        { value: 'Preguntas frecuentes', label: 'Preguntas frecuentes', path: () => handleRedirect('/faqs') },
+      ],
+    },
+    write_message: {
+      message: "¿Te gustaría escribir una carta o un mensaje para sentirte mejor? Puedes escribirlo aquí.",
+      user: true,
+      path: (params) => {
+        const mensajeNuevo = params.value;
+        setForm({ ...form, mensajeUsuario: mensajeNuevo });
+        guardarMensaje(form.name, mensajeNuevo);
+        return 'repeat_message';
+      },
+    },
+    repeat_message: {
+      message: (params) => `Aquí está tu mensaje: "${form.mensajeUsuario}". ¿Quieres repetirlo o hacer algo más?`,
+      path: 'repeat_or_else'
+    },
+    repeat_or_else: {
+      options: [
+        { value: 'Repetir', label: 'Repetir', path: 'write_message' },
+        { value: 'Hacer otra cosa', label: 'Hacer otra cosa', path: 'show_options' },
+        { value: 'Salir', label: 'Salir', path: 'end' },
+      ],
+    },
+    end: {
+      message: "Te recomendamos que explores nuestra página y veas nuestros recursos, tienen la capacidad de cambiar vidas. Adelante. Y recuerda: NO ESTÁS SOLO… Conéctate. ¡BIENVENIDO!",
+      end: true,
+    },
+  };
+
+  const handleRedirect = (path) => {
+    window.location.href = path;
+  };
+
+  const guardarMensaje = async (name, message) => {
+    const { data, error } = await supabaseConexion
+      .from('caelestis')
+      .insert([{ nombre_usuario: name, mensaje: message, fecha: new Date() }]);
+
+    if (error) {
+      console.error('Error guardando el mensaje:', error);
+    } else {
+      console.log('Mensaje guardado:', data);
+    }
+  };
 
 	return (
 		<ChatBot

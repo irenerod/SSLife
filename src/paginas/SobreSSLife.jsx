@@ -6,10 +6,8 @@ import FondoAnimado from "../componentes/FondoAnimado.jsx"
 const Inicio = () => {
   return (
     <Fragment>
-
     <Sobre_SSLIFE></Sobre_SSLIFE>
     <Nuestro_Equipo></Nuestro_Equipo>
-
     </Fragment>
   );
 };

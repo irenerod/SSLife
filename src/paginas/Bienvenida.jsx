@@ -5,12 +5,13 @@ import carousel1 from "../assets/img/carousel-1.jpg";
 import carousel2 from "../assets/img/carousel-2.jpg";
 import carousel3 from "../assets/img/carousel-3.jpg";
 import Testimonios from "../componentes/Testimonios";
+import Boton_Contactanos from "../componentes/Contactanos_Boton";
 
 const Bienvenida = () => {
   return (
     <div>
       <Container fluid className="p-0 pb-5 af-height-90 af-max-width mx-auto mt-2">
-        <Carousel style={{ width: '100%', height: '100vh' }}>
+        <Carousel style={{ width: '100%', height: '100vh' }}> 
           <Carousel.Item>
             <img className="img-fluid" src={carousel1} alt="First slide" style={{ width: '100%', height: '100%' }} />
             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(53, 53, 53, .7)' }}>
@@ -61,6 +62,7 @@ const Bienvenida = () => {
           </Carousel.Item>
         </Carousel>
         <Testimonios/>
+       <Boton_Contactanos/> 
       </Container>
     </div>
   );
