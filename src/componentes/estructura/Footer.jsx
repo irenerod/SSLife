@@ -25,7 +25,7 @@ const Footer = () => {
               <li><Link to="/info" className="text-dark">Información</Link></li>
               <li><Link to="/faqs" className="text-dark">Preguntas frecuentes</Link></li>
               <li><Link to="/que-me-sucede" className="text-dark">¿Qué me sucede?</Link></li>
-              <li><Link to="/ayudar" className="text-dark">¿Cómo puedo ayudar?</Link></li>
+              <li><Link to="/comoAyudar" className="text-dark">¿Cómo puedo ayudar?</Link></li>
             </ul>
           </Col>
           <Col xs={12} sm={6} md={4} className='p-2'>
