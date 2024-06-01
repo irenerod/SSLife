@@ -1,11 +1,24 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import team1 from '../assets/img/jovenes-felices.jpg'; 
-import team2 from '../assets/img/jovenes-felices.jpg'; 
-import team3 from '../assets/img/jovenes-felices.jpg'; 
-import team4 from '../assets/img/jovenes-felices.jpg'; 
+import Irene from '../assets/img/irene2.jpg'; // CAMBIAR 
+import Pedro from '../assets/img/pedro.jpg'; 
+import profesional1 from '../assets/img/profesional1.jpg'; 
+import profesional2 from '../assets/img/profesional2.jpg'; 
+import profesional3 from '../assets/img/profesional3.jpg'; 
+import profesional4 from '../assets/img/profesional4.jpg'; 
+import profesional5 from '../assets/img/profesional5.jpg'; 
+import profesional6 from '../assets/img/profesional6.jpg'; 
+import profesional7 from '../assets/img/profesional7.jpg'; 
+import profesional8 from '../assets/img/profesional8.jpg'; 
+import profesional9 from '../assets/img/profesional9.jpg'; 
+import profesional10 from '../assets/img/profesional10.jpg'; 
+import profesional11 from '../assets/img/profesional11.jpg'; 
+import profesional12 from '../assets/img/profesional12.jpg'; 
+import profesional13 from '../assets/img/profesional13.jpg'; 
+import profesional14 from '../assets/img/profesional14.jpg'; 
 import Mas_Info from './Mas_Info';
+import "../estilos/Nuestro_Equipo.css";
 
 const Nuestro_Equipo = () => {
   return (
@@ -19,7 +32,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team1} alt="Team Member" />
+                <Image className="img-fluid" src={Pedro} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -45,7 +58,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team2} alt="Team Member" />
+                <Image className="img-fluid irene" src={Irene} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -71,7 +84,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team3} alt="Team Member" />
+                <Image className="img-fluid" src={profesional13} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -97,7 +110,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team4} alt="Team Member" />
+                <Image className="img-fluid" src={profesional14} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -133,7 +146,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team1} alt="Team Member" />
+                <Image className="img-fluid" src={profesional1} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -159,7 +172,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team2} alt="Team Member" />
+                <Image className="img-fluid" src={profesional2} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -173,7 +186,7 @@ const Nuestro_Equipo = () => {
                 </div>
               </div>
               <div className="text-center border border-5 border-light border-top-0 p-4">
-                <h5 className="mb-0">Dionisio Gutierrez</h5>
+                <h5 className="mb-0">Dionisia Gutierrez</h5>
                 <small>Psicoterapeuta</small>
                 <Mas_Info
                   nombre="Dionisio Gutierrez"
@@ -185,7 +198,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team3} alt="Team Member" />
+                <Image className="img-fluid" src={profesional6} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -211,7 +224,7 @@ const Nuestro_Equipo = () => {
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
             <div className="team-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={team4} alt="Team Member" />
+                <Image className="img-fluid" src={profesional4} alt="Team Member" />
                 <div className="team-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
@@ -244,7 +257,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team1} alt="Team Member" />
+            <Image className="img-fluid" src={profesional10} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -270,7 +283,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team2} alt="Team Member" />
+            <Image className="img-fluid" src={profesional3} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -296,7 +309,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team3} alt="Team Member" />
+            <Image className="img-fluid" src={profesional7} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -322,7 +335,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team4} alt="Team Member" />
+            <Image className="img-fluid" src={profesional8} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -355,7 +368,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team1} alt="Team Member" />
+            <Image className="img-fluid" src={profesional9} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -381,7 +394,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team2} alt="Team Member" />
+            <Image className="img-fluid" src={profesional5} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -407,7 +420,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team3} alt="Team Member" />
+            <Image className="img-fluid" src={profesional11} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -433,7 +446,7 @@ const Nuestro_Equipo = () => {
       <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
         <div className="team-item">
           <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={team4} alt="Team Member" />
+            <Image className="img-fluid" src={profesional12} alt="Team Member" />
             <div className="team-social">
               <Button variant="square" href="#">
                 <i className="fab fa-facebook-f"></i>

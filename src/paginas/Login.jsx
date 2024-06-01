@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Container, Card, Form, Button, Nav, Tab, Alert, Row, Col, Image } from "react-bootstrap";
 import useUsuarios from "../hooks/useUsuarios";
 import "../estilos/Login.css";
-import image1 from "../assets/img/carousel-1.jpg"; 
-import image2 from "../assets/img/carousel-2.jpg";
+import image1 from "../assets/img/LogosinFondo.png"; 
+import image2 from "../assets/img/Logo en gris sin fondo.svg";
 
 const AnimatedBackground = ({ children }) => {
   const animatedBackgroundStyle = {
@@ -78,7 +78,8 @@ const Login = () => {
       <Container fluid className="d-flex justify-content-center align-items-center min-vh-80">
         <Row className="w-100" style={{ maxWidth: '1000px' }}>
           <Col xs={12} md={4} className="d-none d-md-flex justify-content-center align-items-center">
-            <Image src={image1} alt="Side Image 1" fluid />
+            <Image src={image1} alt="Logo SSLIFE" fluid />
+            <p className="fst-italic text-center md-2 text-success"> No estás solo... Conéctate</p>
           </Col>
           <Col xs={12} md={4}>
             <Card className="w-100" style={{ border: 'none' }}>
@@ -160,7 +161,8 @@ const Login = () => {
             </Card>
           </Col>
           <Col xs={12} md={4} className="d-none d-md-flex justify-content-center align-items-center">
-            <Image src={image2} alt="Side Image 2" fluid />
+            <Image src={image2} alt="Logo Creative Life" fluid />
+            <p className="fst-italic text-center md-2 text-dark"> By Creative Life</p>
           </Col>
         </Row>
       </Container>
