@@ -1,15 +1,13 @@
 import React from 'react';
 import { Container, Accordion, Card, Button } from 'react-bootstrap';
-import PregFrec from "../componentes/PregFrec.jsx"
+import ComoAyudarComp from '../componentes/ComoAyudarComp.jsx';
 
-const PreguntasFrecuentes = () => {
+const ComoAyudar = () => {
   return (
     <Container className='my-5'>
-      <PregFrec></PregFrec>
+      <ComoAyudarComp/>
     </Container>
   );
 };
 
-export default PreguntasFrecuentes;
-
-
+export default ComoAyudar;

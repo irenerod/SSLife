@@ -10,12 +10,13 @@ import EdicionRecurso from "../../../paginas/EdicionRecurso.jsx";
 import SobreSSLife from "../../../paginas/SobreSSLife.jsx";
 import Contacto from "../../../paginas/Contacto.jsx";
 import Informacionfooter from "../../../paginas/Informacionfooter.jsx";
-import PreguntasFrecuentes from "../../../paginas/PreguntasFrecuentesfooter.jsx";
+import PreguntasFrecuentesfooter from "../../../paginas/PreguntasFrecuentesfooter.jsx";
 import Sintomasfooter from "../../../paginas/Sintomasfooter.jsx";
 import Nuestro_Equipo from "../../Nuestro_Equipo.jsx";
 import PoliticaPrivacidad from "../../PoliticaPrivacidad.jsx"
 import PoliticaCookies from "../../PoliticaCookies.jsx"
 import AvisoLegal from "../../AvisoLegal.jsx"
+import ComoAyudar from "../../../paginas/ComoAyudar.jsx";
 
 const Rutas = () => {
   return (
@@ -31,12 +32,13 @@ const Rutas = () => {
         <Route path='/sobre' element={<SobreSSLife />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/info' element={<Informacionfooter />} />
-        <Route path='/faqs' element={<PreguntasFrecuentes />} />
+        <Route path='/faqs' element={<PreguntasFrecuentesfooter />} />
         <Route path='/que-me-sucede' element={<Sintomasfooter />} />
         <Route path='/profesionales' element={<Nuestro_Equipo />} />
         <Route path='/privacy-policy' element={<PoliticaPrivacidad />} />
         <Route path='/privacy-Cookies' element={<PoliticaCookies />} />
         <Route path='/avisoLegal' element={<AvisoLegal />} />
+        <Route path='/comoAyudar' element={<ComoAyudar />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </Fragment>
