@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, Row, Col, Image, Carousel, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import David from '../assets/img/carousel-3.jpg'; 
-import Ana from '../assets/img/carousel-3.jpg';  
-import Pablo from '../assets/img/carousel-3.jpg'; 
+import David from '../assets/img/David.jpg'; 
+import Ana from '../assets/img/Ana.jpg';  
+import Pablo from '../assets/img/pablo.jpg'; 
 
 const Testimonios = () => {
     return (
