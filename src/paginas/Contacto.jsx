@@ -6,7 +6,6 @@ const Contacto = () => {
   return (
     <Fragment>
       <Contacto_Formulario/>
-    
     </Fragment>
   );
 };

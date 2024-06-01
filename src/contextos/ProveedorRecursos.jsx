@@ -10,8 +10,10 @@ const ProveedorRecursos = ({ children }) => {
   const valoresInicialesRecurso = {
     nombre_recurso: "",
     tipo: "",
-    imagen:"",
+    imagen: "",
     id_propietario: "",
+    categoria: "",
+    enlace: "",
   };
 
   const [listadoRecursos, setListadoRecursos] = useState(arrayInicial);
@@ -20,8 +22,9 @@ const ProveedorRecursos = ({ children }) => {
   const [error, setError] = useState(cadenaInicial);
   const [recursoSeleccionado, setRecursoSeleccionado] = useState(null);
   const [filtroNombre, setFiltroNombre] = useState(cadenaInicial);
-  const [filtroTipo, setFiltroTipo] = useState(cadenaInicial);
   const [recursosFiltrados, setRecursosFiltrados] = useState(arrayInicial);
+  const [filtroTipo, setFiltroTipo] = useState(cadenaInicial);
+  const [filtroCategoria, setFiltroCategoria] = useState(cadenaInicial);
 
   const obtenerListadoRecursos = async () => {
     try {
@@ -37,7 +40,7 @@ const ProveedorRecursos = ({ children }) => {
       setSituacion("Error al obtener recursos: " + error.message);
     }
   };
-  
+
   // Obtener un recurso:
   const obtenerRecurso = async (id_recurso) => {
     setError(cadenaInicial);
@@ -53,18 +56,17 @@ const ProveedorRecursos = ({ children }) => {
   };
 
   // Actualizamos los datos del recurso:
-const actualizarDato = (evento) => {
+  const actualizarDato = (evento) => {
     const { name, value } = evento.target;
     setRecurso({ ...recurso, [name]: value });
-};
+  };
 
-const crearRecurso = async (e) => {
+  const crearRecurso = async (e) => {
     e.preventDefault();
-  
+
     try {
-      
       const respuesta = await supabaseConexion.from("recursos").insert(recurso);
-  
+
       setListadoRecursos((prevListadoRecursos) => [...prevListadoRecursos, recurso]);
       setRecurso(valoresInicialesRecurso);
     } catch (error) {
@@ -73,11 +75,12 @@ const crearRecurso = async (e) => {
     }
   };
 
-   // Modificamos los datos del producto seleccionado:
-   const modificarDato = (evento) => {
+  // Modificamos los datos del producto seleccionado:
+  const modificarDato = (evento) => {
     const { name, value } = evento.target;
     setRecursoSeleccionado({ ...recursoSeleccionado, [name]: value });
   };
+
   // Seleccionar un recurso para editar:
   const seleccionarRecurso = (recurso) => {
     setRecursoSeleccionado(recurso);
@@ -90,19 +93,20 @@ const crearRecurso = async (e) => {
         .from("recursos")
         .update(recursoSeleccionado)
         .eq("id_recurso", recursoSeleccionado.id_recurso);
-  
+
       if (error) throw error;
-  
+
       const recursosCambiados = listadoRecursos.map((recursoAntiguo) => {
         return recursoAntiguo.id_recurso === recursoSeleccionado.id_recurso ? recursoSeleccionado : recursoAntiguo;
       });
-  
+
       setListadoRecursos(recursosCambiados);
       setRecurso(valoresInicialesRecurso);
     } catch (error) {
       setError(error.message);
     }
   };
+
   // Eliminar recurso según su id:
   const eliminarRecurso = async (id_recurso) => {
     try {
@@ -110,11 +114,11 @@ const crearRecurso = async (e) => {
         .from("recursos")
         .delete()
         .eq("id_recurso", id_recurso);
-  
+
       if (error) {
         throw error;
       }
-  
+
       // Actualizar el listado de recursos:
       const recursosActualizados = listadoRecursos.filter(recurso => recurso.id_recurso !== id_recurso);
       setListadoRecursos(recursosActualizados);
@@ -122,7 +126,7 @@ const crearRecurso = async (e) => {
       setError(error.message);
     }
   };
-  
+
   // Filtrar por nombre
   const filtrarPorNombre = (recursos, filtroNombre) => {
     if (!filtroNombre) return recursos;
@@ -131,17 +135,16 @@ const crearRecurso = async (e) => {
   };
 
   // Filtrar por tipo
-    const filtrarPorTipo = (recursos, filtroTipo) => {
-      if (!filtroTipo || filtroTipo === 'Todos') return recursos; // Devuelve todos los recursos si no hay filtroTipo o si es 'Todos'
-      
-      const tipoFiltrado = filtroTipo.toLowerCase();
-      
-      return recursos.filter(recurso => {
-          // Si el tipo del recurso coincide con el tipo filtrado, mantenlo en la lista
-          return recurso.tipo.toLowerCase() === tipoFiltrado;
-      });
+  const filtrarPorTipo = (recursos, filtroTipo) => {
+    if (!filtroTipo) return recursos;
+    return recursos.filter(recurso => recurso.tipo === filtroTipo);
   };
-    
+
+  // Filtrar por categoria
+  const filtrarPorCategoria = (recursos, filtroCategoria) => {
+    if (!filtroCategoria) return recursos;
+    return recursos.filter(recurso => recurso.categoria === filtroCategoria);
+  };
 
   // Ordenar los recursos:
   const ordenarRecursos = async (campo, ascendente) => {
@@ -161,61 +164,62 @@ const crearRecurso = async (e) => {
   const ordenarNombreDesc = async () => {
     return ordenarRecursos('nombre_recurso', false);
   };
+
   // Función para validar los datos de un recurso.
-    const validarRecurso = (elemento) => {
-        const { name, value } = elemento;
-        let erroresElemento = [];
-    
-        if (name === "nombre_recurso") {
-        if (!value.length) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-        }
-        }
-    
-        if (name === "tipo") {
-        if (!["articulo", "video", "foro"].includes(value)) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe ser uno de: articulo, video, foro.`];
-        }
-        }
-    
-        if (name === "id_propietario") {
-        if (!value.length) {
-            erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
-        }
-        }
-    
-        return erroresElemento;
-    };
-    // Función para validar el formulario de recursos.
-    const validarFormulario = (formulario) => {
-        let erroresListado = [];
-      
-        for (var i = 0; i < formulario.elements.length; i++) {
-          let erroresElemento;
-          const elemento = formulario.elements[i];
-      
-          switch (elemento.name) {
-            case "nombre_recurso":
-            case "tipo":
-            case "id_propietario":
-              erroresElemento = validarRecurso(elemento);
-              break;
-            default:
-              break;
-          }
-      
-          if (erroresElemento.length !== 0) {
-            elemento.classList.add("error");
-          } else {
-            elemento.classList.remove("error");
-          }
-      
-          erroresListado = [...erroresListado, ...erroresElemento];
-        }
-      
-        return erroresListado.length === 0;
-      };
-      
+  const validarRecurso = (elemento) => {
+    const { name, value } = elemento;
+    let erroresElemento = [];
+
+    if (name === "nombre_recurso") {
+      if (!value.length) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
+      }
+    }
+
+    if (name === "tipo") {
+      if (!["articulo", "video", "foro"].includes(value)) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe ser uno de: articulo, video, foro.`];
+      }
+    }
+
+    if (name === "id_propietario") {
+      if (!value.length) {
+        erroresElemento = [...erroresElemento, `El campo ${name} debe tener un valor.`];
+      }
+    }
+
+    return erroresElemento;
+  };
+
+  // Función para validar el formulario de recursos.
+  const validarFormulario = (formulario) => {
+    let erroresListado = [];
+
+    for (var i = 0; i < formulario.elements.length; i++) {
+      let erroresElemento;
+      const elemento = formulario.elements[i];
+
+      switch (elemento.name) {
+        case "nombre_recurso":
+        case "tipo":
+        case "id_propietario":
+          erroresElemento = validarRecurso(elemento);
+          break;
+        default:
+          break;
+      }
+
+      if (erroresElemento.length !== 0) {
+        elemento.classList.add("error");
+      } else {
+        elemento.classList.remove("error");
+      }
+
+      erroresListado = [...erroresListado, ...erroresElemento];
+    }
+
+    return erroresListado.length === 0;
+  };
 
   // Datos a exportar: 
   const datosAExportar = {
@@ -234,9 +238,7 @@ const crearRecurso = async (e) => {
     recursosFiltrados,
     setRecursosFiltrados,
     filtroNombre,
-    filtrarPorTipo,
     filtrarPorNombre,
-    setFiltroTipo,
     setFiltroNombre,
     ordenarNombreAsc,
     ordenarNombreDesc,
@@ -244,11 +246,24 @@ const crearRecurso = async (e) => {
     validarFormulario,
     modificarDato,
     eliminarRecurso,
+    setFiltroTipo,
+    filtroTipo,
+    filtrarPorTipo,
+    setFiltroCategoria,
+    filtroCategoria,
+    filtrarPorCategoria,
   };
 
   useEffect(() => {
     obtenerListadoRecursos();
   }, []);
+
+  useEffect(() => {
+    const recursosFiltrados = filtrarPorNombre(listadoRecursos, filtroNombre)
+      .filter(recurso => filtrarPorTipo([recurso], filtroTipo).length > 0)
+      .filter(recurso => filtrarPorCategoria([recurso], filtroCategoria).length > 0);
+    setRecursosFiltrados(recursosFiltrados);
+  }, [filtroNombre, filtroTipo, filtroCategoria, listadoRecursos]);
 
   return (
     <ContextoRecursos.Provider value={datosAExportar}>

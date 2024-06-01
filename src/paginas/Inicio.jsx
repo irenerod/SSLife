@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import Que_Es_SSLIFE from "../componentes/Que_Es_SSLIFE.jsx"
-import Testimonios from "../componentes/Testimonios.jsx"
-import NuevoComp from "../componentes/NuevoComp.jsx";
+import NuevoComp from "../componentes/NuevoComp.jsx"; // CAMBIAR EL NOMBRE
 
 const Inicio = () => {
   return (

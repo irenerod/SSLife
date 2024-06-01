@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Card, Form, Button, Nav, Tab, Alert, Row, Col, Image } from "react-bootstrap";
 import useUsuarios from "../hooks/useUsuarios";
 import "../estilos/Login.css";
-import image1 from "../assets/img/carousel-1.jpg"; // Asegúrate de tener estas imágenes en la carpeta adecuada
+import image1 from "../assets/img/carousel-1.jpg"; 
 import image2 from "../assets/img/carousel-2.jpg";
 
 const AnimatedBackground = ({ children }) => {

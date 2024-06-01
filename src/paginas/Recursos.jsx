@@ -7,16 +7,18 @@ import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {
   const {
-    recurso,
     listadoRecursos,
     filtroNombre,
-    filtroTipo,
     filtrarPorNombre,
     filtrarPorTipo,
+    filtrarPorCategoria,
     ordenarNombreAsc,
     ordenarNombreDesc,
     setFiltroNombre,
     setFiltroTipo,
+    setFiltroCategoria,
+    filtroTipo,
+    filtroCategoria,
     recursosFiltrados,
     setRecursosFiltrados
   } = useRecursos();
@@ -24,15 +26,14 @@ const Recursos = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // Filtrar por nombre
+    // Filtrar por nombre, tipo y categoría
     const recursosFiltradosPorNombre = filtrarPorNombre(listadoRecursos, filtroNombre);
-
-    // Filtrar por tipo sobre los recursos ya filtrados por nombre
     const recursosFiltradosPorTipo = filtrarPorTipo(recursosFiltradosPorNombre, filtroTipo);
+    const recursosFiltradosFinal = filtrarPorCategoria(recursosFiltradosPorTipo, filtroCategoria);
 
     // Actualizar el estado de recursos filtrados
-    setRecursosFiltrados(recursosFiltradosPorTipo);
-  }, [listadoRecursos, filtroNombre, filtroTipo]);
+    setRecursosFiltrados(recursosFiltradosFinal);
+  }, [listadoRecursos, filtroNombre, filtroTipo, filtroCategoria]);
 
   const ordenarAsc = async () => {
     const recursosOrdenados = await ordenarNombreAsc();
@@ -62,7 +63,7 @@ const Recursos = () => {
           <Collapse in={open}>
             <div id="filter-collapse">
               <Row className="justify-content-center">
-                <Col md={6}>
+                <Col md={4}>
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Filtrar por nombre:</InputGroup.Text>
                     <FormControl
@@ -73,18 +74,33 @@ const Recursos = () => {
                     />
                   </InputGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={4}>
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Filtrar por tipo:</InputGroup.Text>
-                    <Form.Select
-                      defaultValue={filtroTipo}
+                    <FormControl
+                      as="select"
+                      value={filtroTipo}
                       onChange={(e) => setFiltroTipo(e.target.value)}
                     >
-                      <option value="">Todos</option>
-                      <option value="articulo">Articulo</option>
+                      <option value="">Todos los tipos</option>
+                      <option value="articulo">Artículo</option>
                       <option value="video">Video</option>
                       <option value="foro">Foro</option>
-                    </Form.Select>
+                    </FormControl>
+                  </InputGroup>
+                </Col>
+                <Col md={4}>
+                  <InputGroup className="mb-3">
+                    <InputGroup.Text>Filtrar por categoría:</InputGroup.Text>
+                    <FormControl
+                      as="select"
+                      value={filtroCategoria}
+                      onChange={(e) => setFiltroCategoria(e.target.value)}
+                    >
+                      <option value="">Todas las categorías</option>
+                      <option value="bullying">Bullying</option>
+                      <option value="soledad">Soledad</option>
+                    </FormControl>
                   </InputGroup>
                 </Col>
               </Row>
@@ -103,6 +119,8 @@ const Recursos = () => {
                 <Card.Body className="text-center">
                   <Card.Title>{recurso.nombre_recurso}</Card.Title>
                   <Card.Text>Tipo: {recurso.tipo}</Card.Text>
+                  <Card.Text>Categoria: {recurso.categoria}</Card.Text>
+                  <Button variant="primary" href={recurso.enlace} target="_blank">Ver Recurso</Button>
                 </Card.Body>
               </Card>
             </Col>
