@@ -2,7 +2,6 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Container, Row, Col, Card, Button, Collapse, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../estilos/Recursos.css";
 import useRecursos from "../hooks/useRecursos";
 
 const Recursos = () => {

@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import "../estilos/Edicion.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
