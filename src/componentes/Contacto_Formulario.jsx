@@ -14,10 +14,10 @@ const Contacto_Formulario = () => {
     console.log('Email:', email);
     console.log('Message:', message);
     //Clave de recuperacion:  WQKEXBYGDF1KHC4EFLP2VLFN  --> no borrar, por favor.
-    // Lógica para enviar el formulario
-    // Aquí puedes implementar la lógica para enviar el mensaje al correo electrónico especificado (PSFLORES79@GMAIL.COM)
-
-    // Mostrar el modal después de enviar el mensaje
+    // Lógica para enviar el formulario.
+    // Nos hemos registrado en Twilio.com pero aún no conseguimos hacer los endpoints. 
+    // La cuenta usada para registrarnos ha sido la mia (psflores79@gmail.com).
+    // Esto lo dejamos para luego. 
     setModalOpen(true);
   };
 
