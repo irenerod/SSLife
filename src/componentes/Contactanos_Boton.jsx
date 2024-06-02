@@ -9,7 +9,7 @@ const Boton_Contactanos = () => {
       <div className="container-xxl py-5 mt-5 pt-5">
         <Container className=" text-center mt-5 pt-5">
                 <div>
-                    <h2>NO ESTÁS SOLO...</h2>
+                    <h2 className='fst-italic'>NO ESTÁS SOLO...</h2>
                     <Button variant="success" style={{ marginTop: '20px', fontSize: '1.2rem' }}>
                     <Link to="/Contacto" style={{ color: 'white', textDecoration: 'none' }}>Contáctanos.</Link>
                     </Button>
