@@ -1,6 +1,7 @@
-import React from 'react';
-import { Container, Row, Col, Card, Table, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Table, Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledContainer = styled(Container)`
   .main-heading {
@@ -26,16 +27,21 @@ const StyledContainer = styled(Container)`
     border-radius: 5px;
     margin-bottom: 20px;
   }
-  .btn-custom {
-    background-color: #007bff;
-    border: none;
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
+  
 `;
 
 const PoliticaDeCookies = () => {
+  const [showThanksModal, setShowThanksModal] = useState(false);
+  const [showRespectModal, setShowRespectModal] = useState(false);
+
+  const handleAcceptCookies = () => {
+    setShowThanksModal(true);
+  };
+
+  const handleRejectCookies = () => {
+    setShowRespectModal(true);
+  };
+
   return (
     <StyledContainer className="mt-5 pt-5">
       <Card className="shadow-sm">
@@ -173,12 +179,44 @@ const PoliticaDeCookies = () => {
                   <li><strong>Modificar su configuración:</strong> Podrá obtener más información sobre qué son las cookies, conocer la Política de Cookies de CREATIVE LIFE y modificar la configuración de su navegador para restringir o bloquear las cookies de CREATIVE LIFE en cualquier momento. En el caso de restringir o bloquear las cookies, puede ver reducidas las funcionalidades del Sitio Web.</li>
                 </ul>
               </div>
-              <Button className="btn-custom mt-3">Aceptar Cookies</Button>
-              <Button className="btn-custom mt-3 ml-3">Rechazar Cookies</Button>
+              <div>
+              <Button className="btn-success mt-3 pl-3 ml-3" onClick={handleAcceptCookies} style={{ marginRight: '6px' }}>Aceptar Cookies</Button>
+              <Button className="btn-danger mt-3 ml-3" onClick={handleRejectCookies}>Rechazar Cookies</Button>
+              </div>
             </Col>
           </Row>
         </Card.Body>
       </Card>
+
+      {/* Modal para agradecer */}
+      <Modal show={showThanksModal} onHide={() => setShowThanksModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Agradecimiento</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Muchas gracias. Utilizaremos tus cookies de manera y respetaremos tu privacidad.</p>
+        </Modal.Body>
+        <Modal.Footer>
+        <Button variant="warning" onClick={() => setShowThanksModal(false)}>
+          <Link to="/">Cerrar</Link>
+        </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal para respetar */}
+      <Modal show={showRespectModal} onHide={() => setShowRespectModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Respetamos tu privacidad</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Respetamos tu privacidad. Entendemos que no quieras compartir tus datos. Puede seguir disfrutando de nuestra página aunque, a veces, veas que el funcionamiento es más lento.</p>
+        </Modal.Body>
+        <Modal.Footer>
+        <Button variant="warning" onClick={() => setShowThanksModal(false)}>
+          <Link to="/">Cerrar</Link>
+        </Button>
+</Modal.Footer>
+      </Modal>
     </StyledContainer>
   );
 }
