@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, Col } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { motion } from 'framer-motion';
 import logo from '../assets/img/LogosinFondo.png';
+import { Link } from 'react-router-dom';
 
 const Contacto_Formulario = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Message:', message);
+    //Clave de recuperacion:  WQKEXBYGDF1KHC4EFLP2VLFN  --> no borrar, por favor.
     // Lógica para enviar el formulario
+    // Aquí puedes implementar la lógica para enviar el mensaje al correo electrónico especificado (PSFLORES79@GMAIL.COM)
+
+    // Mostrar el modal después de enviar el mensaje
+    setModalOpen(true);
+  };
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
   };
 
   return (
@@ -73,10 +84,22 @@ const Contacto_Formulario = () => {
           </p>
         </motion.div>
       </Col>
+
+      {/* Modal para mostrar el mensaje de éxito */}
+      <Modal isOpen={modalOpen} toggle={toggleModal} centered>
+        <ModalHeader toggle={toggleModal}>Mensaje Enviado</ModalHeader>
+        <ModalBody>
+          <p>Mensaje enviado con éxito. En breve recibirá una respuesta. Puede seguir disfrutando de nuestra web o pedir ayuda a "Caelestis".</p>
+        </ModalBody>
+        <ModalFooter>
+          <Link to="/" className="btn btn-success">Aceptar</Link>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 };
 
 export default Contacto_Formulario;
+
 
 
