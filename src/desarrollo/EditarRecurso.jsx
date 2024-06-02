@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button, ListGroup, Modal, Container, Row, Col, Card } from 'react-bootstrap';
 import useRecursos from '../hooks/useRecursos';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 const EdicionRecursos = () => {
   const {
@@ -175,6 +176,18 @@ const EdicionRecursos = () => {
               </Button>
             </Modal.Footer>
           </Modal>
+        </Col>
+      </Row>
+      <Row className="justify-content-center mt-4">
+        <Col xs="auto">
+            <Link to="/recursos">
+                <Button variant="secondary" className="mx-2">Volver a recursos</Button>
+            </Link>
+        </Col>
+        <Col xs="auto">
+          <Link to="/crear-recurso">
+                <Button variant="primary" className="mx-2">Crear Recurso</Button>
+          </Link>
         </Col>
       </Row>
     </Container>

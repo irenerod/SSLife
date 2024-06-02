@@ -119,7 +119,7 @@ const Recursos = () => {
                   <Card.Title>{recurso.nombre_recurso}</Card.Title>
                   <Card.Text>Tipo: {recurso.tipo}</Card.Text>
                   <Card.Text>Categoria: {recurso.categoria}</Card.Text>
-                  <Button variant="primary" href={recurso.enlace} target="_blank">Ver Recurso</Button>
+                  <Button variant="success" href={recurso.enlace} target="_blank">Ver Recurso</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -127,7 +127,7 @@ const Recursos = () => {
         </Row>
         <div className="text-center mt-4">
           <Link to="/crear-recurso">
-            <Button variant="success" className="mx-2">Crear Recurso</Button>
+            <Button variant="primary" className="mx-2">Crear Recurso</Button>
           </Link>
           <Link to="/editar-recurso">
             <Button variant="secondary" className="mx-2">Editar Recurso</Button>

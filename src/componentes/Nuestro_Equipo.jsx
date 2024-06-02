@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Irene from '../assets/img/irene2.jpg'; // CAMBIAR 
+import Irene from '../assets/img/irene3.jpg';
 import Pedro from '../assets/img/pedro.jpg'; 
 import profesional1 from '../assets/img/profesional1.jpg'; 
 import profesional2 from '../assets/img/profesional2.jpg'; 
@@ -30,10 +30,10 @@ const Nuestro_Equipo = () => {
         </div>
         <Row className="g-4">
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={Pedro} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={Pedro} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -56,10 +56,10 @@ const Nuestro_Equipo = () => {
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid irene" src={Irene} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={Irene} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -82,10 +82,10 @@ const Nuestro_Equipo = () => {
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional13} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional13} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -108,10 +108,10 @@ const Nuestro_Equipo = () => {
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional14} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional14} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -144,10 +144,10 @@ const Nuestro_Equipo = () => {
           </div>
           <Row className="g-4">
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional1} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional1} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -170,10 +170,10 @@ const Nuestro_Equipo = () => {
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional2} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional2} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -190,16 +190,16 @@ const Nuestro_Equipo = () => {
                 <small>Psicoterapeuta</small>
                 <Mas_Info
                   nombre="Dionisio Gutierrez"
-                   descripcion="Brinda terapia y apoyo para el crecimiento personal."
+                   descripcion="Ayuda a los clientes a encontrar claridad y dirección en sus vidas."
                         />
               </div>
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional6} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional3} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -212,20 +212,20 @@ const Nuestro_Equipo = () => {
                 </div>
               </div>
               <div className="text-center border border-5 border-light border-top-0 p-4">
-                <h5 className="mb-0">Tatiana Macarena</h5>
-                <small>Terapeuta de Familia</small>
+                <h5 className="mb-0">Inés Alonso</h5>
+                <small>Psicóloga</small>
                 <Mas_Info
-                  nombre="Tatiana Macarena"
-                   descripcion="Especializada en resolver conflictos familiares y mejorar la comunicación."
+                  nombre="Inés Alonso"
+                   descripcion="Especializada en terapia cognitivo-conductual."
                         />
               </div>
             </div>
           </Col>
           <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-            <div className="team-item">
+            <div className="Nuestro_Equipo-item">
               <div className="overflow-hidden position-relative">
-                <Image className="img-fluid" src={profesional4} alt="Team Member" />
-                <div className="team-social">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional4} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
                   <Button variant="square" href="#">
                     <i className="fab fa-facebook-f"></i>
                   </Button>
@@ -238,245 +238,176 @@ const Nuestro_Equipo = () => {
                 </div>
               </div>
               <div className="text-center border border-5 border-light border-top-0 p-4">
-                <h5 className="mb-0">Yvette Duchamp</h5>
-                <small>Asistente de Psicología</small>
+                <h5 className="mb-0">Pedro Núñez</h5>
+                <small>Psicólogo</small>
                 <Mas_Info
-                  nombre="Yvette Duchamp"
-                   descripcion="Apoya en la investigación y en la atención al cliente con profesionalismo."
+                  nombre="Pedro Núñez"
+                   descripcion="Trabaja con adolescentes y jóvenes adultos."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional5} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">Sofía Martínez</h5>
+                <small>Psicóloga</small>
+                <Mas_Info
+                  nombre="Sofía Martínez"
+                   descripcion="Especializada en terapia familiar y de pareja."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional6} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">Luis Hernández</h5>
+                <small>Psicólogo</small>
+                <Mas_Info
+                  nombre="Luis Hernández"
+                   descripcion="Enfocado en la terapia de trauma y estrés postraumático."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional7} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">Ana Gómez</h5>
+                <small>Psicóloga</small>
+                <Mas_Info
+                  nombre="Ana Gómez"
+                   descripcion="Especialista en psicología infantil y adolescente."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional8} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">Carlos Rodríguez</h5>
+                <small>Psicólogo</small>
+                <Mas_Info
+                  nombre="Carlos Rodríguez"
+                   descripcion="Experto en manejo del estrés y ansiedad."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional9} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">María Fernández</h5>
+                <small>Psicóloga</small>
+                <Mas_Info
+                  nombre="María Fernández"
+                   descripcion="Especialista en terapia de duelo."
+                        />
+              </div>
+            </div>
+          </Col>
+          <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
+            <div className="Nuestro_Equipo-item">
+              <div className="overflow-hidden position-relative">
+                <Image className="img-fluid Nuestro_Equipo-img" src={profesional10} alt="Nuestro_Equipo Member" />
+                <div className="Nuestro_Equipo-social">
+                  <Button variant="square" href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-twitter"></i>
+                  </Button>
+                  <Button variant="square" href="#">
+                    <i className="fab fa-instagram"></i>
+                  </Button>
+                </div>
+              </div>
+              <div className="text-center border border-5 border-light border-top-0 p-4">
+                <h5 className="mb-0">Patricia Ortega</h5>
+                <small>Psicóloga</small>
+                <Mas_Info
+                  nombre="Patricia Ortega"
+                   descripcion="Especializada en terapias para el manejo del estrés laboral."
                         />
               </div>
             </div>
           </Col>
         </Row>
-        </Container>
-      </div>
-       {/* Tercer container */}
-<div className="container-xxl py-5">
-  <Container>
-    <Row className="g-4">
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional10} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">María Gonzalez</h5>
-            <small>Neuropsicóloga</small>
-            <Mas_Info
-              nombre="María Gonzalez"
-              descripcion="Especialista en neuropsicología y rehabilitación cognitiva."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional3} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Carlos Ramírez</h5>
-            <small>Consejero Psicológico</small>
-            <Mas_Info
-              nombre="Carlos Ramírez"
-              descripcion="Consejero experto en técnicas de afrontamiento y resiliencia."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional7} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Lucía Fernández</h5>
-            <small>Terapeuta Ocupacional</small>
-            <Mas_Info
-              nombre="Lucía Fernández"
-              descripcion="Ayuda en la recuperación y adaptación de habilidades diarias."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional8} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Andrés Pérez</h5>
-            <small>Psicólogo Clínico</small>
-            <Mas_Info
-              nombre="Andrés Pérez"
-              descripcion="Experto en diagnósticos y tratamiento de trastornos mentales."
-            />
-          </div>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</div>
-{/* Cuarto container */}
-<div className="container-xxl py-5">
-  <Container>
-    <Row className="g-4">
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional9} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Ana López</h5>
-            <small>Psicóloga Infantil</small>
-            <Mas_Info
-              nombre="Ana López"
-              descripcion="Especialista en desarrollo infantil y apoyo a niños y adolescentes."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional5} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">David Gómez</h5>
-            <small>Coach de Vida</small>
-            <Mas_Info
-              nombre="David Gómez"
-              descripcion="Coach de vida enfocado en el logro de objetivos y metas personales."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional11} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Laura Méndez</h5>
-            <small>Psicóloga Forense</small>
-            <Mas_Info
-              nombre="Laura Méndez"
-              descripcion="Trabaja en la evaluación y tratamiento de individuos en el sistema legal."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid" src={profesional12} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
-            </div>
-          </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Jorge Torres</h5>
-            <small>Psicoterapeuta</small>
-            <Mas_Info
-              nombre="Jorge Torres"
-              descripcion="Especialista en psicoterapia individual y grupal para adultos."
-            />
-          </div>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</div>
-
+      </Container>
+    </div>
     </>
   );
-};
+}
 
 export default Nuestro_Equipo;
-
-
