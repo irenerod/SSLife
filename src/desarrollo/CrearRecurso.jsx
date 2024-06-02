@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Form, Button, Col, Row, Container } from "react-bootstrap";
 import useRecursos from "../hooks/useRecursos.js";
 import useProfesional from "../hooks/useProfesional.js";
+import { Link } from "react-router-dom";
 
 const CrearRecurso = () => {
     const { listaProfesionales, obtenerNombrePropietario } = useProfesional();
@@ -165,7 +166,7 @@ const CrearRecurso = () => {
                                     </Form.Group>
                                     <div className="text-center">
                                         <Button
-                                            variant="primary"
+                                            variant="success"
                                             onClick={(e) => {
                                                 if (validarFormulario()) {
                                                     crearRecurso(e);
@@ -173,13 +174,25 @@ const CrearRecurso = () => {
                                                 }
                                             }}
                                         >
-                                            Añadir producto
+                                            Añadir recurso
                                         </Button>
                                     </div>
                                     {recursoCreado && <p style={{ color: 'green', fontSize: '1.2em', textAlign: 'center' }}>El recurso se creó correctamente.</p>}
                                 </Form>
                             )}
                         </div>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center mt-4">
+                    <Col xs="auto">
+                        <Link to="/recursos">
+                            <Button variant="secondary" className="mx-2">Volver a recursos</Button>
+                        </Link>
+                    </Col>
+                    <Col xs="auto">
+                        <Link to="/editar-recurso">
+                            <Button variant="primary" className="mx-2">Editar Recurso</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>

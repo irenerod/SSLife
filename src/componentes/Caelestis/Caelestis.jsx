@@ -1,10 +1,11 @@
-/**
- import {React, useState} from 'react';
+import {React, useState} from 'react';
 import ChatBot from "react-chatbotify";
 import "./Caelestis.css";
 import { supabaseConexion } from '../../config/supabase';
+import { useNavigate } from 'react-router-dom';
 
 const Caelestis = () => {
+	const navigate = useNavigate();
     const valorInicial={};
 	const [form, setForm] =useState(valorInicial);
 
@@ -16,22 +17,80 @@ const Caelestis = () => {
 		borderRadius: 5,
 		maxWidth: 300
 	}
-
+	const navigateOptions = ["Recursos", "Sobre SSLIFE", "Contáctanos", "¿Qué me sucede?", "Preguntas frecuentes"];
+	
 	const flow = {
 		start: {
-			message: "¡Bienvenido a SSLife! ¿Cuál es tu nombre?",
+			message: "¡Bienvenid@ a SSLIFE! Soy Caelestis, tu guía en este viaje. ¿Cómo te llamas?",
 			function: (params) => setForm({ ...form, name: params.userInput }),
 			path: "greet_user"
 		},
 		greet_user: {
 			message: (params) => `¡Encantado de conocerte, ${params.userInput}!`,
+			chatDisabled: true,
 			transition: { duration: 1000 },
 			path: "explain_sslife"
 		},
 		explain_sslife: {
 			message: "SSLife es una plataforma dedicada a combatir el acoso escolar y la soledad. Ofrecemos apoyo emocional y recursos para aquellos que lo necesitan.",
+			chatDisabled: true,
 			transition: { duration: 1000 },
-			path: "write_message"
+			path: "user_options"
+		},
+		user_options: {
+			message: "¿Qué quieres hacer?",
+			chatDisabled: true,
+			options: ["Escribir carta", "Navegar por SSLIFE", "Nada"],
+			path: (params) => {
+				if (params.userInput === "Escribir carta") {
+					return "write_message";
+				} 
+				if (params.userInput === "Navegar por SSLIFE") {
+					return "navigate_options" ;
+				}
+				if (params.userInput === "Nada") {
+					return "end" ;
+				}
+				else {
+					return "end" ;
+				}
+			}
+		},
+		navigate_options:{
+			message: "¿Qué página de SSLIFE quieres visitar?",
+			options: navigateOptions,
+			path: "navigate"
+		},
+		navigate: {
+			transition: {duration: 0},
+			chatDisabled: true,
+			path: async (params) => {
+				let path = '';
+				switch (params.userInput) {
+				  case 'Recursos':
+					path = '/recursos';
+					break;
+				  case 'Sobre SSLIFE':
+					path = '/sobre';
+					break;
+				  case '¿Qué me sucede?':
+					path = '/que-me-sucede';
+					break;
+				  case 'Contáctanos':
+					path = '/contacto';
+					break;
+				  case 'Preguntas frecuentes':
+					path = '/faqs';
+					break;
+				  default:
+					return 'unknown_input';
+				}
+				await params.injectMessage('Redirigiéndote...');
+				setTimeout(() => {
+					navigate(path);
+				}, 1000);
+				return "end";
+			}
 		},
 		write_message: {
 			message: "¿Te gustaría escribir una carta o un mensaje para sentirte mejor? Puedes escribirlo aquí.",
@@ -45,25 +104,27 @@ const Caelestis = () => {
 		},
 		repeat_message: {
 			message: (params) => `Aquí está tu mensaje: "${form.mensajeUsuario}". ¿Quieres repetirlo o hacer algo más?`,
-			options: ["Repetir", "Hacer otra cosa"],
-			function: (params) => {
+			chatDisabled: true,
+			options: ["Repetir", "Navegar por SSLIFE", "Nada"],
+			path: (params) => {
 				if (params.userInput === "Repetir") {
-					params.triggerNextStep({ path: "repeat_message" });
-				} else {
-					params.triggerNextStep({ path: "end" });
+					return "write_message";
+				} 
+				if (params.userInput === "Navegar por SSLIFE") {
+					return "navigate_options" ;
+				}
+				if (params.userInput === "Nada") {
+					return "end" ;
+				}
+				else {
+					return "end" ;
 				}
 			}
 		},
 		end: {
-			message: "Gracias por usar SSLife. Si necesitas más ayuda, no dudes en volver.",
-			render: (
-				<div style={formStyle}>
-					<p>Nombre: {form.name}</p>
-					<p>Mensaje: {form.mensajeUsuario}</p>
-				</div>
-			),
-			options: ["Nueva consulta"],
-			path: "start"
+			message: "Gracias por usar SSLife. Si necesitas más ayuda, no dudes en volver.",	
+			chatDisabled: true,
+			transition: {duration: 3000},		
 		},
 	};
 
@@ -78,112 +139,6 @@ const Caelestis = () => {
 			console.log('Mensaje guardado:', data);
 		}
 	};
- */
-import React, { useState } from 'react';
-import ChatBot from "react-chatbotify";
-import "./Caelestis.css";
-import { supabaseConexion } from '../../config/supabase';
-
-const Caelestis = () => {
-  const valorInicial = {};
-  const [form, setForm] = useState(valorInicial);
-
-  const formStyle = {
-    marginTop: 10,
-    marginLeft: 20,
-    border: "1px solid #491d8d",
-    padding: 10,
-    borderRadius: 5,
-    maxWidth: 300
-  };
-
-  const navigateOptions = ["Recursos", "Sobre SSLIFE", "Contáctanos", "¿Qué me sucede?", "Preguntas frecuentes"];
-  const helpOptions = ["Escribir carta", "Ir a otro lado", "Nada"];
-
-  const flow = {
-    start: {
-      message: '¡Bienvenid@ a SSLIFE! Soy Caelestis, tu guía en este viaje. ¿Cómo te llamas?',
-	  function: (params) => setForm({ ...form, name: params.userInput }),
-      path: 'greet_user'
-    },
-    greet_user: {
-		message: (params) => `¡Encantado de conocerte, ${params.userInput}!`,
-		transition: { duration: 1000 },
-		path: "explain_sslife"
-    },
-    explain_sslife: {
-      message: "SSLife es una plataforma dedicada a combatir el acoso escolar y la soledad. Ofrecemos apoyo emocional y recursos para aquellos que lo necesitan.",
-	  transition: { duration: 1000 },
-      path: 'show_options'
-    },
-    show_options: {
-      message: "¿En qué puedo ayudarte?",
-	  transition: { duration: 1000 },
-      path: 'user_options'
-    },
-    user_options: {
-      options: [
-        { value: 'Escribir carta', label: 'Escribir carta', path: 'write_message' },
-        { value: 'Ir a otro lado', label: 'Ir a otro lado', path: 'navigate' },
-        { value: 'Nada', label: 'Nada', path: 'end' },
-      ],
-    },
-    navigate: {
-      message: '¿Dónde te gustaría ir?',
-	  transition: { duration: 1000 },
-      path: 'navigation_options'
-    },
-    navigation_options: {
-      options: [
-        { value: 'Recursos', label: 'Recursos', path: () => handleRedirect('/recursos') },
-        { value: 'Sobre SSLIFE', label: 'Sobre SSLIFE', path: () => handleRedirect('/sobre') },
-        { value: '¿Qué me sucede?', label: '¿Qué me sucede?', path: () => handleRedirect('/que-me-sucede') },
-        { value: 'Contáctanos', label: 'Contáctanos', path: () => handleRedirect('/contacto') },
-        { value: 'Preguntas frecuentes', label: 'Preguntas frecuentes', path: () => handleRedirect('/faqs') },
-      ],
-    },
-    write_message: {
-      message: "¿Te gustaría escribir una carta o un mensaje para sentirte mejor? Puedes escribirlo aquí.",
-      user: true,
-      path: (params) => {
-        const mensajeNuevo = params.value;
-        setForm({ ...form, mensajeUsuario: mensajeNuevo });
-        guardarMensaje(form.name, mensajeNuevo);
-        return 'repeat_message';
-      },
-    },
-    repeat_message: {
-      message: (params) => `Aquí está tu mensaje: "${form.mensajeUsuario}". ¿Quieres repetirlo o hacer algo más?`,
-      path: 'repeat_or_else'
-    },
-    repeat_or_else: {
-      options: [
-        { value: 'Repetir', label: 'Repetir', path: 'write_message' },
-        { value: 'Hacer otra cosa', label: 'Hacer otra cosa', path: 'show_options' },
-        { value: 'Salir', label: 'Salir', path: 'end' },
-      ],
-    },
-    end: {
-      message: "Te recomendamos que explores nuestra página y veas nuestros recursos, tienen la capacidad de cambiar vidas. Adelante. Y recuerda: NO ESTÁS SOLO… Conéctate. ¡BIENVENIDO!",
-      end: true,
-    },
-  };
-
-  const handleRedirect = (path) => {
-    window.location.href = path;
-  };
-
-  const guardarMensaje = async (name, message) => {
-    const { data, error } = await supabaseConexion
-      .from('caelestis')
-      .insert([{ nombre_usuario: name, mensaje: message, fecha: new Date() }]);
-
-    if (error) {
-      console.error('Error guardando el mensaje:', error);
-    } else {
-      console.log('Mensaje guardado:', data);
-    }
-  };
 
 	return (
 		<ChatBot
@@ -198,11 +153,11 @@ const Caelestis = () => {
 				bodyStyle: {
 					"background": "#f0f0f0"
 				},
-				chatHistoryButtonStyle: {
+				chatnavigateButtonStyle: {
 					"background": "#198754",
 					"color": "#ffffff"
 				},
-				chatHistoryButtonHoveredStyle: {
+				chatnavigateButtonHoveredStyle: {
 					"background": "#00796b"
 				},
 				chatInputContainerStyle: {
@@ -229,7 +184,7 @@ const Caelestis = () => {
 					"background": "#00796b",
 					"color": "#ffffff"
 				},
-				chatHistoryLineBreakStyle: {
+				chatnavigateLineBreakStyle: {
 					"color": "#46805f"
 				},
 				botCheckboxNextStyle: {
