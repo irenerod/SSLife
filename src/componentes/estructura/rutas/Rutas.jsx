@@ -17,10 +17,12 @@ import PoliticaPrivacidad from "../../PoliticaPrivacidad.jsx"
 import PoliticaCookies from "../../PoliticaCookies.jsx"
 import AvisoLegal from "../../AvisoLegal.jsx"
 import ComoAyudar from "../../../paginas/ComoAyudar.jsx";
+import Arriba from "./Arriba.jsx"
 
 const Rutas = () => {
   return (
     <Fragment>
+      <Arriba/>
       <Routes>
         <Route path='/' element={<Bienvenida />} />
         <Route path='/inicio' element={<Inicio />} />

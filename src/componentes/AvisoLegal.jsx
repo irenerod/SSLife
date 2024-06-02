@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'; 
 
 const StyledContainer = styled(Container)`
   .main-heading {
@@ -96,7 +97,7 @@ const AvisoLegal = () => {
               <h2 className="section-heading">9. Ley aplicable</h2>
               <p>Los presentes términos de uso se regirán por la legislación española.</p>
 
-              <Button className="btn-custom mt-3">Volver al inicio</Button>
+              <Button as={Link} to="/" className="btn-custom mt-3">Volver al inicio</Button>
             </Col>
           </Row>
         </Card.Body>
