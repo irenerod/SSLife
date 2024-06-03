@@ -46,7 +46,7 @@ const ProveedorProfesionales = ({ children }) => {
     obtenerUsuarios();
   }, []);
 
-  // Función para obtener el nombre del propietario a partir de su ID
+  // Función para obtener el nombre del profesional/propietario a partir de su ID
   const obtenerNombrePropietario = (idPropietario) => {
     const usuario = listaUsuarios.find(usuario => usuario.usuario_id === idPropietario);
     return usuario ? `${usuario.nombre} ${usuario.apellidos}` : 'Propietario no encontrado';

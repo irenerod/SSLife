@@ -92,7 +92,6 @@ const Nuestro_Equipo = () => {
         </Row>
       </Container>
     </div>
-    {/* Segundo container */}
       <div className="container-xxl py-5">
         <Container>
           <div className="section-title text-center">
@@ -162,228 +161,226 @@ const Nuestro_Equipo = () => {
         </Row>
         </Container>
       </div>
-       {/* Tercer container */}
-<div className="container-xxl py-5">
-  <Container>
-    <Row className="g-4">
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional10} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+  <div className="container-xxl py-5">
+    <Container>
+      <Row className="g-4">
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional10} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">María Gonzalez</h5>
+              <small>Neuropsicóloga</small>
+              <Mas_Info
+                nombre="María Gonzalez"
+                descripcion="Especialista en neuropsicología y rehabilitación cognitiva."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">María Gonzalez</h5>
-            <small>Neuropsicóloga</small>
-            <Mas_Info
-              nombre="María Gonzalez"
-              descripcion="Especialista en neuropsicología y rehabilitación cognitiva."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional3} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional3} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Carlos Ramírez</h5>
+              <small>Consejero Psicológico</small>
+              <Mas_Info
+                nombre="Carlos Ramírez"
+                descripcion="Consejero experto en técnicas de afrontamiento y resiliencia."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Carlos Ramírez</h5>
-            <small>Consejero Psicológico</small>
-            <Mas_Info
-              nombre="Carlos Ramírez"
-              descripcion="Consejero experto en técnicas de afrontamiento y resiliencia."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional7} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional7} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Lucía Fernández</h5>
+              <small>Terapeuta Ocupacional</small>
+              <Mas_Info
+                nombre="Lucía Fernández"
+                descripcion="Ayuda en la recuperación y adaptación de habilidades diarias."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Lucía Fernández</h5>
-            <small>Terapeuta Ocupacional</small>
-            <Mas_Info
-              nombre="Lucía Fernández"
-              descripcion="Ayuda en la recuperación y adaptación de habilidades diarias."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional8} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional8} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Andrés Pérez</h5>
+              <small>Psicólogo Clínico</small>
+              <Mas_Info
+                nombre="Andrés Pérez"
+                descripcion="Experto en diagnósticos y tratamiento de trastornos mentales."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Andrés Pérez</h5>
-            <small>Psicólogo Clínico</small>
-            <Mas_Info
-              nombre="Andrés Pérez"
-              descripcion="Experto en diagnósticos y tratamiento de trastornos mentales."
-            />
-          </div>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</div>
-{/* Cuarto container */}
-<div className="container-xxl py-5">
-  <Container>
-    <Row className="g-4">
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional9} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+  <div className="container-xxl py-5">
+    <Container>
+      <Row className="g-4">
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.1s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional9} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Ana López</h5>
+              <small>Psicóloga Infantil</small>
+              <Mas_Info
+                nombre="Ana López"
+                descripcion="Especialista en desarrollo infantil y apoyo a niños y adolescentes."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Ana López</h5>
-            <small>Psicóloga Infantil</small>
-            <Mas_Info
-              nombre="Ana López"
-              descripcion="Especialista en desarrollo infantil y apoyo a niños y adolescentes."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional5} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.3s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional5} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">David Gómez</h5>
+              <small>Coach de Vida</small>
+              <Mas_Info
+                nombre="David Gómez"
+                descripcion="Coach de vida enfocado en el logro de objetivos y metas personales."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">David Gómez</h5>
-            <small>Coach de Vida</small>
-            <Mas_Info
-              nombre="David Gómez"
-              descripcion="Coach de vida enfocado en el logro de objetivos y metas personales."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional11} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.5s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional11} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Laura Méndez</h5>
+              <small>Psicóloga Forense</small>
+              <Mas_Info
+                nombre="Laura Méndez"
+                descripcion="Trabaja en la evaluación y tratamiento de individuos en el sistema legal."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Laura Méndez</h5>
-            <small>Psicóloga Forense</small>
-            <Mas_Info
-              nombre="Laura Méndez"
-              descripcion="Trabaja en la evaluación y tratamiento de individuos en el sistema legal."
-            />
-          </div>
-        </div>
-      </Col>
-      <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
-        <div className="team-item">
-          <div className="overflow-hidden position-relative">
-            <Image className="img-fluid Nuestro-Equipo-img" src={profesional12} alt="Team Member" />
-            <div className="team-social">
-              <Button variant="square" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button variant="square" href="#">
-                <i className="fab fa-instagram"></i>
-              </Button>
+        </Col>
+        <Col lg={3} md={6} className="wow fadeInUp" data-wow-delay="0.7s">
+          <div className="team-item">
+            <div className="overflow-hidden position-relative">
+              <Image className="img-fluid Nuestro-Equipo-img" src={profesional12} alt="Team Member" />
+              <div className="team-social">
+                <Button variant="square" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-twitter"></i>
+                </Button>
+                <Button variant="square" href="#">
+                  <i className="fab fa-instagram"></i>
+                </Button>
+              </div>
+            </div>
+            <div className="text-center border border-5 border-light border-top-0 p-4">
+              <h5 className="mb-0">Jorge Torres</h5>
+              <small>Psicoterapeuta</small>
+              <Mas_Info
+                nombre="Jorge Torres"
+                descripcion="Especialista en psicoterapia individual y grupal para adultos."
+              />
             </div>
           </div>
-          <div className="text-center border border-5 border-light border-top-0 p-4">
-            <h5 className="mb-0">Jorge Torres</h5>
-            <small>Psicoterapeuta</small>
-            <Mas_Info
-              nombre="Jorge Torres"
-              descripcion="Especialista en psicoterapia individual y grupal para adultos."
-            />
-          </div>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
 
     </>
   );

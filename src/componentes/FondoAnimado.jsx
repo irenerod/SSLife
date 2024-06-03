@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container } from 'reac-bootstrap';
 
 const AnimatedBackground = () => {
   const animatedBackgroundStyle = {
     position: 'relative',
     width: '100%',
-    height: '100vh', // Full viewport height
+    height: '100vh', 
     overflow: 'hidden',
     background: 'linear-gradient(270deg, #ffb3a7, #ffd6a7, #b7ff99, #a7ffd6)',
     backgroundSize: '800% 800%',
