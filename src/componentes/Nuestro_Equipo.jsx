@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Irene from '../assets/img/irene3.jpg';
+import Irene from '../assets/img/irene2.jpg';
 import Pedro from '../assets/img/pedro.jpg'; 
 import profesional1 from '../assets/img/profesional1.jpg'; 
 import profesional2 from '../assets/img/profesional2.jpg'; 
