@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Container, Row, Col, Card, Button, Collapse, Form, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Collapse, Form, InputGroup, FormControl, Pagination } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import useRecursos from "../hooks/useRecursos";
@@ -23,14 +23,13 @@ const Recursos = () => {
   } = useRecursos();
 
   const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recursosPorPagina = 9;
 
   useEffect(() => {
-    // Filtrar por nombre, tipo y categoría
     const recursosFiltradosPorNombre = filtrarPorNombre(listadoRecursos, filtroNombre);
     const recursosFiltradosPorTipo = filtrarPorTipo(recursosFiltradosPorNombre, filtroTipo);
     const recursosFiltradosFinal = filtrarPorCategoria(recursosFiltradosPorTipo, filtroCategoria);
-
-    // Actualizar el estado de recursos filtrados
     setRecursosFiltrados(recursosFiltradosFinal);
   }, [listadoRecursos, filtroNombre, filtroTipo, filtroCategoria]);
 
@@ -43,6 +42,15 @@ const Recursos = () => {
     const recursosOrdenados = await ordenarNombreDesc();
     setRecursosFiltrados([...recursosOrdenados]); 
   };
+
+  // Paginación
+  const indexOfLastRecurso = currentPage * recursosPorPagina;
+  const indexOfFirstRecurso = indexOfLastRecurso - recursosPorPagina;
+  const currentRecursos = recursosFiltrados.slice(indexOfFirstRecurso, indexOfLastRecurso);
+
+  const totalPages = Math.ceil(recursosFiltrados.length / recursosPorPagina);
+
+  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Fragment>
@@ -111,7 +119,7 @@ const Recursos = () => {
           <Button className="mx-2" variant="secondary" onClick={ordenarDesc}>Orden descendente</Button>
         </div>
         <Row className="g-4">
-          {recursosFiltrados.map((recurso) => (
+          {currentRecursos.map((recurso) => (
             <Col key={recurso.id_recurso} md={6} lg={4} className="wow fadeInUp" data-wow-delay="0.1s">
               <Card className="service-item h-100">
                 <Card.Img variant="top" src={recurso.imagen} alt="imagen-recurso" className="img-fluid" />
@@ -125,12 +133,23 @@ const Recursos = () => {
             </Col>
           ))}
         </Row>
+        <Pagination className="justify-content-center mt-4">
+          {[...Array(totalPages)].map((_, index) => (
+            <Pagination.Item 
+              key={index + 1}
+              active={index + 1 === currentPage}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </Pagination.Item>
+          ))}
+        </Pagination>
         <div className="text-center mt-4">
-          <Link to="/crear-recurso">
-            <Button variant="primary" className="mx-2">Crear Recurso</Button>
-          </Link>
           <Link to="/editar-recurso">
             <Button variant="secondary" className="mx-2">Editar Recurso</Button>
+          </Link>
+          <Link to="/crear-recurso">
+            <Button variant="warning" className="mx-2">Crear Recurso</Button>
           </Link>
         </div>
       </Container>

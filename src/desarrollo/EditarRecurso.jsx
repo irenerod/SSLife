@@ -71,7 +71,7 @@ const EdicionRecursos = () => {
           </ListGroup>
         </Col>
         <Col xs={12} md={8 } className="d-flex justify-content-around">
-          <Card className="p-4" style={{ borderRadius: '10px', boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)' }}>
+          <Card className="p-4" style={{ borderRadius: '10px', boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)', width: '500px' }}>
             <Form>
               <Form.Group controlId="nombre_recurso" className="text-left">
                 <Form.Label>Nombre del Recurso</Form.Label> 
@@ -112,7 +112,7 @@ const EdicionRecursos = () => {
               </Form.Group>
               <Form.Group className="text-left">
                 <Form.Label>Categoría</Form.Label>
-                <div className="d-flex">
+                <div className="d-flex justify-content-around">
                   <Form.Check
                     type="radio"
                     id="categoriaBullying"
@@ -136,7 +136,7 @@ const EdicionRecursos = () => {
                   />
                 </div>
               </Form.Group>
-              <div className="text-center my-3">
+              <div className="d-flex justify-content-evenly text-center my-3">
                 <Button variant="danger" onClick={() => setConfirmacionEliminar(true)} className="mr-2">
                   Eliminar Recurso
                 </Button>

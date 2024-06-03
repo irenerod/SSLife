@@ -9,8 +9,6 @@ import ProveedorProfesionales from "./contextos/ProveedorProfesionales.jsx";
 import ProveedorUsuarios from "./contextos/ProveedorUsuarios.jsx";
 import "./App.css";
 
-
-
 /**
  *  Roles:
  *  admin = para los administradores.  
