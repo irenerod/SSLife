@@ -191,10 +191,10 @@ const PoliticaDeCookies = () => {
       {/* Modal para agradecer */}
       <Modal show={showThanksModal} onHide={() => setShowThanksModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Agradecimiento</Modal.Title>
+          <Modal.Title>Gracias.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Muchas gracias. Utilizaremos tus cookies de manera y respetaremos tu privacidad.</p>
+          <p>Utilizaremos tus cookies de manera responsable y respetaremos tu privacidad.</p>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="warning" onClick={() => setShowThanksModal(false)}>
@@ -206,10 +206,10 @@ const PoliticaDeCookies = () => {
       {/* Modal para respetar */}
       <Modal show={showRespectModal} onHide={() => setShowRespectModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Respetamos tu privacidad</Modal.Title>
+          <Modal.Title>Respetamos tu privacidad.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Respetamos tu privacidad. Entendemos que no quieras compartir tus datos. Puedes seguir disfrutando de nuestra página aunque, a veces, veas que el funcionamiento es más lento.</p>
+          <p>No te preocupes. Respetamos tu privacidad. Entendemos que no quieras compartir tus datos. Puedes seguir disfrutando de nuestra página aunque, a veces, veas que el funcionamiento es más lento.</p>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="warning" onClick={() => setShowThanksModal(false)}>

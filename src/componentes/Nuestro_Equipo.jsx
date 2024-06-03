@@ -150,10 +150,10 @@ const Nuestro_Equipo = () => {
                 <Image className="img-fluid Nuestro-Equipo-img" src={profesional4} alt="Team Member" />
               </div>
               <div className="text-center border border-5 border-light border-top-0 p-4">
-                <h5 className="mb-0">Yvette Duchamp</h5>
+                <h5 className="mb-0">Yvet Duchamp</h5>
                 <small>Asistente de Psicología</small>
                 <Mas_Info
-                  nombre="Yvette Duchamp"
+                  nombre="Yvet Duchamp"
                    descripcion="Apoya en la investigación y en la atención al cliente con profesionalismo."
                         />
               </div>
