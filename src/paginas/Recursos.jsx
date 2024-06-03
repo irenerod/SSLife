@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Collapse, Form, InputGroup, FormCont
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import useRecursos from "../hooks/useRecursos";
+import "../estilos/Recursos.css"; 
 
 const Recursos = () => {
   const {

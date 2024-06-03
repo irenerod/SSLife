@@ -179,9 +179,9 @@ const PoliticaDeCookies = () => {
                   <li><strong>Modificar su configuración:</strong> Podrá obtener más información sobre qué son las cookies, conocer la Política de Cookies de CREATIVE LIFE y modificar la configuración de su navegador para restringir o bloquear las cookies de CREATIVE LIFE en cualquier momento. En el caso de restringir o bloquear las cookies, puede ver reducidas las funcionalidades del Sitio Web.</li>
                 </ul>
               </div>
-              <div>
-              <Button className="btn-success mt-3 pl-3 ml-3" onClick={handleAcceptCookies} style={{ marginRight: '6px' }}>Aceptar Cookies</Button>
+              <div className='d-flex justify-content-evenly'>
               <Button className="btn-danger mt-3 ml-3" onClick={handleRejectCookies}>Rechazar Cookies</Button>
+              <Button className="btn-success mt-3 pl-3 ml-3" onClick={handleAcceptCookies} style={{ marginRight: '6px' }}>Aceptar Cookies</Button>
               </div>
             </Col>
           </Row>
@@ -209,7 +209,7 @@ const PoliticaDeCookies = () => {
           <Modal.Title>Respetamos tu privacidad</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Respetamos tu privacidad. Entendemos que no quieras compartir tus datos. Puede seguir disfrutando de nuestra página aunque, a veces, veas que el funcionamiento es más lento.</p>
+          <p>Respetamos tu privacidad. Entendemos que no quieras compartir tus datos. Puedes seguir disfrutando de nuestra página aunque, a veces, veas que el funcionamiento es más lento.</p>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="warning" onClick={() => setShowThanksModal(false)}>

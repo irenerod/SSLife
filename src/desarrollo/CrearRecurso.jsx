@@ -133,7 +133,7 @@ const CrearRecurso = () => {
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Categoría:</Form.Label>
-                                        <div className="d-flex">
+                                        <div className="'d-flex justify-content-evenly'">
                                             <Form.Check
                                                 type="radio"
                                                 id="categoriaBullying"

@@ -38,7 +38,7 @@ const Sobre_SSLIFE = () => {
     
 
           <Button variant="success" style={{ marginTop: '20px', fontSize: '1.2rem' }}>
-        <Link to="/Contacto" style={{ color: 'white', textDecoration: 'none' }}>Pregúnanos lo que quieras.</Link>
+        <Link to="/Contacto" style={{ color: 'white', textDecoration: 'none' }}>Pregúntanos lo que quieras.</Link>
       </Button>
 
      </motion.div>

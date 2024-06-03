@@ -56,7 +56,7 @@ const PreguntasFrecuentes = () => {
       padding: '10px 20px',
       fontSize: '16px',
       fontWeight: 'bold',
-      color: 'white',
+      color: 'black',
       textAlign: 'center',
       border: 'none',
       cursor: 'pointer',
