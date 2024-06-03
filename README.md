@@ -2,19 +2,26 @@
 SS Life es una aplicación diseñada para abordar dos problemáticas sociales cruciales: la soledad y el bullying escolar. 
 Uniendo Smile Life y Safe Life, esta aplicación busca crear una red de apoyo integral que promueva la conexión emocional y el bienestar.
 
-Estado: En desarrollo
-
 ## Tecnologías y Herramientas Empleadas
 ### Frontend
 - React.js <br>
 - HTML5 <br>
 - CSS3 <br>
 - Javascript <br>
-- React bootstrap <br>
 
 ### Backend
 - SupaBase (BaaS)  <br>
 - PostgresSQL  <br>
+- Chatbotify  <br>
+
+### Libraries
+- React bootstrap <br>
+- Framer motion <br>
+- Styled Components <br>
+- Fortawesome <br>
+
+### Entorno de trabajo
+- GitHub <br>
 
 ## Instalación
 
