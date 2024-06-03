@@ -30,7 +30,6 @@ const ComoAyudarComp = () => {
             <p>Proporciona información sobre recursos y servicios de apoyo disponibles, como líneas de ayuda, grupos de apoyo o profesionales de la salud mental.</p>
           </div>
         </Col>
-        {/* Nuevas formas de ayudar */}
         <Col md={4} className="mb-4">
           <div className="bg-light p-4 rounded text-center">
             <h3>Mantén el contacto</h3>

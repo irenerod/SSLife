@@ -11,10 +11,6 @@ const Contacto_Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Message:', message);
-    // Lógica para enviar el formulario
-    // Aquí puedes implementar la lógica para enviar el mensaje al correo electrónico especificado (PSFLORES79@GMAIL.COM)
 
     // Mostrar el modal después de enviar el mensaje
     setModalOpen(true);
@@ -83,7 +79,6 @@ const Contacto_Formulario = () => {
           </p>
         </motion.div>
       </Col>
-
       {/* Modal para mostrar el mensaje de éxito */}
       <Modal isOpen={modalOpen} toggle={toggleModal} centered>
         <ModalHeader toggle={toggleModal}>Mensaje Enviado</ModalHeader>

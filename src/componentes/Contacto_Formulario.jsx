@@ -11,13 +11,10 @@ const Contacto_Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Message:', message);
     //Clave de recuperacion:  WQKEXBYGDF1KHC4EFLP2VLFN  --> no borrar, por favor.
     // Lógica para enviar el formulario.
     // Nos hemos registrado en Twilio.com pero aún no conseguimos hacer los endpoints. 
     // La cuenta usada para registrarnos ha sido la mia (psflores79@gmail.com).
-    // Esto lo dejamos para luego. 
     setModalOpen(true);
   };
 
@@ -84,7 +81,6 @@ const Contacto_Formulario = () => {
           </p>
         </motion.div>
       </Col>
-
       {/* Modal para mostrar el mensaje de éxito */}
       <Modal isOpen={modalOpen} toggle={toggleModal} centered>
         <ModalHeader toggle={toggleModal}>Mensaje Enviado</ModalHeader>

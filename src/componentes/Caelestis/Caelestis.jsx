@@ -132,12 +132,6 @@ const Caelestis = () => {
 		const { data, error } = await supabaseConexion
 			.from('caelestis')
 			.insert([{ nombre_usuario: name, mensaje: message, fecha: new Date() }]);
-
-		if (error) {
-			console.error('Error guardando el mensaje:', error);
-		} else {
-			console.log('Mensaje guardado:', data);
-		}
 	};
 
 	return (
