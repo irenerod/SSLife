@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'reac-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const AnimatedBackground = () => {
   const animatedBackgroundStyle = {
