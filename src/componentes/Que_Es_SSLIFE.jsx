@@ -35,7 +35,7 @@ const Que_Es_SSLIFE = () => {
                     </div>
                     <div className="ms-3">
                       <h2 className="text-success mb-1" data-toggle="counter-up">1477</h2>
-                      <p className="fw-medium mb-0">Usuarios usuarioFeliz</p>
+                      <p className="fw-medium mb-0">Usuarios Felices</p>
                     </div>
                   </div>
                 </Col>
