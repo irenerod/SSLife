@@ -25,7 +25,6 @@
     "react-chatbotify": "^1.6.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
-    "reactstrap": "^9.2.2",
     "styled-components": "^6.1.10",
     "supabase": "^1.145.4",
     "tw-elements-react": "^1.0.0-alpha2"

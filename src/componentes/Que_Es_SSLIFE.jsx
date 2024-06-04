@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import comunidadFeliz from "../assets/img/comunidad feliz.jpg";
 import profesionales from "../assets/img/profesionales.jpg";
 import usuarioFeliz from "../assets/img/usuarioFeliz.jpg";
+import useUsuarios from '../hooks/useUsuarios';
 
 const Que_Es_SSLIFE = () => {
+  const { sesionIniciada } = useUsuarios();
+
   return (
     <div className="container-fluid bg-light overflow-hidden my-5 px-lg-0">
       <Container className="about px-lg-0">
@@ -35,7 +39,7 @@ const Que_Es_SSLIFE = () => {
                     </div>
                     <div className="ms-3">
                       <h2 className="text-success mb-1" data-toggle="counter-up">1477</h2>
-                      <p className="fw-medium mb-0">Usuarios Felices</p>
+                      <p className="fw-medium mb-0">Usuarios felices</p>
                     </div>
                   </div>
                 </Col>
@@ -51,11 +55,17 @@ const Que_Es_SSLIFE = () => {
                   </div>
                 </Col>
               </Row>
-              <div className="section-second_title text-center mb-3 pb-3 mt-3 pt-3">
-                <h3 className="display-5 mb-8 pb-3">Tú puedes ser el próximo.</h3>
-                <Button href="" className="btn btn-success py-3 px-5 text-center mb-3 pb-3">Únete</Button>
-              </div>
-              
+                {sesionIniciada ? (
+                  <div className="section-second_title text-center mb-3 pb-3 mt-3 pt-3">
+                    <h3 className="display-5 mb-8 pb-3">¿Tienes curiosidad por nuestros recursos?</h3>
+                    <Button as={Link} to="/recursos" className="btn btn-success py-3 px-5 text-center mb-3 pb-3">Consultar</Button>
+                  </div>
+                ):(
+                  <div className="section-second_title text-center mb-3 pb-3 mt-3 pt-3">
+                    <h3 className="display-5 mb-8 pb-3">Tú puedes ser el próximo.</h3>
+                    <Button as={Link} to="/inicio-sesion" className="btn btn-success py-3 px-5 text-center mb-3 pb-3">Únete</Button>
+                  </div>
+                )}
             </div>
           </Col>
         </Row>

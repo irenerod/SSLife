@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Toast, ToastHeader, ToastBody } from 'reactstrap';
+import { Button, Toast } from 'react-bootstrap';
 
 const Mas_Info = ({ nombre, descripcion }) => {
   const [isToastOpen, setIsToastOpen] = useState(false);
@@ -14,18 +14,18 @@ const Mas_Info = ({ nombre, descripcion }) => {
 
   return (
     <div>
-      <Button color="success" onClick={handleButtonClick}>
+      <Button variant="success" onClick={handleButtonClick}>
         Más info.
       </Button>
       <br />
       <br />
-      <Toast isOpen={isToastOpen}>
-        <ToastHeader toggle={handleToastToggle}>
-          {nombre}
-        </ToastHeader>
-        <ToastBody>
+      <Toast show={isToastOpen} onClose={handleToastToggle}>
+        <Toast.Header closeButton>
+          <strong className="me-auto">{nombre}</strong>
+        </Toast.Header>
+        <Toast.Body>
           {descripcion}
-        </ToastBody>
+        </Toast.Body>
       </Toast>
     </div>
   );
