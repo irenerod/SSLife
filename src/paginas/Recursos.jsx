@@ -24,10 +24,10 @@ const Recursos = () => {
     setRecursosFiltrados
   } = useRecursos();
 
-  const { usuario } = useUsuarios();
-
-  const [open, setOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const valorInicial=1;
+  const booleanInicial=false;
+  const [abrir, setAbrir] = useState(booleanInicial);
+  const [paginaActual, setPaginaActual] = useState(valorInicial);
   const recursosPorPagina = 9;
 
   useEffect(() => {
@@ -48,13 +48,17 @@ const Recursos = () => {
   };
 
   // Paginación
-  const indexOfLastRecurso = currentPage * recursosPorPagina;
-  const indexOfFirstRecurso = indexOfLastRecurso - recursosPorPagina;
-  const currentRecursos = recursosFiltrados.slice(indexOfFirstRecurso, indexOfLastRecurso);
+  const indexUltimoRecurso = paginaActual * recursosPorPagina;
+  const indexPrimerRecurso = indexUltimoRecurso - recursosPorPagina;
+  const currentRecursos = recursosFiltrados.slice(indexPrimerRecurso, indexUltimoRecurso);
 
-  const totalPages = Math.ceil(recursosFiltrados.length / recursosPorPagina);
+  const totalPaginas = Math.ceil(recursosFiltrados.length / recursosPorPagina);
 
-  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
+  const manejarPaginado = (numeroPagina) => setPaginaActual(numeroPagina);
+
+  const { usuario } = useUsuarios();
+  const adminEmail = ['irenerodenas.alu@iespacomolla.es', 'pedrosanchezfloresalu@iespacomolla.es'];
+  const admin = usuario && adminEmail.includes(usuario.email);
 
   return (
     <Fragment>
@@ -64,14 +68,14 @@ const Recursos = () => {
         </div>
         <div className="text-center mb-4">
           <Button variant="warning"
-            onClick={() => setOpen(!open)}
+            onClick={() => setAbrir(!abrir)}
             aria-controls="filter-collapse"
-            aria-expanded={open}
+            aria-expanded={abrir}
             className="mb-3"
           >
-            {open ? "Ocultar Opciones de Filtrado" : "Mostrar Opciones de Filtrado"}
+            {abrir ? "Ocultar Opciones de Filtrado" : "Mostrar Opciones de Filtrado"}
           </Button>
-          <Collapse in={open}>
+          <Collapse in={abrir}>
             <div id="filter-collapse">
               <Row className="justify-content-center">
                 <Col md={4}>
@@ -138,33 +142,28 @@ const Recursos = () => {
           ))}
         </Row>
         <Pagination className="justify-content-center mt-4">
-          {[...Array(totalPages)].map((_, index) => (
+          {[...Array(totalPaginas)].map((_, index) => (
             <Pagination.Item 
               key={index + 1}
-              active={index + 1 === currentPage}
-              onClick={() => handlePageChange(index + 1)}
+              active={index + 1 === paginaActual}
+              onClick={() => manejarPaginado(index + 1)}
             >
               {index + 1}
             </Pagination.Item>
           ))}
         </Pagination>
-    {/*     {usuario.email === "irenerodenas.alu@iespacomolla.es" &&
-          <div className="text-center mt-4">
-          <Link to="/editar-recurso">
-            <Button variant="secondary" className="mx-2">Editar Recurso</Button>
-          </Link>
-          <Link to="/crear-recurso">
-            <Button variant="warning" className="mx-2">Crear Recurso</Button>
-          </Link>
-        </div>} */}
         <div className="text-center mt-4">
-          <Link to="/editar-recurso">
-            <Button variant="secondary" className="mx-2">Editar Recurso</Button>
-          </Link>
-          <Link to="/crear-recurso">
-            <Button variant="warning" className="mx-2">Crear Recurso</Button>
-          </Link>
-        </div>
+        {admin && (
+          <>
+            <Link to="/editar-recurso">
+              <Button variant="secondary" className="mx-2">Editar Recurso</Button>
+            </Link>
+            <Link to="/crear-recurso">
+              <Button variant="warning" className="mx-2">Crear Recurso</Button>
+            </Link>
+          </>
+        )}
+      </div>
       </Container>
     </Fragment>
   );

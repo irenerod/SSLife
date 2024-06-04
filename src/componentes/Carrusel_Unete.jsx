@@ -5,7 +5,7 @@ import team1 from '../assets/img/jovenes-felices.jpg';
 import team2 from '../assets/img/medicosFelices.jpg'; 
 import team3 from '../assets/img/service-2.gif'; 
 
-const NuevoComp = () => {
+const Carrusel_Unete = () => {
   return (
     <div style={styles.container}>
       <Carousel className='mt-5 pt-5' interval={1500}>
@@ -79,7 +79,7 @@ const NuevoComp = () => {
 
 const styles = {
   container: {
-    margin: '0', // Eliminamos el maxWidth y ajustamos el margen a cero
+    margin: '0', 
     textAlign: 'center',
   },
   heading: {
@@ -95,7 +95,7 @@ const styles = {
   },
 };
 
-export default NuevoComp;
+export default Carrusel_Unete;
 
 
 

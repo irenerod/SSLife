@@ -119,6 +119,7 @@ import { useNavigate } from "react-router-dom";
       cerrarSesion,
       actualizarDato,
       datosSesion,
+      usuario,
     };
   
       return (

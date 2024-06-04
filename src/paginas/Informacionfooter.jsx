@@ -5,7 +5,6 @@ const Contacto = () => {
   return (
     <Fragment>
       <Informacion></Informacion>
-    
     </Fragment>
   );
 };
