@@ -57,7 +57,7 @@ const Recursos = () => {
   const manejarPaginado = (numeroPagina) => setPaginaActual(numeroPagina);
 
   const { usuario } = useUsuarios();
-  const adminEmail = ['irenerodenas.alu@iespacomolla.es', 'pedrosanchezfloresalu@iespacomolla.es'];
+  const adminEmail = ['irenerodenas.alu@iespacomolla.es', 'pedrosanchezflores.alu@iespacomolla.es'];
   const admin = usuario && adminEmail.includes(usuario.email);
 
   return (

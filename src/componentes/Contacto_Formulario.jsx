@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Form, Button, Col, Modal, Toast } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import logo from '../assets/img/LogosinFondo.png';
 import { Link } from 'react-router-dom';
@@ -11,10 +11,6 @@ const Contacto_Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Clave de recuperacion:  WQKEXBYGDF1KHC4EFLP2VLFN  --> no borrar, por favor.
-    // Lógica para enviar el formulario.
-    // Nos hemos registrado en Twilio.com pero aún no conseguimos hacer los endpoints. 
-    // La cuenta usada para registrarnos ha sido la mia (psflores79@gmail.com).
     setModalOpen(true);
   };
 
@@ -43,30 +39,30 @@ const Contacto_Formulario = () => {
         >
           <h3 className="mb-4 text-center">¡Contáctanos!</h3>
           <Form onSubmit={handleSubmit}>
-            <FormGroup className="mb-3">
-              <Label for="emailInput">Correo Electrónico</Label>
-              <Input
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="emailInput">Correo Electrónico</Form.Label>
+              <Form.Control
                 type="email"
                 id="emailInput"
                 placeholder="Ingresa tu correo electrónico"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </FormGroup>
-            <FormGroup className="mb-3">
-              <Label for="messageInput">Mensaje</Label>
-              <Input
-                type="textarea"
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="messageInput">Mensaje</Form.Label>
+              <Form.Control
+                as="textarea"
                 id="messageInput"
                 placeholder="Escribe tu mensaje aquí"
                 rows={6}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-            </FormGroup>
+            </Form.Group>
             <Button 
               type="submit" 
-              color="success" 
+              variant="success" 
               style={{
                 width: '100%',
                 borderRadius: '8px',
@@ -81,21 +77,19 @@ const Contacto_Formulario = () => {
           </p>
         </motion.div>
       </Col>
-      {/* Modal para mostrar el mensaje de éxito */}
-      <Modal isOpen={modalOpen} toggle={toggleModal} centered>
-        <ModalHeader toggle={toggleModal}>Mensaje Enviado</ModalHeader>
-        <ModalBody>
+      <Modal show={modalOpen} onHide={toggleModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Mensaje Enviado</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <p>Mensaje enviado con éxito. En breve recibirá una respuesta. Puede seguir disfrutando de nuestra web o pedir ayuda a "Caelestis".</p>
-        </ModalBody>
-        <ModalFooter>
+        </Modal.Body>
+        <Modal.Footer>
           <Link to="/" className="btn btn-success">Aceptar</Link>
-        </ModalFooter>
+        </Modal.Footer>
       </Modal>
     </div>
   );
 };
 
 export default Contacto_Formulario;
-
-
-

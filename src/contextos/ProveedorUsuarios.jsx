@@ -103,7 +103,7 @@ import { useNavigate } from "react-router-dom";
             setSesionIniciada(true);
             obtenerUsuario();
           } else {
-            navegar("login");
+            navegar("/");
             setSesionIniciada(false);
           }
         }
