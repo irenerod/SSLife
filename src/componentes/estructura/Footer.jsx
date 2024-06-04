@@ -1,7 +1,7 @@
 import React from 'react';
 import Caelestis from '../Caelestis/Caelestis';
 import useUsuarios from "../../hooks/useUsuarios";
-import { Col, Container, Row, Button } from 'reactstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';

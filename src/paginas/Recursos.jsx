@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Collapse, Form, InputGroup, FormCont
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import useRecursos from "../hooks/useRecursos";
+import useUsuarios from "../hooks/useUsuarios";
 import "../estilos/Recursos.css"; 
 
 const Recursos = () => {
@@ -22,6 +23,8 @@ const Recursos = () => {
     recursosFiltrados,
     setRecursosFiltrados
   } = useRecursos();
+
+  const { usuario } = useUsuarios();
 
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -145,6 +148,15 @@ const Recursos = () => {
             </Pagination.Item>
           ))}
         </Pagination>
+    {/*     {usuario.email === "irenerodenas.alu@iespacomolla.es" &&
+          <div className="text-center mt-4">
+          <Link to="/editar-recurso">
+            <Button variant="secondary" className="mx-2">Editar Recurso</Button>
+          </Link>
+          <Link to="/crear-recurso">
+            <Button variant="warning" className="mx-2">Crear Recurso</Button>
+          </Link>
+        </div>} */}
         <div className="text-center mt-4">
           <Link to="/editar-recurso">
             <Button variant="secondary" className="mx-2">Editar Recurso</Button>

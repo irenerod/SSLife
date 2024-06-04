@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import useUsuarios from "../../hooks/useUsuarios";
-import { Button } from "reactstrap";
+import { Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const InicioSesion = () => {
