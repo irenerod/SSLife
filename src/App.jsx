@@ -12,12 +12,14 @@ import "./App.css";
 /**
  *  Roles:
  *  admin = para los administradores.  
- *            - Pueden insertar, editar, borrar y ver los productos.
- *            - Pueden ver y borrar las listas.
+ *            - Pueden insertar, editar, borrar y ver los recursos.
  *            - irenerodenas.alu@iespacomolla.es
  *            - pedrosanchezflores.alu@iespacomolla.es
  *            - Contraseñas: 123456
- *  */
+ *  victima = para los usuarios.
+ *            - Pueden ver los recursos.
+ *            - Cualquier usuario registrado que no sea admin.
+ **/
 function App() {
   return (
     <Fragment>
@@ -25,14 +27,11 @@ function App() {
       <ProveedorUsuarios>
         <main>
           <Navegacion />
-          
           <ProveedorProfesionales>
             <ProveedorRecursos>
               <Principal/>
-              
             </ProveedorRecursos>
           </ProveedorProfesionales>
-        
           <Footer />
         </main>
       </ProveedorUsuarios>  
