@@ -6,7 +6,7 @@ import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
 
 const Navegacion = () => {
   // Tiene que estar la sesión iniciada para poder ver las siguientes opciones de navegación.
-  const { sesionIniciada, cerrarSesion} = useUsuarios();
+  const { sesionIniciada, usuario, cerrarSesion} = useUsuarios();
 
   return (
     <Fragment>
@@ -31,6 +31,16 @@ const Navegacion = () => {
                   <NavDropdown.Item as={Link} to="/crear-recurso">Crear recursos</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to='/editar-recurso'>Editar recursos</NavDropdown.Item>
                 </NavDropdown>
+               {/*  {usuario.email === "irenerodenas.alu@iespacomolla.es" &&
+                <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                  <NavDropdown.Item as={Link} to="/recursos">Biblioteca de recursos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/crear-recurso">Crear recursos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/editar-recurso'>Editar recursos</NavDropdown.Item>
+                </NavDropdown>}
+                {usuario.email != "irenerodenas.alu@iespacomolla.es" &&  
+                <NavDropdown title="Recursos" id="navbarScrollingDropdown">
+                  <NavDropdown.Item as={Link} to="/recursos">Biblioteca de recursos</NavDropdown.Item>
+                  </NavDropdown>} */}
                 <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
                 <Button className="btn btn-danger my-2 my-lg-0" onClick={() => {
                     cerrarSesion();
