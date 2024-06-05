@@ -22,7 +22,11 @@ Uniendo Smile Life y Safe Life, esta aplicación busca crear una red de apoyo in
 
 ### Entorno de trabajo
 - GitHub <br>
+- https://github.com/irenerod/SSLife  <br>
 
+### Despliegue
+- Vercel <br>
+- [sslife.vercel.app](https://sslife.vercel.app/) <br>
 ## Instalación
 
 1. Clona este repositorio.
