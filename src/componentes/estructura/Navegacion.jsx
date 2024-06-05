@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import useUsuarios from "../../hooks/useUsuarios";
 import { Navbar, Nav, NavDropdown, Button, Container } from 'react-bootstrap';
+import Logo from "../../assets/img/LogosinFondo.png";
 
 const Navegacion = () => {
 
@@ -18,7 +19,7 @@ const Navegacion = () => {
           <Container fluid >
           <Navbar.Brand as={Link} to="/" className="d-flex flex-column align-items-center px-4 px-lg-5 pt-2">
             <div className="d-flex align-items-center">
-              <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+              <img className="logo" width="70px" src={Logo} alt="logo" />
               <h2 className="m-3 text-danger">SSLIFE</h2>
             </div>
             <span className="text-center fst-italic text-success">No estás solo, conéctate</span>
@@ -58,7 +59,7 @@ const Navegacion = () => {
         <Container fluid >
         <Navbar.Brand as={Link} to="/" className="d-flex flex-column align-items-center px-4 px-lg-5 pt-2">
         <div className="d-flex align-items-center">
-        <img className="logo" width="70px" src="./src/assets/img/LogosinFondo.png" alt="logo" />
+        <img className="logo" width="70px" src={Logo} alt="logo" />
         <h2 className="m-3 text-danger">SSLIFE</h2>
         </div>
         <span className="text-center fst-italic text-success">No estás solo, conéctate</span>
